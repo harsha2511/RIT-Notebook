@@ -1,0 +1,116 @@
+body {
+    /* background: linear-gradient(30deg, rgb(77, 77, 77), rgb(58, 58, 58)); */
+    /* background: linear-gradient(30deg, rgb(23, 161, 182), rgb(1, 21, 22)); */
+    /* background: linear-gradient(30deg, rgb(234, 8, 170), rgb(58, 58, 58)); */
+    /* background-color: rgb(232, 243, 249); */
+    background-color: rgb(173, 195, 221);
+    color: rgb(68, 68, 68);
+}
+
+#page-logo a {
+    /* color: rgb(183, 230, 235); */
+    color: black;
+    text-shadow: 2px 2px #69adae;
+}
+
+header {
+    position: static;
+}
+
+header a {
+    /* color: rgb(183, 230, 235); */
+    color: black;
+}
+
+header nav a:hover {
+    /* background-color: rgb(183, 230, 235); */
+    background-color: black;
+    color: white;
+}
+
+main ul {
+    width: 1200px;
+    margin: 0 auto 48px auto;
+    /* up right down bottom */
+    /* display: flex; flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 20px;
+    /* gap between rows gap betwwn coloums */
+}
+
+/* main li img:nth-of-type(1) {
+    width: 300px;
+    height: 340px;
+    object-fit: cover;
+} */
+
+main li {
+    display: flex;
+    /* pic and text side by side */
+    background-color: white;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    /* width:500px; */
+}
+
+main li img {
+    width: 300px;
+    height: 280px;
+    object-fit: cover;
+}
+
+.item-content {
+    padding: 24px;
+    display: flex;
+    /* text side by side(barcelona and lorem) */
+    flex-direction: column;
+    /* items below each other (barcelona and lorem up and down) */
+    justify-content: space-between;
+}
+
+.item-content h2 {
+    margin: 0;
+}
+
+.actions {
+    text-align: left;
+    /* explore at right side */
+}
+
+.actions a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 6px;
+    color: rgb(22, 211, 228);
+    border-radius: 5px;
+}
+
+.actions a:hover {
+    background-color: rgb(235, 253, 255);
+    letter-spacing: 2px;
+}
+
+#go {
+    margin: 10px 10px 10px 0px;
+    padding: 5px;
+    font-size: 20px;
+    text-align: justify;
+    background-color: black;
+}
+
+.img1 {
+    /* border-radius: 360px; */
+    animation: fadeIn;
+    animation-duration: 2s;
+}
+
+/* main ul li div p{
+    animation: fadeOut;
+    animation-duration: 2s;
+} */
+
+/* li:nth-of-type(1){ 
+    grid-column: 1 / span 2;
+} */

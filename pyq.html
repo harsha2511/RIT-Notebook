@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- <link rel="stylesheet" href="styles/animation.css"> -->
+    <link rel="stylesheet" href="../styles/shared.css">
+    <link rel="stylesheet" href="../styles/notesindex.css" />
+    <link rel="icon" href="images/icons/favicon.png" type="image/x-icon">
+
+    <title>PYQ</title>
+    <style>
+        header {
+            width: 92%;
+            height: 50px;
+        }
+
+        body {
+            margin: 10px;
+            padding: 10px;
+            align-items: center;
+            background-color: white;
+            font-size: larger;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .container1 {
+            display: grid;
+            grid-template-columns: 250px 250px 250px 250px;
+            grid-gap: 50px;
+            grid-area: inherit;
+            align-items: center;
+            margin: 50px 10px 10px 60px;
+        }
+
+        #over {
+            text-align: center;
+        }
+
+        #overview {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-decoration: solid;
+            text-align: center;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        #container1 {
+            display: grid;
+            grid-template-columns: 500px 500px;
+            grid-gap: 100px;
+            grid-area: inherit;
+        }
+
+        #seat1 {
+            color: black;
+            background-color: rgb(179, 177, 177);
+            border: 2px black solid;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: solid;
+        }
+
+        .seat1 {
+            color: black;
+            background-color: rgb(248, 244, 244);
+            border: 1px black solid;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: solid;
+            /* width: 250px; */
+            height: 220px;
+            align-items: center;
+        }
+
+        p {
+            margin: 0px 0px 35px 0px;
+        }
+
+
+        .action {
+            align-items: center;
+            text-align: center;
+        }
+
+        #go {
+            margin: 2px 2px 2px 100px;
+            padding: 10px;
+            align-items: center;
+            color: white;
+            background-color: black;
+            /* color: white;
+            background: linear-gradient(30deg, rgb(174, 15, 97), rgb(167, 45, 216)); */
+        }
+
+        #go:hover {
+            align-items: center;
+            letter-spacing: 2px;
+        }
+
+        /*Navigation Bar*/
+
+        header {
+            width: 100%;
+            height: 40px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 200px;
+            text-align: left;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+        }
+
+        .dropdown-menu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ff9900;
+        }
+
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply some basic styles to the body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            width: inherit;
+            background-color: #333;
+            color: black;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #ff9900;
+        }
+
+        h3 {
+            margin: 15px;
+        }
+
+        .year {
+            font-size: 50px;
+            text-align: center;
+            margin: 10px;
+            padding: 10px 2px 0px 10px;
+        }
+
+        /* Media queries for responsiveness */
+
+        /* For 1024 Resolution */
+
+        /* @media only screen and (min-width: 1030px) and (max-width: 1366px) { */
+            .seat1:hover {
+                color: black;
+                background-color: rgb(236, 234, 234);
+                border: 3px black solid;
+                letter-spacing: 2px;
+            }
+        /* } */
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+
+            .container1 {
+                display: grid;
+                grid-template-columns: 250px 250px;
+                grid-gap: 30px;
+                grid-area: inherit;
+                align-items: center;
+                margin: 50px 10px 10px 60px;
+            }
+
+            #over {
+                text-align: center;
+            }
+
+            #seat1 {
+                color: black;
+                background-color: rgb(179, 177, 177);
+                border: 2px black solid;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: solid;
+            }
+
+            .seat1 {
+                color: black;
+                background-color: rgb(248, 244, 244);
+                border: 1px black solid;
+                border-radius: 3px;
+                text-align: center;
+                text-decoration: solid;
+                /* width: 250px; */
+                height: 220px;
+                align-items: center;
+            }
+
+            p {
+                margin: 0px 0px 35px 0px;
+            }
+
+
+            .action {
+                align-items: center;
+                text-align: center;
+            }
+
+            #go {
+                margin: 2px 2px 2px 100px;
+                padding: 5px;
+                align-items: center;
+                color: white;
+                background-color: black;
+            }
+
+            .year {
+                font-size: 30px;
+            }
+
+            h3 {
+                font-size: 20px;
+                margin-top: 40px;
+            }
+
+            .container1 {
+                display: grid;
+                grid-template-columns: 210px 210px;
+                grid-gap: 30px;
+                grid-area: inherit;
+                align-items: center;
+                margin: 40px 10px 10px 10px;
+            }
+        }
+
+        @media only screen and (min-width: 481px) and (max-width: 768px) {
+            .container1 {
+                display: grid;
+                grid-template-columns: 320px 320px;
+                grid-gap: 50px;
+                grid-area: inherit;
+                align-items: center;
+                margin: 40px 10px 10px 10px;
+            }
+
+        }
+
+        @media only screen and (min-width: 320px) and (max-width: 480px) {
+            .container1 {
+                display: grid;
+                grid-template-columns: 290px 290px ;
+                grid-gap: 100px;
+                grid-area: inherit;
+                align-items: center;
+                margin: 50px;
+            }
+
+            #over {
+                text-align: center;
+            }
+
+            #seat1 {
+                color: black;
+                background-color: rgb(179, 177, 177);
+                border: 2px black solid;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: solid;
+            }
+
+            .seat1 {
+                color: black;
+                background-color: rgb(248, 244, 244);
+                border: 1px black solid;
+                border-radius: 3px;
+                text-align: center;
+                text-decoration: solid;
+                /* width: 250px; */
+                height: 220px;
+                align-items: center;
+            }
+
+            p {
+                margin: 0px 0px 35px 0px;
+            }
+
+
+            .action {
+                align-items: center;
+                text-align: center;
+            }
+
+            #go {
+                margin: 2px 2px 2px 50px;
+                padding: 5px;
+                align-items: center;
+                color: white;
+                background-color: black;
+            }
+
+            .year {
+                font-size: 30px;
+            }
+
+            h3 {
+                font-size: 20px;
+                margin-top: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 320px) {
+            .container1 {
+                display: grid;
+                grid-template-columns: 250px;
+                /* grid-gap: 10px; */
+                grid-area: inherit;
+                align-items: center;
+                margin: 40px 10px 10px 10px;
+            }
+
+            #over {
+                text-align: center;
+            }
+
+            #seat1 {
+                color: black;
+                background-color: rgb(179, 177, 177);
+                border: 2px black solid;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: solid;
+            }
+
+            .seat1 {
+                color: black;
+                background-color: rgb(248, 244, 244);
+                border: 1px black solid;
+                border-radius: 3px;
+                text-align: center;
+                text-decoration: solid;
+                /* width: 250px; */
+                height: 220px;
+                align-items: center;
+            }
+
+            p {
+                margin: 0px 0px 35px 0px;
+            }
+
+
+            .action {
+                align-items: center;
+                text-align: center;
+            }
+
+            #go {
+                margin: 2px 2px 2px 100px;
+                padding: 5px;
+                align-items: center;
+                color: white;
+                background-color: black;
+            }
+
+            .year {
+                font-size: 30px;
+            }
+
+            h3 {
+                font-size: 20px;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="pyq.html" class="logo">RIT NoteBook</a>
+                <div class="menu-toggle">&#9776</div>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li><a href="../pyq.html">PYQ</a></li>
+                    <!-- <li class="dropdown">
+                        <a href="#">PYQ &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pyq.html">First year</a></li>
+                            <li><a href="notes/second.html">Second year</a></li>
+                            <li><a href="notes/second.html">Third year</a></li>
+                            <li><a href="notes/fourth.html">Fourth year</a></li>
+                        </ul>
+                    </li> -->
+                    <li class="dropdown">
+                        <a href="#">Notes &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="notes/first.html">First year</a></li>
+                            <li><a href="notes/second.html">Second year</a></li>
+                            <li><a href="notes/second.html">Third year</a></li>
+                            <li><a href="notes/fourth.html">Fourth year</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li><a href="../home.html">PYQ</a></li> -->
+                    <li><a href="labcodes.html">Lab Codes</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section><br>
+            <h1 class="year">Maths Question Bank</h1>
+            <div class="container1" id="over">
+                <div class="seat1">
+                    <h3>Advance Calculus and Linear Algebra</h3>
+                    <p>Subject Code: MAE11</p>
+                    <div class="actions">
+                        <a id="go"
+                            href="https://drive.google.com/drive/folders/1-tqne-7OV5Abex7C9f8LhpMgNBogtiDf?usp=sharing"
+                            target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Advanced Calculus and Modular Arithmetic</h3>
+                    <p>Subject Code: MAC11</p>
+                    <div class="actions">
+                        <a id="go"
+                            href="https://drive.google.com/drive/folders/1-tqne-7OV5Abex7C9f8LhpMgNBogtiDf?usp=sharing"
+                            target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Differential Equations and Laplace Transforms</h3>
+                    <p>Subject Code: MAE21</p>
+                    <div class="actions">
+                        <a id="go"
+                            href="https://drive.google.com/drive/folders/1nNnKZm3ceoCNBIJ_CtGKKJ3T_y_fYYCv?usp=sharing"
+                            target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <div class="seat1">
+                        <h3>Numerical Techniques & DE</h3>
+                        <p>Subject Code: MAC21</p>
+                        <div class="actions">
+                            <a id="go"
+                                href="https://drive.google.com/drive/folders/141nV2m5t009dGClNln5MXDysY7J4XeXh?usp=sharing"
+                                target="_blank">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <hr><br>
+            <h1 class="year">Previous Year Papers</h1>
+            <div class="container1" id="over">
+                <div class="seat1">
+                    <h3>Physics Cycle</h3>
+                    <p>CSE, ISE, AIML, AIDS, CSE-AIML, CSE-Cyber, BT, Civil</p>
+                    <div class="actions">
+                        <a id="go"
+                            href="https://drive.google.com/file/d/1Tz8EQlbvkSepnS7sAYoAcX-oWU6yMs7w/view?usp=sharingf"
+                            target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Chemistry Cycle</h3>
+                    <p>CSE, ISE, AIML, AIDS, CSE-AIML, CSE-Cyber, BT, Civil</p>
+                    <div class="actions">
+                        <a id="go"
+                            href="https://drive.google.com/file/d/1M9jJwrNu4PUAtgfJH_mD6sqkP728feOr/view?usp=sharing"
+                            target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Physics Cycle</h3>
+                    <p>ECE, EIE, ETE, EEE, Mech, Chem, MLE, IEM</p>
+                    <div class="actions">
+                        <a id="go"
+                            href="https://drive.google.com/file/d/1M9jJwrNu4PUAtgfJH_mD6sqkP728feOr/view?usp=sharing"
+                            target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <div class="seat1">
+                        <h3>Chemistry Cycle</h3>
+                        <p>ECE, EIE, ETE, EEE, Mech, Chem, MLE, IEM</p>
+                        <div class="actions">
+                            <a id="go"
+                                href="https://drive.google.com/file/d/1Tz8EQlbvkSepnS7sAYoAcX-oWU6yMs7w/view?usp=sharing"
+                                target="_blank">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <br><br>
+            <hr><br>
+            <h1 class="year">Physics Cycle</h1>
+            <div class="container1" id="over">
+                <div class="seat1">
+                    <h3>Differential Equations and Laplace Transforms</h3>
+                    <p>Subject Code: MAE21</p>
+                    <div class="actions">
+                        <a id="go" href="#" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Advanced Calculus and Modular Arithmetic</h3>
+                    <p>Subject Code: MAC11</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Engineering Physics</h3>
+                    <p>Subject Code: PYC22</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Communicative English</h3>
+                    <p>Subject Code: HSCP15/25</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Kannada Kali/ Kannada Manasu</h3>
+                    <p>Subject Code: HSCP156/26</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>A Scientific Approach to Health</h3>
+                    <p>Subject Code: AECP17/27</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Principles of Programming Using C</h3>
+                    <p>Subject Code: PPC18</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Elements of Electrical Engineering</h3>
+                    <p>Subject Code: EEE28</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Basic Electronics</h3>
+                    <p>Subject Code: BEE28</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3> Civil Engineering Mechanics</h3>
+                    <p>Subject Code: CVV18</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Elements of Mechanical Engineering</h3>
+                    <p>Subject Code: MEM28</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Engineering Physics Laboratory</h3>
+                    <p>Subject Code: PYLE29</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <hr><br>
+            <h1 class="year">Chemistry Cycle</h1>
+            <div class="container1" id="over">
+                <div class="seat1">
+                    <h3>Numerical Techniques and Differential Equations</h3>
+                    <p>Subject Code: MAC21</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Advance Calculus and Linear Algebra</h3>
+                    <p>Subject Code: MAE11</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Engineering Chemistry</h3>
+                    <p>Subject Code: CYC22</p><br>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Professional Writing Skills in English</h3>
+                    <p>Subject Code: HSCP15/25</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Constitution of India</h3>
+                    <p>Subject Code: HSCP15/25</p><br>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>A Scientific Approach to Health</h3>
+                    <p>Subject Code: HSCC16/26</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Design Thinking</h3>
+                    <p>Subject Code: AECC17/27</p><br>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Computer-Aided Engineering Drawing Laboratory</h3>
+                    <p>Subject Code: MELC28</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Engineering Chemistry Laboratory</h3>
+                    <p>Subject Code: CYLC29</p><br>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <hr><br>
+            <h1 class="year">ESC</h1>
+            <div class="container1" id="over">
+                <div class="seat1">
+                    <h3>Introduction to Civil Engineering</h3>
+                    <p>Subject Code: ESC131</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Introduction to Electrical Engineering</h3>
+                    <p>Subject Code: ESC132</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Introduction to Electronics Engineering</h3>
+                    <p>Subject Code: ESC133</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Introduction to Mechanical Engineering</h3>
+                    <p>Subject Code: ESC134</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <hr><br>
+            <h1 class="year">PLC</h1>
+            <div class="container1" id="over">
+                <div class="seat1">
+                    <h3>Introduction to Web Programming</h3>
+                    <p>Subject Code: PLC141</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Introduction to Python Programming</h3>
+                    <p>Subject Code: PLC142</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Basics of JAVA programming</h3>
+                    <p>Subject Code: PLC143</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Introduction to C++ Programming</h3>
+                    <p>Subject Code: PLC144</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <hr><br>
+            <h1 class="year">ETC</h1>
+            <div class="container1" id="over">
+                <div class="seat1">
+                    <h3>Green Buildings</h3>
+                    <p>Subject Code: ETC241</p><br>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Operation and Maintenance of Solar Electric Systems</h3>
+                    <p>Subject Code: ETC242</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Introduction to Sustainable Engineering</h3>
+                    <p>Subject Code: ETC243</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Renewable Energy Sources</h3>
+                    <p>Subject Code: ETC244</p><br>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Introduction to Internet of Things(IoT)</h3>
+                    <p>Subject Code: ETC245</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="seat1">
+                    <h3>Introduction to Cyber Security</h3>
+                    <p>Subject Code: ETC246</p>
+                    <div class="actions">
+                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu");
+
+            menuToggle.addEventListener("click", function () {
+                menu.classList.toggle("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

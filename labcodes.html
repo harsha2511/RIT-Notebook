@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="styles/animation.css">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/places.css" />
+    <link rel="icon" href="images/icons/favicon.png" type="image/x-icon">
+
+    <title>Lab Codes</title>
+    <style>
+        p {
+            font-family: Libre Baskerville, serif;
+        }
+
+        /* @media only screen and (min-width: 1030px) and (max-width: 1366px) {
+            li:nth-of-type(1) {
+                grid-column: 1 / span 2;
+            }
+
+            li:nth-of-type(6) {
+                grid-column: 1 / span 2;
+            }
+        } */
+
+        /*Navigation Bar*/
+
+        header {
+            width: 100%;
+            height: 100px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 200px;
+            text-align: left;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+        }
+
+        .dropdown-menu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ff9900;
+        }
+
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply some basic styles to the body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            width: inherit;
+            /* background-color: #333; */
+            color: black;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: black;
+            background-color: white;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+        }
+
+        /* .img1{
+    width: 320px;
+} */
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="labcodes.html" class="logo">RIT NoteBook</a>
+                <div class="menu-toggle">&#9776</div>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <!-- <li class="dropdown">
+                        <a href="#">PYQ &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pyq.html">First year</a></li>
+                            <li><a href="notes/second.html">Second year</a></li>
+                            <li><a href="notes/second.html">Third year</a></li>
+                            <li><a href="notes/fourth.html">Fourth year</a></li>
+                        </ul>
+                    </li> -->
+                    <li class="dropdown">
+                        <a href="#">Notes &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="notes/first.html">First year</a></li>
+                            <li><a href="notes/second.html">Second year</a></li>
+                            <li><a href="notes/second.html">Third year</a></li>
+                            <li><a href="notes/fourth.html">Fourth year</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Codes &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="labcodes/matlab.html">Matlab</a></li>
+                            <li><a href="labcodes/web.html">Web Programming</a></li>
+                            <li><a href="labcodes/c.html">C</a></li>
+                            <li><a href="labcodes/cpp.html">C++</a></li>
+                            <li><a href="labcodes/java.html">Java</a></li>
+                            <li><a href="labcodes/python.html">Python</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pyq.html">PYQ</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <ul>
+            <li class="my-element1">
+                <img class="img1" src="images/matlab.jpeg" alt="Matlab">
+                <div class="item-content">
+                    <div>
+                        <h2>Matlab</h2>
+                        <!-- <p>
+                            Matlab
+                        </p> -->
+                    </div>
+                    <div class="actions">
+                        <a id="go" href="labcodes/matlab.html">Matlab codes&#x2192</a>
+                    </div>
+                </div>
+            </li>
+            <li class="my-element2">
+                <img class="img1" src="images/c.jpeg" alt="C programming">
+                <div class="item-content">
+                    <div>
+                        <h2>C Programming</h2>
+                        <!-- <p>
+                            C Programming!
+                        </p> -->
+                    </div>
+                    <div class="actions">
+                        <a id="go" href="labcodes/c.html">c programming codes&#x2192</a>
+                    </div>
+                </div>
+            </li>
+            <li class="my-element1">
+                <img class="img1" src="images/c++.png" alt="C++ programming">
+                <div class="item-content">
+                    <div>
+                        <h2>C++ Programming</h2>
+                        <!-- <p>
+                            c++
+                        </p> -->
+                    </div>
+                    <div class="actions">
+                        <a id="go" href="labcodes/cpp.html">c++ programming codes&#x2192</a>
+                    </div>
+                </div>
+            </li>
+            <li class="my-element2">
+                <img class="img1" src="images/java.png" alt="Java">
+                <div class="item-content">
+                    <div>
+                        <h2>Java</h2>
+                        <!-- <p>
+                            Java
+                        </p> -->
+                    </div>
+                    <div class="actions">
+                        <a id="go" href="labcodes/java.html">java codes&#x2192</a>
+                    </div>
+                </div>
+            </li>
+            <li class="my-element1">
+                <img class="img1" src="images/python.png" alt="Python">
+                <div class="item-content">
+                    <div>
+                        <h2>Python</h2>
+                        <!-- <p>
+                            Python
+                        </p> -->
+                    </div>
+                    <div class="actions">
+                        <a id="go" href="labcodes/python.html">python codes&#x2192</a>
+                    </div>
+                </div>
+            </li>
+            <li class="my-element2">
+                <img class="img1" src="images/web.png" alt="Web Programming">
+                <div class="item-content">
+                    <div>
+                        <h2>Web Progamming</h2>
+                        <!-- <p>
+                            Web
+                        </p> -->
+                    </div>
+                    <div class="actions">
+                        <a id="go" href="labcodes/web.html">web programming codes&#x2192</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu");
+
+            menuToggle.addEventListener("click", function () {
+                menu.classList.toggle("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
