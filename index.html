@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Libre+Baskerville:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="images/icons/favicon.png" type="image/x-icon">
+    <title>RITNoteBook</title>
+    <style>
+        header {
+            width: 92%;
+            height: 40px;
+        }
+
+        body {
+            margin: 10px;
+            padding: 10px;
+            align-items: center;
+            /* background: linear-gradient(30deg, rgb(77, 77, 77), rgb(58, 58, 58)); */
+            background-color: white;
+            /* background-color: rgb(229, 245, 247); */
+            font-size: larger;
+            margin: 10px;
+        }
+
+        /*Blocks*/
+        .maincontain {
+            margin: 50px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 400px 500px;
+            grid-gap: 100px;
+            grid-area: inherit;
+        }
+
+        #mainimg {
+            /* margin: 10px; */
+            padding: 10px;
+            width: 700px;
+            height: auto;
+            /* border-radius: 100%; */
+            /* width: 300px; */
+            /* height: 200px; */
+            overflow: hidden;
+            position: relative;
+            position: absolute;
+            /* bottom: 0; */
+            left: 0;
+            margin: -50px 10px 10px -320px;
+            border-radius: 95%;
+        }
+
+        #mainimg:hover {
+            margin: 10px;
+            padding: 10px;
+            width: 550px;
+            height: auto;
+        }
+
+        #over {
+            text-align: center;
+        }
+
+        #overview {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-decoration: solid;
+            text-align: center;
+            text-shadow: 2px 2px 2px rgb(210, 151, 246);
+        }
+
+        .contain {
+            display: grid;
+            grid-template-rows: 100px 100px 100px 100px;
+            grid-gap: 50px;
+            /* grid-template-rows: 80px 80px 80px 80px 80px;
+            grid-gap: 40px; */
+            grid-area: inherit;
+            display: grid;
+        }
+
+        .seat1 {
+            width: 500px;
+            height: 100px;
+            margin: 10px;
+            padding: 10px;
+            color: black;
+            background-color: white;
+            border: 2px black solid;
+            text-decoration: solid;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: solid;
+            border-radius: 10px;
+        }
+
+        .action {
+            margin: 10px;
+            padding: 5px;
+            align-items: center;
+            text-align: center;
+        }
+
+        #go {
+            margin: 2px 2px 2px 2px;
+            padding: 10px;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            background-color: black;
+            /* background: linear-gradient(30deg, rgb(174, 15, 97), rgb(167, 45, 216)); */
+        }
+
+
+        /* dropdown*/
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 200px;
+            text-align: left;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+        }
+
+        .dropdown-menu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ff9900;
+        }
+
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply some basic styles to the body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the navigation bar */
+        .navbar {
+            background-color: #333;
+            color: black;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #ff9900;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+        #mainimg {
+            animation: fadeIn;
+            animation-duration: 2s;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+
+            .maincontain {
+                display: none;
+                flex-direction: column;
+                top: 200px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                display: block;
+                margin: 10px 0;
+            }
+
+            #mainimg {
+                width: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 400px) and (max-width: 768px) {
+            body {
+                background-color: #333;
+            }
+
+            .menu-toggle {
+                color: white;
+            }
+
+            .contain {
+                margin: 10px;
+                /* margin-left: 40px; */
+                display: grid;
+                grid-template-rows: 30px 30px 30px 30px;
+                grid-gap: 100px;
+                grid-area: inherit;
+            }
+
+            .seat1 {
+                width: 300px;
+                height: 110px;
+                margin: 10px;
+                padding: 0px;
+                color: black;
+                background-color: white;
+                border: 2px black solid;
+                text-decoration: solid;
+                border-radius: 3px;
+                text-align: center;
+                text-decoration: solid;
+                border-radius: 10px;
+            }
+
+            .action {
+                margin: 10px;
+                padding: 5px;
+                align-items: center;
+                text-align: center;
+            }
+
+            #go {
+                margin: 2px 2px 2px 2px;
+                padding: 10px;
+                align-items: center;
+                color: white;
+                text-decoration: none;
+                background-color: black;
+            }
+
+            h3 {
+                margin: 5px;
+                font-size: 22px;
+            }
+        }
+        @media only screen and (min-width: 481px) and (max-width: 768px) and (orientation:landscape) {
+            body {
+                background-color: #333;
+            }
+
+            .menu-toggle {
+                color: white;
+            }
+
+            .contain {
+                margin: 5px;
+                display: grid;
+                grid-template-columns: 200px 200px;
+                grid-gap: 100px;
+                grid-area: inherit;
+            }
+        }
+        @media only screen and (min-width: 330px) and (max-width: 480px) {
+            body {
+                background-color: #333;
+            }
+
+            .menu-toggle {
+                color: white;
+            }
+
+            .contain {
+                margin: 10px;
+                display: grid;
+                grid-template-rows: 30px 30px 30px 30px;
+                grid-gap: 100px;
+                grid-area: inherit;
+            }
+
+            .seat1 {
+                width: 200px;
+                height: 100px;
+                margin: 10px;
+                padding: 0px;
+                color: black;
+                background-color: white;
+                border: 2px black solid;
+                text-decoration: solid;
+                text-align: center;
+                border-radius: 10px;
+            }
+
+            .action {
+                margin: 10px;
+                padding: 5px;
+                align-items: center;
+                text-align: center;
+            }
+
+            #go {
+                margin: 2px 2px 2px 2px;
+                padding: 10px;
+                align-items: center;
+                color: white;
+                text-decoration: none;
+                background-color: black;
+            }
+
+            h3 {
+                margin: 5px;
+                font-size: 22px;
+            }
+        }
+        /* @media only screen and (max-width: 330px) and (orientation:landscape) {
+            body {
+                background-color: #333;
+            }
+
+            .menu-toggle {
+                color: white;
+            }
+
+            .contain {
+                margin: 5px;
+                display: grid;
+                grid-template-columns: 200px 200px;
+                grid-gap: 100px;
+                grid-area: inherit;
+            }
+        } */
+
+        @media only screen  and (min-width: 900px) {
+        .seat1:hover {
+            font-size: 20px;
+            width: 510px;
+            height: 110px;
+            background-color: rgb(244, 246, 246);
+            border: 3px black solid;
+            letter-spacing: 2px;
+        }
+
+        #go:hover {
+            align-items: center;
+            letter-spacing: 2px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">RIT Note Book</a>
+                <div class="menu-toggle">&#9776</div>
+                <ul class="menu">
+                    <!-- <li><a href="../home.html">Home</a> -->
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">PYQ &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pyq.html">Maths Quesiton Bank</a></li>
+                            <li><a href="pyq.html">Previous Year papers</a></li>
+                            <!-- <li><a href="pyq.html">Second year</a></li>
+                            <li><a href="pyq.html">Third year</a></li>
+                            <li><a href="pyq.html">Fourth year</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Notes &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="notes/first.html">First year</a></li>
+                            <li><a href="notes/second.html">Second year</a></li>
+                            <li><a href="notes/third.html">Third year</a></li>
+                            <li><a href="notes/fourth.html">Fourth year</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li><a href="../home.html">PYQ</a></li> -->
+                    <li><a href="labcodes.html">Lab Codes</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="maincontain">
+                <div>
+                    <img id="mainimg" src="images/icons/logo.png">
+                </div>
+                <div>
+                    <div class="contain" id="over">
+                        <div class="seat1">
+                            <h3>First Year</h3><br>
+                            <!-- <p>Subject Code: MAE21</p> -->
+                            <div class="actions">
+                                <a id="go" href="notes/first.html">View</a>
+                            </div>
+                        </div>
+                        <div class="seat1">
+                            <h3>Second Year</h3><br>
+                            <!-- <p>Questions</p> -->
+                            <div class="actions">
+                                <a id="go" href="notes/second.html">View</a>
+                            </div>
+                        </div>
+                        <div class="seat1">
+                            <h3>Third Year</h3><br>
+                            <div class="actions">
+                                <a id="go" href="notes/third.html">View</a>
+                            </div>
+                        </div>
+                        <div class="seat1">
+                            <h3>Fourth Year</h3><br>
+                            <div class="actions">
+                                <a id="go" href="notes/fourth.html">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu");
+
+            menuToggle.addEventListener("click", function () {
+                menu.classList.toggle("active");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web question</title>
+    <link rel="stylesheet" href="../../styles/shared.css">
+    <link rel="stylesheet" href="../../styles/places.css" />
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+    <style>
+        main {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .maincol {
+            color: rgb(240, 253, 255);
+        }
+
+        #question {
+            color: rgb(229, 246, 101);
+            font-size: 20px;
+        }
+
+        #ques {
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .quescontainer {
+            margin: 5px;
+            padding: 5px;
+            text-align: justify;
+            text-decoration: solid;
+        }
+
+        body {
+            background-color: rgb(133, 129, 129);
+            font-size: larger;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        nav {
+            color: white;
+            text-align: center;
+            word-spacing: 15px;
+            border: 1px;
+            font-size: 18px;
+            padding: 20px;
+            position: absolute;
+            border-radius: 10px;
+            min-width: 18px;
+            padding: 5px 5px;
+            height: 30px;
+            font-weight: bold;
+            line-height: 6px;
+            top: 0px;
+            left: 0px;
+        }
+
+        a {
+            color: black;
+        }
+
+        nav a:hover {
+            color: rgb(255, 89, 0);
+            text-decoration: solid;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 300px 300px 300px;
+            grid-gap: 100px;
+            grid-area: inherit;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 50px;
+        }
+
+        .seat1 {
+            color: rgb(0, 0, 0);
+            background-color: rgb(247, 248, 249);
+            border: 2px rgb(30, 7, 234) solid;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: solid;
+        }
+
+        h3 {
+            font-size: 30px;
+            color: rgb(15, 8, 243);
+        }
+
+        .content {
+            margin: 50px;
+            padding: 40px;
+            text-align: center;
+            word-spacing: 4px;
+            align-items: center;
+            background-color: antiquewhite;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 50px;
+        }
+
+        .content a {
+            letter-spacing: 2px;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            margin: 5px;
+            padding: 5px;
+            font-size: 28px;
+            background-color: rgb(250, 224, 190);
+            border-radius: 15px;
+            font-weight: 500%;
+            box-shadow: 10px;
+        }
+
+        main p {
+            margin: 5px;
+            align-items: center;
+        }
+
+        main p a {
+            margin: 10px;
+            padding: 10px;
+            color: white;
+            text-decoration: solid;
+            font-size: 20px;
+            background-color: rgb(14, 15, 15);
+            border: 1px solid whitesmoke;
+        }
+
+        main p a:hover {
+            margin: 10px;
+            padding: 10px;
+            color: white;
+            text-decoration: solid;
+            font-size: 20px;
+            background-color: rgb(14, 15, 15);
+            border: 2px solid whitesmoke;
+            letter-spacing: 2px;
+        }
+
+        /*Navigation Bar*/
+
+        header {
+            width: 100%;
+            height: 100px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 200px;
+            text-align: left;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+        }
+
+        .dropdown-menu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ff9900;
+        }
+
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply some basic styles to the body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            width: inherit;
+            /* background-color: #333; */
+            color: black;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: rgb(181, 243, 253);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: black;
+            background-color: white;
+        }
+
+        nav {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .logo {
+            font-size: 50px;
+            margin: 10px 0 10px 0;
+            padding: 20px 0 20px 0;
+        }
+
+        ul li a {
+            margin: 10px;
+            padding: 10px;
+            letter-spacing: 1px;
+            word-spacing: 1px;
+            font-size: 20px;
+        }
+
+        body {
+            background-color: rgb(38, 37, 37);
+        }
+
+        ul li a:hover {
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            body {
+                margin: 10px;
+                padding: 0;
+                font-size: 15px;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
+                color: white;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+
+            .quescontainer {
+                display: grid;
+                grid-template-columns: 200px;
+                grid-gap: 100px;
+                grid-area: inherit;
+                margin-bottom: 50px;
+            }
+
+            .logo {
+                font-size: 20px;
+                margin-top: 10px;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="../web.html" class="logo">Web Programming</a>
+                <div class="menu-toggle">&#9776</div>
+                <ul class="menu">
+                    <li><a href="../../index.html">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Notes &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../notes/first.html">First year</a></li>
+                            <li><a href="../../notes/second.html">Second year</a></li>
+                            <li><a href="../../notes/second.html">Third year</a></li>
+                            <li><a href="../../notes/fourth.html">Fourth year</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Codes &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../matlab.html">Matlab</a></li>
+                            <li><a href="../web.html">Web Programming</a></li>
+                            <li><a href="../c.html">C</a></li>
+                            <li><a href="../cpp.html">C++</a></li>
+                            <li><a href="../java.html">Java</a></li>
+                            <li><a href="../python.html">Python</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../pyq.html">PYQ</a></li>
+                    <li><a href="../../about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="maincol">
+        <section>
+            <div>
+                <div>
+                    <strong id="question">Design a web page to enter purchase details with respect to a grocery store. 1. Items purchased
+                        2. Quantity 3. Item Code 4. Item Price On click of the submit button display the details in table
+                        format. Display the total price paid. 
+                    </strong>
+                </div>
+                <div class="quescontainer">
+                    <div>
+                        <p id="ques">
+                            &#60!DOCTYPE html&#62<br>
+                            &#60html&#62<br>
+                            &#60head&#62<br>
+                            &#60title&#62Grocery Purchase Details&#60/title&#62<br>
+                            &#60style&#62<br>
+                            table {<br>
+                            width: 100%;<br>
+                            border-collapse: collapse;<br>
+                            }<br>
+                            th, td {<br>
+                            padding: 8px;<br>
+                            text-align: left;<br>
+                            border-bottom: 1px solid #ddd;<br>
+                            }<br>
+                            th {<br>
+                            background-color: #f2f2f2;<br>
+                            }<br>
+                            .total {<br>
+                            font-weight: bold;<br>
+                            }<br>
+                            &#60/style&#62<br>
+                            &#60/head&#62<br>
+                            &#60body&#62<br>
+                            &#60h1&#62Grocery Purchase Details&#60/h1&#62<br>
+                            &#60form id="purchaseForm"&#62<br>
+                            &#60label for="item">Item:&#60/label&#62<br>
+                            &#60input type="text" id="item" required&#62<br>
+                            &#60br&#62<br>
+                            &#60label for="quantity">Quantity:&#60/label&#62<br>
+                            &#60input type="number" id="quantity" min="1" required&#62<br>
+                            &#60br&#62<br>
+                            &#60label for="code">Item Code:&#60/label&#62<br>
+                            &#60input type="text" id="code" required&#62<br>
+                            &#60br&#62<br>
+                            &#60label for="price">Item Price:&#60/label&#62<br>
+                            &#60input type="number" id="price" min="0" step="0.01" required&#62<br>
+                            &#60br&#62<br>
+                            &#60button type="button" onclick="addPurchase()">Add Purchase&#60/button&#62<br>
+                            &#60/form&#62<br>
+                            &#60br&#62<br>
+                            &#60table id="purchaseTable"&#62<br>
+                            &#60thead&#62<br>
+                            &#60tr&#62<br>
+                            &#60th&#62Item&#60/th&#62<br>
+                            &#60th&#62Quantity&#60/th&#62<br>
+                            &#60th&#62Item Code&#60/th&#62<br>
+                            &#60th&#62Item Price&#60/th&#62<br>
+                            &#60/tr&#62<br>
+                            &#60/thead&#62<br>
+                            &#60tbody id="purchaseBody"&#62&#60/tbody&#62<br>
+                            &#60/table&#62<br>
+                            &#60br&#62<br>
+                            &#60p class="total"&#62Total Price Paid: &#60 span id="totalPrice"&#62 0.00
+                            &#60/span>&#60/p&#62<br>
+                            &#60script&#62<br>
+                            function addPurchase() {<br>
+                            var item = document.getElementById("item").value;<br>
+                            var quantity = document.getElementById("quantity").value;<br>
+                            var code = document.getElementById("code").value;<br>
+                            var price = document.getElementById("price").value;<br>
+                            var tableBody = document.getElementById("purchaseBody");<br>
+                            var newRow = tableBody.insertRow();<br>
+                            var cell1 = newRow.insertCell(0);<br>
+                            cell1.innerHTML = item;<br>
+                            var cell2 = newRow.insertCell(1);<br>
+                            cell2.innerHTML = quantity;<br>
+                            var cell3 = newRow.insertCell(2);<br>
+                            cell3.innerHTML = code;<br>
+                            var cell4 = newRow.insertCell(3);<br>
+                            cell4.innerHTML = price;<br>
+                            updateTotalPrice(parseFloat(price));<br>
+                            document.getElementById("purchaseForm").reset();<br>
+                            }<br>
+                            function updateTotalPrice(price) {<br>
+                            var totalPrice = document.getElementById("totalPrice");<br>
+                            var currentPrice = parseFloat(totalPrice.innerHTML);<br>
+                            totalPrice.innerHTML = (currentPrice + price).toFixed(2);<br>
+                            }<br>
+                            &#60/script&#62<br>
+                            &#60/body&#62<br>
+                            &#60/html&#62<br>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <em>Save the code in an HTML file, and you can open it in a web browser to see your biodata webpage.
+                        Remember to include your photo file (e.g., your_photo.jpg) in the same directory as the HTML
+                        file or provide the correct file path in the src attribute of the img tag.</em>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu");
+    
+            menuToggle.addEventListener("click", function () {
+                menu.classList.toggle("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

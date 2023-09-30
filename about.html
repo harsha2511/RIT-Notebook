@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Libre+Baskerville:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles/places.css" /> -->
+    <link rel="icon" href="images/icons/favicon.png" type="image/x-icon">
+    <title>About Us</title>
+    <style>
+        /* Add your CSS styles here */
+
+        body {
+            font-family: Libre Baskerville, sans-serif;
+            background-color: #fff;
+            margin: 0px auto;
+        }
+
+        .container1 {
+            max-width: 800px;
+            margin: 0 50px;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 60px;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+        }
+
+        #page-logo a {
+            padding: 10px;
+            font-family: "Oleo Script", sans-serif;
+            color: rgb(245, 243, 160);
+            font-size: 50px;
+            text-decoration: none;
+            /* removes the underscore from a tag */
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgb(0, 0, 0);
+        }
+
+        header ul {
+            display: flex;
+        }
+
+        header li {
+            margin-left: 20px;
+        }
+
+        header a {
+            color: rgb(255, 251, 0);
+            text-decoration: none;
+            font-size: 20px;
+            padding: 12px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+        }
+
+        header nav a:hover {
+            color: rgb(77, 77, 77);
+            background-color: rgb(255, 251, 0);
+        }
+
+        #page-logo a {
+            color: rgb(183, 230, 235);
+        }
+
+        header {
+            position: static;
+        }
+
+        header a {
+            color: black;
+        }
+
+        header nav a:hover {
+            background-color: black;
+            color: white;
+        }
+
+        p {
+
+            animation: fadeIn;
+            animation-duration: 1s;
+        }
+
+        /* our teams */
+        .name {
+            margin: 10px;
+            padding: 5px;
+            font-size: 30px;
+            background-image: linear-gradient(45deg, #0f0f0f, #393839);
+            color: white;
+        }
+
+        .me {
+            margin: 40px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 500px 500px;
+            grid-gap: 10px;
+        }
+
+        #me {
+            margin: 10px;
+            width: 300px;
+            height: auto;
+            border: 2px solid black;
+        }
+
+        #me:hover {
+            width: 310px;
+            height: auto;
+        }
+
+        #me {
+            animation: zoomIn;
+            animation-duration: 2s;
+        }
+
+        .me1 {
+            margin: 0px 100px;
+            display: grid;
+            grid-template-columns: 50px 50px 50px;
+            grid-gap: 40px;
+        }
+
+        .me1:hover {
+            width: 320px;
+            height: auto;
+        }
+
+        .myteam2 {
+            margin: 0px;
+            display: grid;
+            grid-template-columns: 40px 40px;
+            grid-gap: 40px;
+        }
+
+        .myteam2:hover {
+            width: 20px;
+            height: auto;
+        }
+
+        #contactteam {
+            width: 40px;
+            height: auto;
+            border: #fff;
+            border-radius: 100%;
+        }
+
+        #contactteam:hover {
+            width: 45px;
+            border: 2px solid black;
+            height: auto;
+            border: #fff;
+            border-radius: 100%;
+        }
+
+        .mee {
+            animation: zoomIn;
+            animation-duration: 2s;
+        }
+
+        .team {
+            animation: fadeIn;
+            animation-duration: 2s;
+        }
+
+        .team {
+            margin: 10px;
+            display: grid;
+            grid-template-columns: 550px 550px;
+            grid-gap: 100px;
+        }
+
+        .tea {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .tea img {
+            margin: 0px 190px;
+            padding: 2px;
+            border: 2px solid black;
+            width: 190px;
+            height: 190px;
+            border-radius: 100%;
+            animation: zoomIn;
+            animation-duration: 2s;
+        }
+
+        .tea h3 {
+            margin: 10px;
+            text-align: center;
+        }
+
+        .tea p {
+            margin: 5px;
+            text-align: center;
+        }
+
+        /* .tea:hover {
+            font-size: 15px;
+        } */
+
+        .tea img:hover {
+            /* margin: 0px 100px; */
+            padding: 2px;
+            border: 5px solid black;
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+        }
+
+        #contact {
+            width: 40px;
+            height: auto;
+            border-radius: 100%;
+        }
+
+        #contact:hover {
+            border: 2px solid white;
+            width: 45px;
+            height: auto;
+            border-radius: 100%;
+        }
+
+        /*Navigation Bar*/
+
+        header {
+            width: 100%;
+            height: 100px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 200px;
+            text-align: left;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+        }
+
+        .dropdown-menu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ff9900;
+        }
+
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply some basic styles to the body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            width: inherit;
+            /* margin-left: 300px; */
+            background-color: #333;
+            color: black;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: black;
+            background-color: white;
+        }
+
+        hr {
+            width: 1250px;
+        }
+
+        #pic {
+            color: #0f0f0f;
+        }
+
+        #strap {
+            margin-left: 200px;
+            padding: 10px;
+            align-items: center;
+        }
+
+        .container1 {
+            max-width: 1000px;
+            content: inherit;
+        }
+
+        #view {
+            margin: 20px 20px 100px 20px;
+            padding: 10px;
+            font-size: 25px;
+            color: white;
+            background: linear-gradient(30deg, rgb(23, 161, 182), rgb(1, 21, 22));
+            text-decoration: none;
+        }
+
+        #view:hover {
+            margin: 10px;
+            padding: 10px;
+            font-size: 30px;
+        }
+
+        #para,
+        h5 {
+            background: linear-gradient(30deg, rgb(23, 161, 182), rgb(1, 21, 22));
+            background-color: black;
+            color: white;
+        }
+
+        p {
+            margin: 20px;
+            padding: 10px;
+            font-size: 20px;
+            font-family: Libre Baskerville;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            font-family: Libre Baskerville;
+        }
+
+        #harsha {
+            margin-top: -8px;
+            font-size: 35px;
+            padding-left: 90px;
+        }
+
+        /* Media queries for responsiveness */
+        
+
+        @media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+            .me {
+                margin: 10px;
+                padding: 10px;
+                display: grid;
+                grid-template-columns: 500px;
+                grid-gap: 10px;
+            }
+
+            .team {
+                margin: 0px;
+                margin-left: -80px;
+                display: grid;
+                grid-template-columns: 550px;
+                grid-gap: 100px;
+            }
+        }
+
+        @media only screen and (min-width: 481px) and (max-width: 768px) {
+
+            .me {
+                margin: 10px;
+                padding: 10px;
+                display: grid;
+                grid-template-columns: 500px;
+                grid-gap: 10px;
+            }
+
+            .team {
+                margin: 0px;
+                margin-left: -80px;
+                display: grid;
+                grid-template-columns: 550px;
+                grid-gap: 100px;
+            }
+        }
+
+        @media only screen and (min-width: 320px) and (max-width: 480px) {
+
+            .me {
+                margin: 10px;
+                padding: 10px;
+                display: grid;
+                grid-template-columns: 500px;
+                grid-gap: 10px;
+            }
+
+            .team {
+                margin: 0px;
+                /* margin-left: -80px; */
+                display: grid;
+                grid-template-columns: 100px;
+            }
+            .team img{
+                width: 200px;
+                height: auto;
+                margin-left: -10px;
+            }
+            .inner{
+                margin-left: 10px;
+                display: grid;
+                grid-template-columns: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                margin: 10px;
+                padding: 0;
+                font-size: 15px;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
+                color: white;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+
+            .quescontainer {
+                display: grid;
+                grid-template-columns: 200px;
+                grid-gap: 100px;
+                grid-area: inherit;
+                margin-bottom: 50px;
+            }
+
+            .logo {
+                font-size: 20px;
+                margin-top: 10px;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">RIT NoteBook</a>
+                <div class="menu-toggle">&#9776</div>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li><a href="notes/first.html">Notes</a></li>
+                    <li><a href="labcodes.html">Lab Codes</a></li>
+                    <li class="dropdown">
+                        <a href="#">PYQ &#9662</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pyq.html">First year</a></li>
+                            <li><a href="pyq.html">Math_Question_Bank</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <p>
+            We are committed to empowering students in their academic persuits. Our mission
+            is to provide comprehensive notes, lab codes, and previous year questions, aiding students in boosting
+            their academic performance. Join our academic community and access well-structured resources, ensuring a
+            smoother path to success.
+        </p>
+    </section>
+
+    <div class="container1">
+        <section id="strap">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="images/branch.jpeg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Notes</h5>
+                            <p id="para">This page contains notes for all the branches of 1st year.</p>
+                            <a id="view" href="notes/first.html">View</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="images/pyq.jpeg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Previous Year Papers</h5>
+                            <p id="para">This page contains PYQ and maths question bank.</p>
+                            <a id="view" href="notes/first.html">View</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <!-- <img src="images/team/team.jpeg" class="d-block w-100" alt="..."> -->
+                        <img src="images/lab.jpeg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <!-- <h5>Our Team</h5>
+                            <p id="para">Tech:- Harsha <br> Non Tech:- Meghna,Manu</p> -->
+                            <h5>Lab Codes</h5>
+                            <p id="para">This page conatins labcodes of matlab, c prog, web dev, c++, java, python.</p>
+                            <a id="view" href="notes/first.html">View</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <hr><br>
+        <section>
+            <!-- <h2>Developer</h2> -->
+            <!-- <p>
+                Meet our dedicated team of professionals who work tirelessly to achieve our goals.
+            </p> -->
+            <div class="me">
+                <div class="me2">
+                    <!-- <img class="myself" id="me" src="images/c.jpeg"> -->
+                    <img src="images/team/harshaku.jpeg" id="me" class="img-thumbnail" alt="Harsha">
+                    <p id="harsha">Harsha</p>
+                </div>
+                <div class="me2">
+                    <h1 class="name">Developer</h1>
+                    <p>
+                        <!-- A second-year student in the Electrical and Electronics department of batch'26, I'm proud to share that I
+                        developed this website in just one month. It showcases my strong commitment to both academic and
+                        personal growth, aiming to support fellow students in their educational pursuits. -->
+                        Welcome to my website! I'm Harsha, an electrical engineering student set to graduate in
+                        2026. In just one month, I've crafted this platform to share my passion for technology and
+                        innovation. Join me on this exciting journey as we explore the electrifying world of engineering
+                        together.
+                    </p>
+                    <div class="me1">
+                        <div><a href="https://www.instagram.com/harsha__a_/" target="_blank">
+                                <img id="contact" src="images/icons/insta.png" alt="Instagram logo">
+                            </a>
+                        </div>
+                        <div><a href="www.instagram.com" target="_blank">
+                                <img id="contact" src="images/icons/linkedin.png" alt="linkedin logo">
+                            </a>
+                        </div>
+                        <div><a href="www.instagram.com" target="_blank">
+                                <img id="contact" src="images/icons/github.png" alt="Github logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <hr><br>
+        <section id="ourteam">
+            <h2>Our Team</h2>
+            <p>
+                Meet our dedicated team of professionals who work tirelessly to achieve our goals.
+            </p>
+            <div class="team">
+                <div class="tea">
+                    <div class="inner"><img src="images/team/meghna.jpeg"></div>
+                    <h3>Meghna Mishra</h3>
+                    <div class="inner">
+                        <p>Branch: <strong>ECE</strong><br>Electronics and Communication Engineering</p>
+                        <div class="myteam2">
+                            <div><a href="https://www.instagram.com/meghna_914/" target="_blank">
+                                    <img id="contactteam" src="images/icons/insta.png" alt="Instagram logo">
+                                </a>
+                            </div>
+                            <div><a href="www.instagram.com" target="_blank">
+                                    <img id="contact" src="images/icons/linkedin.png" alt="linkedin logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tea">
+                    <div class="inner"><img src="images/team/manu.jpeg"></div>
+                    <h3>Manu Smriti</h3>
+                    <div class="inner">
+                        <p>Branch: <strong>ECE</strong><br>Electronics and Communication Engineering</p>
+                        <div class="myteam2">
+                            <div><a href="https://www.instagram.com/saku0345_/" target="_blank">
+                                    <img id="contactteam" src="images/icons/insta.png" alt="Instagram logo">
+                                </a>
+                            </div>
+                            <div><a href="www.instagram.com" target="_blank">
+                                    <img id="contact" src="images/icons/linkedin.png" alt="linkedin logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="tea">
+                    <div class="inner"><img src="images/team/suchu.jpeg"></div>
+                    <h3>Sucharita Nandy</h3>
+                    <div class="inner">
+                        <p>Branch: <strong>MLE</strong><br>Medical Electronics Engineering</p>
+                        <div class="myteam2">
+                            <div><a href="https://www.instagram.com/sucharita.031/" target="_blank">
+                                    <img id="contactteam" src="images/icons/insta.png" alt="Instagram logo">
+                                </a>
+                            </div>
+                            <div><a href="www.instagram.com" target="_blank">
+                                    <img id="contact" src="images/icons/linkedin.png" alt="linkedin logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        <br>
+        <hr><br>
+        <section>
+            <h2>Contact Us</h2>
+            <p>
+                If you have any questions or inquiries, please don't hesitate to contact us.
+            </p>
+            <address>
+                Contact: <a href="mailto:labcodesandnotes@gmail.com">Email</a><br>
+                <!-- Phone: +1 (123) 456-7890<br>
+                Address: 123 Main Street, City, Country -->
+            </address>
+        </section>
+    </div>
+    <footer>
+        <ul>
+            <li>
+                <a href="mailto:labcodesandnotes@gamail.com">
+                    <img src="images/icons/gmail.png" alt="Instagram logo">
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.querySelector(".menu-toggle");
+                const menu = document.querySelector(".menu");
+
+                menuToggle.addEventListener("click", function () {
+                    menu.classList.toggle("active");
+                });
+            });
+        </script>
+</body>
+
+</html>
