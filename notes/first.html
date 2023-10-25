@@ -165,6 +165,7 @@
             width: 100%;
             height: 100%;
         }
+
         #optionpyq {
             margin: 0;
             width: 5px;
@@ -183,6 +184,14 @@
             margin: 5px;
             color: black;
             text-decoration: none;
+        }
+
+
+        .dropdown-menu {
+            --bs-dropdown-zindex: 1000;
+            --bs-dropdown-min-width: 10rem;
+            --bs-dropdown-padding-x: 0;
+            --bs-dropdown-padding-y: 1.0rem 0.5rem;
         }
 
         @media (max-width: 480px) {
@@ -243,12 +252,54 @@
                 margin: 10px 0;
             }
         }
+        
+        
+        /* nav bar */
+        @media (max-width: 768px) {
+            .menu1 {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                text-align: center;
+            }
 
-        .dropdown-menu {
-            --bs-dropdown-zindex: 1000;
-            --bs-dropdown-min-width: 10rem;
-            --bs-dropdown-padding-x: 0;
-            --bs-dropdown-padding-y: 1.0rem 0.5rem;
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle1 {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                margin-top: -10px;
+                color: white;
+            }
+            .menu1 li {
+                margin: 10px 0;
+                list-style: none;
+            }
+            #list div{
+                margin-left: -30px;
+                margin-top: 8px;
+                font-size: 15px;
+            }
+            #hi{
+                font-size: 15px;
+            }
+            footer{
+                width: 350px;
+            }
+            h2, h1{
+                font-weight: 800;
+            }
+            .maincontain{
+                margin-left: -30px;
+            }
         }
     </style>
 </head>
@@ -298,9 +349,13 @@
                                                     href="https://drive.google.com/drive/folders/1tBGTOy3OYG3MZKsc9qonxmQTws4WTK6_?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/17IJGfRcDlw8U1MRDEGcMUSs8FV0ekScD?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/17IJGfRcDlw8U1MRDEGcMUSs8FV0ekScD?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1-tqne-7OV5Abex7C9f8LhpMgNBogtiDf?usp=sharing" target="_blank">Question Bank</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1-tqne-7OV5Abex7C9f8LhpMgNBogtiDf?usp=sharing"
+                                                    target="_blank">Question Bank</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -314,7 +369,9 @@
                                                     href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -328,7 +385,9 @@
                                                     href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1Hx27I6XiNQ6SBXDBZmC8ckNNyPgtgCPs?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1Hx27I6XiNQ6SBXDBZmC8ckNNyPgtgCPs?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -342,7 +401,9 @@
                                                     href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -356,7 +417,9 @@
                                                     href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -371,7 +434,9 @@
                                                     href="https://drive.google.com/drive/folders/1V9vDDmV3qLyFggmTvHQEEoE7rcKmES02?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1KRHLH2tvjsmuqYmDW07XGsM3LxeGe7St?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1KRHLH2tvjsmuqYmDW07XGsM3LxeGe7St?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -442,9 +507,13 @@
                                                     href="https://drive.google.com/drive/folders/10neY4vTk5WYWfFwiwy7CQXrcz7WJXm8d?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1MhYIyQGVm2UUgIdlJxbJiUMASaXL8G1N?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1MhYIyQGVm2UUgIdlJxbJiUMASaXL8G1N?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1nNnKZm3ceoCNBIJ_CtGKKJ3T_y_fYYCv?usp=sharing" target="_blank">Question Bank</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1nNnKZm3ceoCNBIJ_CtGKKJ3T_y_fYYCv?usp=sharing"
+                                                    target="_blank">Question Bank</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -458,7 +527,9 @@
                                                     href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -472,7 +543,9 @@
                                                     href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -486,7 +559,9 @@
                                                     href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -500,7 +575,9 @@
                                                     href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -514,7 +591,9 @@
                                                     href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1mNEdzATPcyMDrPIn_y5uqvnrdJ0H6Vfd?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1mNEdzATPcyMDrPIn_y5uqvnrdJ0H6Vfd?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -583,10 +662,9 @@
             </div>
         </section>
         <hr>
-        <!-- <br><br> -->
         <section>
             <h1 class="branch">Electrical & Electronics Engineering Stream</h1>
-            <p class="branch1"> ECE, EEE, EIE, ETE and MD</p>
+            <p class="branch1"> ECE, EEE, EIE, ETE and MLE</p>
             <div class="maincontain">
                 <div class="contain" id="over">
                     <h2>Chemistry Cycle</h2>
@@ -601,9 +679,13 @@
                                                 href="https://drive.google.com/drive/folders/10neY4vTk5WYWfFwiwy7CQXrcz7WJXm8d?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1W4Rhwi38VHKud7iYZBJ9wVt3orX8geC4?usp=drive_link" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1W4Rhwi38VHKud7iYZBJ9wVt3orX8geC4?usp=drive_link"
+                                                target="_blank">pyq</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1iq2trognE86qIH5qD_G_C2iLKDHi0CBm?usp=drive_link" target="_blank">Question Bank</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1iq2trognE86qIH5qD_G_C2iLKDHi0CBm?usp=drive_link"
+                                                target="_blank">Question Bank</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -617,7 +699,9 @@
                                                 href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=drive_link" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=drive_link"
+                                                target="_blank">pyq</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -631,7 +715,9 @@
                                                 href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=sharing" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=sharing"
+                                                target="_blank">pyq</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -645,7 +731,9 @@
                                                 href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=sharing" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=sharing"
+                                                target="_blank">pyq</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -673,7 +761,9 @@
                                                 href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=sharing" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=sharing"
+                                                target="_blank">pyq</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -756,9 +846,13 @@
                                                     href="https://drive.google.com/drive/folders/1tBGTOy3OYG3MZKsc9qonxmQTws4WTK6_?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1O7bsw1K_dLRvlDucXcetgtyuWy5lnrBv?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1O7bsw1K_dLRvlDucXcetgtyuWy5lnrBv?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1nNnKZm3ceoCNBIJ_CtGKKJ3T_y_fYYCv?usp=drive_link" target="_blank">Question Bank</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1nNnKZm3ceoCNBIJ_CtGKKJ3T_y_fYYCv?usp=drive_link"
+                                                    target="_blank">Question Bank</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -786,7 +880,9 @@
                                                     href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -800,7 +896,9 @@
                                                     href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -814,7 +912,9 @@
                                                     href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -828,7 +928,9 @@
                                                     href="https://drive.google.com/drive/folders/1KDfSRCFmE0F-uv6_dJmfSkYg7fg9fSSu?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1Rs5Uk4zA39lDHmvCGXtm9fV4y8YIF5F0?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1Rs5Uk4zA39lDHmvCGXtm9fV4y8YIF5F0?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -842,7 +944,9 @@
                                                     href="https://drive.google.com/drive/folders/1W1QxgCYi2IoYadANklUzs90pZWPmDTGD?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1BpoaXGGdnmrgAYqsMfrKkVCQKrJ6Rgm-?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1BpoaXGGdnmrgAYqsMfrKkVCQKrJ6Rgm-?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -906,7 +1010,6 @@
             </div>
         </section>
         <hr>
-        <!-- <br><br> -->
         <section>
             <h1 class="branch">Civil Engineering Stream</h1>
             <p class="branch1">Civil</p>
@@ -925,9 +1028,13 @@
                                                     href="https://drive.google.com/drive/folders/1tBGTOy3OYG3MZKsc9qonxmQTws4WTK6_?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/17IJGfRcDlw8U1MRDEGcMUSs8FV0ekScD?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/17IJGfRcDlw8U1MRDEGcMUSs8FV0ekScD?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1-tqne-7OV5Abex7C9f8LhpMgNBogtiDf?usp=drive_link" target="_blank">Question Bank</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1-tqne-7OV5Abex7C9f8LhpMgNBogtiDf?usp=drive_link"
+                                                    target="_blank">Question Bank</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -941,7 +1048,9 @@
                                                     href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -955,7 +1064,9 @@
                                                     href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1Hx27I6XiNQ6SBXDBZmC8ckNNyPgtgCPs?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1Hx27I6XiNQ6SBXDBZmC8ckNNyPgtgCPs?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -969,7 +1080,9 @@
                                                     href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -983,7 +1096,9 @@
                                                     href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -997,7 +1112,9 @@
                                                     href="https://drive.google.com/drive/folders/1t8qv3PSzukXbCprKONu3h-McOzijW_Il?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/18uKT1Ffmi8HC6FKfncVioMrc_jn79a84?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/18uKT1Ffmi8HC6FKfncVioMrc_jn79a84?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1068,9 +1185,13 @@
                                                     href="https://drive.google.com/drive/folders/10neY4vTk5WYWfFwiwy7CQXrcz7WJXm8d?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1MhYIyQGVm2UUgIdlJxbJiUMASaXL8G1N?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1MhYIyQGVm2UUgIdlJxbJiUMASaXL8G1N?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/141nV2m5t009dGClNln5MXDysY7J4XeXh?usp=drive_link" target="_blank">Question Bank</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/141nV2m5t009dGClNln5MXDysY7J4XeXh?usp=drive_link"
+                                                    target="_blank">Question Bank</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1084,7 +1205,9 @@
                                                     href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=sharing" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=sharing"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1098,7 +1221,9 @@
                                                     href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1112,7 +1237,9 @@
                                                     href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1126,7 +1253,9 @@
                                                     href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1140,7 +1269,9 @@
                                                     href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1mNEdzATPcyMDrPIn_y5uqvnrdJ0H6Vfd?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1mNEdzATPcyMDrPIn_y5uqvnrdJ0H6Vfd?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1209,7 +1340,6 @@
             </div>
         </section>
         <hr>
-        <!-- <br><br> -->
         <section>
             <h1 class="branch">Mechanical Engineering Stream</h1>
             <p class="branch1"> ME, IEM and CH</p>
@@ -1227,9 +1357,13 @@
                                                 href="https://drive.google.com/drive/folders/10neY4vTk5WYWfFwiwy7CQXrcz7WJXm8d?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1W4Rhwi38VHKud7iYZBJ9wVt3orX8geC4?usp=sharing" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1W4Rhwi38VHKud7iYZBJ9wVt3orX8geC4?usp=sharing"
+                                                target="_blank">pyq</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1iq2trognE86qIH5qD_G_C2iLKDHi0CBm?usp=drive_link" target="_blank">Question Bank</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1iq2trognE86qIH5qD_G_C2iLKDHi0CBm?usp=drive_link"
+                                                target="_blank">Question Bank</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1243,7 +1377,9 @@
                                                 href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=drive_link" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=drive_link"
+                                                target="_blank">pyq</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1257,7 +1393,9 @@
                                                 href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=drive_link" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=drive_link"
+                                                target="_blank">pyq</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1271,7 +1409,9 @@
                                                 href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=drive_link" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=drive_link"
+                                                target="_blank">pyq</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1285,7 +1425,9 @@
                                                 href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=drive_link" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=drive_link"
+                                                target="_blank">pyq</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1299,7 +1441,9 @@
                                                 href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
                                                 target="_blank">Notes</a>
                                         </li>
-                                        <li><a id="hi" href="https://drive.google.com/drive/folders/1mNEdzATPcyMDrPIn_y5uqvnrdJ0H6Vfd?usp=drive_link" target="_blank">pyq</a>
+                                        <li><a id="hi"
+                                                href="https://drive.google.com/drive/folders/1mNEdzATPcyMDrPIn_y5uqvnrdJ0H6Vfd?usp=drive_link"
+                                                target="_blank">pyq</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1378,9 +1522,13 @@
                                                     href="https://drive.google.com/drive/folders/1tBGTOy3OYG3MZKsc9qonxmQTws4WTK6_?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1O7bsw1K_dLRvlDucXcetgtyuWy5lnrBv?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1O7bsw1K_dLRvlDucXcetgtyuWy5lnrBv?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1nNnKZm3ceoCNBIJ_CtGKKJ3T_y_fYYCv?usp=drive_link" target="_blank">Question Bank</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1nNnKZm3ceoCNBIJ_CtGKKJ3T_y_fYYCv?usp=drive_link"
+                                                    target="_blank">Question Bank</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1394,7 +1542,9 @@
                                                     href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1408,7 +1558,9 @@
                                                     href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1Hx27I6XiNQ6SBXDBZmC8ckNNyPgtgCPs?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1Hx27I6XiNQ6SBXDBZmC8ckNNyPgtgCPs?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1422,7 +1574,9 @@
                                                     href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1436,7 +1590,9 @@
                                                     href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1450,7 +1606,9 @@
                                                     href="https://drive.google.com/drive/folders/1UqjYKdhhbNC1VkzF6eV893ulhFjloIfn?usp=sharing"
                                                     target="_blank">Notes</a>
                                             </li>
-                                            <li><a id="hi" href="https://drive.google.com/drive/folders/1gypaDmlHR6DaUm4-vkeZnY2kpDcDm7nU?usp=drive_link" target="_blank">pyq</a>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1gypaDmlHR6DaUm4-vkeZnY2kpDcDm7nU?usp=drive_link"
+                                                    target="_blank">pyq</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1523,16 +1681,19 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.querySelector(".menu-toggle");
-            const menu = document.querySelector(".menu");
-
-            menuToggle.addEventListener("click", function () {
-                menu.classList.toggle("active");
-            });
-        });
     </script>
 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle1");
+        const menu = document.querySelector(".menu1");
+
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("active");
+        });
+    });
+</script>
 </body>
 
 </html>
