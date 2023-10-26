@@ -1,18 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="../styles/shared.css">
-    <link rel="stylesheet" href="../styles/notesindex.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style.css">
     <link rel="icon" href="../images/icons/favicon.png" type="image/x-icon">
 
     <title>Notes</title>
     <style>
+        header {
+            width: 92%;
+            height: 40px;
+        }
+
+        body {
+            margin: 10px;
+            padding: 10px;
+            align-items: center;
+            background-color: white;
+            font-size: larger;
+        }
+
+        .year {
+            font-size: 50px;
+            text-align: center;
+            margin: 5px;
+            margin-top: 30px;
+            margin-left: -100px;
+            padding: 10px 2px 0px 10px;
+        }
+
+        .branch {
+            text-align: center;
+            margin: 2px 2px 0px 2px;
+            padding: 10px 2px 2px 0;
+        }
+
+        .branch1 {
+            text-align: center;
+            margin: 2px 2px 0px 2px;
+            padding: 10px 2px 0px 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .maincontain {
+            margin: 50px 50px 0px 50px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 550px 550px;
+            grid-gap: 150px;
+            grid-area: inherit;
+        }
+
+        .option {
+            font-size: 10px;
+            color: aliceblue;
+        }
+
+
+        #over {
+            margin: 10px;
+            padding: 30px;
+            text-align: left;
+            text-decoration: none;
+        }
+
+        .contain {
+            display: grid;
+            grid-template-rows: 100px 100px 100px 100px;
+            grid-area: inherit;
+            display: grid;
+            background-color: rgb(243, 244, 246);
+            text-decoration: none;
+        }
+
+        .action {
+            margin: 10px;
+            padding: 5px;
+            align-items: center;
+            text-align: center;
+        }
+
+        #go {
+            margin: 2px 2px 2px 2px;
+            padding: 10px;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            background-color: black;
+        }
+
+        #go:hover {
+            align-items: center;
+            letter-spacing: 2px;
+            /* font-size: 25px; */
+        }
+
+        #hi {
+            margin: 10px 10px 0px 0px;
+            padding: 20px 20px 20px 0;
+            text-decoration: none;
+            color: black;
+            line-height: 2;
+        }
+
+
+        #list {
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .op {
+            background-color: black;
+            color: aqua;
+        }
+
+        .op1 {
+            color: white;
+        }
+
+        h2 {
+            margin: 5px 2px 0px 2px;
+            padding: auto;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: black;
+            padding: 10px 0;
+        }
+
+        .hii {
+            margin: 0px 0px 0px 100px;
+            padding: 0px 0px 0px 100px;
+        }
+
+        footer {
+            width: 100%;
+            background: linear-gradient(70deg, rgb(24, 24, 24), rgb(25, 29, 29));
+            padding: 40px;
+        }
+
+        footer ul {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        footer li {
+            width: 80px;
+            height: 80px;
+            margin: 0 50px;
+        }
+
+        footer img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #optionpyq {
+            margin: 0;
+            width: 5px;
+            height: 25px;
+            align-items: left;
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0);
+            color: black;
+            border: 0;
+            margin-left: -10px;
+            margin-top: -25px;
+            font-size: 25px;
+        }
+
+        #hi {
+            margin: 5px;
+            color: black;
+            text-decoration: none;
+        }
+
+
+        .dropdown-menu {
+            --bs-dropdown-zindex: 1000;
+            --bs-dropdown-min-width: 10rem;
+            --bs-dropdown-padding-x: 0;
+            --bs-dropdown-padding-y: 1.0rem 0.5rem;
+        }
+
         header {
             width: 92%;
             height: 50px;
@@ -72,7 +248,6 @@
             border-radius: 3px;
             text-align: center;
             text-decoration: solid;
-            /* width: 250px; */
             height: 220px;
             align-items: center;
         }
@@ -94,7 +269,7 @@
         }
 
         #go {
-            margin: 2px 2px 2px 100px;
+            /* margin: 2px 2px 2px 100px; */
             padding: 10px;
             align-items: center;
             color: white;
@@ -106,120 +281,33 @@
             letter-spacing: 2px;
         }
 
-
-
-        /*Navigation Bar*/
-
-        header {
-            width: 100%;
-            height: 40px;
+        .seat1 h3 {
+            margin: 10px;
         }
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
+        main {
+            margin-left: 50px;
         }
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 200px;
-            text-align: left;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
+        @media (max-width: 480px) {
+            .maincontain {
+                margin: 100px;
+                padding: 5px;
+                display: grid;
+                grid-template-columns: 550px;
+                grid-gap: 90px;
+                grid-area: inherit;
+            }
 
-        .dropdown-menu li {
-            padding: 10px;
-        }
+            footer {
+                width: 550px;
+                height: 100px;
+            }
 
-        .dropdown-menu a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #ff9900;
-        }
-
-        /* Reset some default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Apply some basic styles to the body */
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .navbar {
-            width: inherit;
-            background-color: #333;
-            color: black;
-            padding: 10px 0;
-        }
-
-        .container {
-            max-width: 1500px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            color: #fff;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .menu {
-            list-style: none;
-            display: flex;
-        }
-
-        .menu li {
-            margin-right: 20px;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .menu a:hover {
-            color: #ff9900;
-        }
-
-        h3 {
-            margin: 15px;
-        }
-        .year{
-            margin-top: 30px;
-            text-align: center;
-            font-size: 60px;
-            color: black;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-        @media only screen and (min-width: 1030px) and (max-width: 1366px) {
-            .seat1:hover {
-                color: black;
-                background-color: rgb(236, 234, 234);
-                border: 3px black solid;
-                letter-spacing: 2px;
+            #over {
+                margin: 30px;
+                padding: 10px;
+                font-size: 14px;
             }
         }
 
@@ -231,7 +319,6 @@
                 top: 60px;
                 left: 0;
                 right: 0;
-                background-color: #333;
                 text-align: center;
             }
 
@@ -250,28 +337,88 @@
                 margin: 10px 0;
             }
 
+            .maincontain {
+                display: none;
+                flex-direction: column;
+                top: 200px;
+                left: 0;
+                right: 0;
+                display: block;
+                margin: 10px 0;
+            }
+        }
+
+
+        /* nav bar */
+        @media (max-width: 768px) {
+            .menu1 {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle1 {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                margin-top: -10px;
+                color: white;
+            }
+
+            .menu1 li {
+                margin: 10px 0;
+                list-style: none;
+            }
+
+            #list div {
+                margin-left: -30px;
+                margin-top: 8px;
+                font-size: 15px;
+            }
+
+            #hi {
+                font-size: 15px;
+            }
+
+            h2,
+            h1 {
+                font-weight: 800;
+            }
+
+            .maincontain {
+                margin-left: -30px;
+            }
+
             .container1 {
                 display: grid;
-                grid-template-columns: 250px 250px;
-                grid-gap: 30px;
+                grid-template-columns: 170px 170px;
+                grid-gap: 20px;
                 grid-area: inherit;
                 align-items: center;
                 margin: 50px 10px 10px 60px;
             }
 
-            #over {
-                text-align: center;
+            .year{
+                margin: 10px;
+                margin-top: 50px;
+                margin-bottom: -30px;
+                font-size: 30px;
             }
 
-            #seat1 {
-                color: black;
-                background-color: rgb(179, 177, 177);
-                border: 2px black solid;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: solid;
+            header{
+                width: 350px;
+                margin-left: -15px;
             }
-
             .seat1 {
                 color: black;
                 background-color: rgb(248, 244, 244);
@@ -279,183 +426,15 @@
                 border-radius: 3px;
                 text-align: center;
                 text-decoration: solid;
-                height: 220px;
+                height: 180px;
                 align-items: center;
             }
-
-            p {
-                margin: 0px 0px 35px 0px;
-            }
-
-
-            .action {
-                align-items: center;
-                text-align: center;
-            }
-
-            #go {
-                margin: 2px 2px 2px 100px;
-                padding: 5px;
-                align-items: center;
-                color: white;
-                background-color: black;
-            }
-
-            .year {
-                font-size: 30px;
-            }
-
-            h3 {
-                font-size: 20px;
-                margin-top: 40px;
-            }
-
-            .container1 {
-                display: grid;
-                grid-template-columns: 210px 210px;
-                grid-gap: 30px;
-                grid-area: inherit;
-                align-items: center;
-                margin: 40px 10px 10px 10px;
+            main{
+                margin: -50px;
             }
         }
-
-        @media only screen and (min-width: 481px)and (max-width: 740px){
-            .container1 {
-                display: grid;
-                grid-template-columns: 220px 220px;
-                grid-gap: 50px;
-                grid-area: inherit;
-                align-items: center;
-                margin: 40px 10px 10px 10px;
-            }
-
-        }
-
-        @media only screen and (min-width: 320px) and (max-width: 480px) {
-            .container1 {
-                display: grid;
-                grid-template-columns: 200px 200px 200px;
-                grid-gap: 110px;
-                grid-area: inherit;
-                align-items: center;
-                margin: 40px 10px 10px 40px;
-            }
-
-            #over {
-                text-align: center;
-            }
-
-            #seat1 {
-                color: black;
-                background-color: rgb(179, 177, 177);
-                border: 2px black solid;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: solid;
-            }
-
-            .seat1 {
-                color: black;
-                background-color: rgb(248, 244, 244);
-                border: 1px black solid;
-                border-radius: 3px;
-                text-align: center;
-                text-decoration: solid;
-                /* width: 250px; */
-                height: 220px;
-                align-items: center;
-            }
-
-            p {
-                margin: 0px 0px 35px 0px;
-            }
-
-
-            .action {
-                align-items: center;
-                text-align: center;
-            }
-
-            #go {
-                margin: 2px 2px 2px 60px;
-                padding: 5px;
-                align-items: center;
-                color: white;
-                background-color: black;
-            }
-
-            .year {
-                font-size: 30px;
-            }
-
-            h3 {
-                font-size: 20px;
-                margin-top: 20px;
-            }
-        }
-
-        @media only screen and (max-width: 320px){
-            .container1 {
-                display: grid;
-                grid-template-columns: 250px;
-                /* grid-gap: 10px; */
-                grid-area: inherit;
-                align-items: center;
-                margin: 40px 10px 10px 10px;
-            }
-
-            #over {
-                text-align: center;
-            }
-
-            #seat1 {
-                color: black;
-                background-color: rgb(179, 177, 177);
-                border: 2px black solid;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: solid;
-            }
-
-            .seat1 {
-                color: black;
-                background-color: rgb(248, 244, 244);
-                border: 1px black solid;
-                border-radius: 3px;
-                text-align: center;
-                text-decoration: solid;
-                /* width: 250px; */
-                height: 220px;
-                align-items: center;
-            }
-
-            p {
-                margin: 0px 0px 35px 0px;
-            }
-
-
-            .action {
-                align-items: center;
-                text-align: center;
-            }
-
-            #go {
-                margin: 2px 2px 2px 100px;
-                padding: 5px;
-                align-items: center;
-                color: white;
-                background-color: black;
-            }
-
-            .year {
-                font-size: 30px;
-            }
-
-            h3 {
-                font-size: 20px;
-                margin-top: 20px;
-            }
+        li{
+            list-style: none;
         }
     </style>
 </head>
@@ -464,14 +443,15 @@
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="third.html" class="logo">RIT NoteBook</a>
-                <div class="menu-toggle">&#9776</div>
-                <ul class="menu">
+                <a href="../index.html" class="logo">RIT NoteBook</a>
+                <div class="menu-toggle1">&#9776</div>
+                <ul class="menu1">
                     <li><a href="../index.html">Home</a>
                     </li>
-                    <li class="dropdown">
+                    <li><a href="../pyq.html">PYQ</a></li>
+                    <li class="dropdown1">
                         <a href="#">Notes &#9662</a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu1">
                             <li><a href="first.html">First year</a></li>
                             <li><a href="second.html">Second year</a></li>
                             <li><a href="third.html">Third year</a></li>
@@ -479,7 +459,6 @@
                         </ul>
                     </li>
                     <li><a href="../labcodes.html">Lab Codes</a></li>
-                    <li><a href="../pyq.html">PYQ</a></li>
                     <li><a href="../about.html">About</a></li>
                 </ul>
             </div>
@@ -513,28 +492,28 @@
                     <h3>AIML</h3>
                     <p>Artificial intelligence and machine learning</p>
                     <div class="actions">
-                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                        <a id="go" href="https://drive.google.com/file/d/18SagW_PLeq0gigYL47Iylc586e5b16Fv/view?usp=sharing" target="_blank">View</a>
                     </div>
                 </div>
                 <div class="seat1">
                     <h3>AIDS</h3>
                     <p>Artificial intelligence and Data Science</p>
                     <div class="actions">
-                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                        <a id="go" href="https://drive.google.com/file/d/18SagW_PLeq0gigYL47Iylc586e5b16Fv/view?usp=sharing" target="_blank">View</a>
                     </div>
                 </div>
                 <div class="seat1">
                     <h3>CSE-AIML</h3>
                     <p>CSE- Artificial intelligence and machine learning</p>
                     <div class="actions">
-                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                        <a id="go" href="https://drive.google.com/file/d/18SagW_PLeq0gigYL47Iylc586e5b16Fv/view?usp=sharing" target="_blank">View</a>
                     </div>
                 </div>
                 <div class="seat1">
                     <h3>CSE-Cyber</h3>
                     <p>CSE- Cyber <br>Security</p>
                     <div class="actions">
-                        <a id="go" href="../pdf/UG_First_Year_Syllabus.pdf" target="_blank">View</a>
+                        <a id="go" href="https://drive.google.com/file/d/1qwIqtXS3U2yTXDPe0yUC0WMhVBmSHMtQ/view?usp=sharing" target="_blank">View</a>
                     </div>
                 </div>
                 <div class="seat1">
@@ -610,7 +589,7 @@
                     </div>
                 </div>
                 <div class="seat1">
-                    <h3>MD</h3>
+                    <h3>MLE</h3>
                     <p>Medical Electronics</p>
                     <div class="actions">
                         <a id="go"
@@ -630,16 +609,23 @@
             </div>
         </section>
     </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.querySelector(".menu-toggle");
-            const menu = document.querySelector(".menu");
+</body>
 
-            menuToggle.addEventListener("click", function () {
-                menu.classList.toggle("active");
-            });
-        });
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle1");
+        const menu = document.querySelector(".menu1");
+
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("active");
+        });
+    });
+</script>
 </body>
 
 </html>
