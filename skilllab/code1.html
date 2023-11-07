@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    data = readtable(file_path);
+    BPvalues = data{:, 4};
+    is_diabetic = data{:, 9};
+    Blood_PressureValues = data{:,4}
+    % Separate the Blood_Pressure for diabetic and non-diabetic groups
+    bloodPressureDiabetic = Blood_PressureValues(is_diabetic == 1)
+    bloodPressureNonDiabetic = Blood_PressureValues(is_diabetic == 0)
+
+
+    % Create a boxplot plot to compare the distributions
+
+    figure;
+    subplot(1, 2, 1);
+    boxplot(bloodPressureDiabetic);
+    title('Blood Pressure - Diabetic');
+    subplot(1, 2, 2);
+    boxplot(bloodPressureNonDiabetic);
+    title('Blood Pressure - Non-Diabetic');
+
+</body>
+
+</html>
