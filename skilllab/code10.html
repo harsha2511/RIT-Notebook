@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+bookTitles = {'Book 1', 'Book 2', 'Book 3', 'Book 4', 'Book 5'};<br>
+authors = {'Author A', 'Author B', 'Author C', 'Author A', 'Author D'};<br>
+publicationDates = {'2020-01-01', '2019-03-15', '2018-05-20', '2020-01-01', '2017-10-05'};<br>
+availableCopies = [300, 288, 58888, 1888, 4666];
+<br>
+libraryCatalog = table(bookTitles', authors', publicationDates', availableCopies', ...<br>
+    'VariableNames', {'Title', 'Author', 'PublicationDate', 'AvailableCopies'});<br>
+
+% Display the library catalog<br>
+disp(libraryCatalog);<br>
+% Search function to find books by title or author<br>
+searchTitle = 'Book 1';  % Search for a book by title<br>
+searchAuthor = 'Author A';  % Search for books by author<br>
+matchingBooksTitle = libraryCatalog(strcmpi(libraryCatalog.Title, searchTitle), :);<br>
+matchingBooksAuthor = libraryCatalog(strcmpi(libraryCatalog.Author, searchAuthor), :);<br>
+% Display search results<br>
+fprintf('Books matching title "%s":\n', searchTitle);<br>
+disp(matchingBooksTitle);<br>
+fprintf('Books by author "%s":\n', searchAuthor);<br>
+disp(matchingBooksAuthor);<br>
+% Identify popular books (available copies greater than a threshold)<br>
+popularThreshold = 3;<br>
+popularBooks = libraryCatalog(libraryCatalog.AvailableCopies > popularThreshold, :);<br>
+
+fprintf('Popular books (Available Copies > %d):\n', popularThreshold);<br>
+disp(popularBooks);<br>
+
+figure;<br>
+% Create a bar plot to show the number of available copies for each book<br>
+bar(libraryCatalog.Title, libraryCatalog.AvailableCopies);<br>
+title('Available Copies by Book');<br>
+xlabel('Book Titles');<br>
+ylabel('Available Copies');<br>
+ figure;
+ <br>
+ % Filter books with fewer than 2 available copies<br>
+fewCopiesBooks = libraryCatalog(libraryCatalog.AvailableCopies < 2000, :);<br>
+<br>
+% Create a bar plot to display the number of available copies for these books<br>
+bar(fewCopiesBooks.Title, fewCopiesBooks.AvailableCopies);<br>
+title('Books with Fewer than 2 Available Copies');<br>
+xlabel('Book Titles');<br>
+ylabel('Available Copies');<br>
+
+% Rotate the x-axis labels for better readability<br>
+xtickangle(45);<br>
+</body>
+</html>
