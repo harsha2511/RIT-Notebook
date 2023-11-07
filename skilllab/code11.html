@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+numDays = 30;  % Number of days<br>
+rng('default'); % Initialize random number generator for reproducibility<br>
+
+% Generate random data for temperature, humidity, and precipitation<br>
+temperature = randi([50, 100], numDays, 1); % Random temperature between 50 and 100 (Fahrenheit)<br>
+humidity = randi([20, 80], numDays, 1); % Random humidity between 20% and 80%<br>
+precipitation = randi([0, 10], numDays, 1); % Random precipitation in inches<br>
+
+% Create a table to store daily weather data<br>
+weatherTable = table(temperature, humidity, precipitation, ...<br>
+    'VariableNames', {'Temperature', 'Humidity', 'Precipitation'});<br>
+
+% Calculate the average temperature<br>
+averageTemperature = mean(weatherTable.Temperature);<br>
+
+% Identify days with heavy rainfall (precipitation greater than a threshold)<br>
+heavyRainThreshold = 4;  % Set the threshold for heavy rainfall<br>
+heavyRainDays = find(weatherTable.Precipitation > heavyRainThreshold);<br>
+
+% Display the weather data table, average temperature, and heavy rain days<br>
+disp(weatherTable);<br>
+fprintf('Average Temperature: %.2f°F\n', averageTemperature);<br>
+fprintf('Days with Heavy Rain (Precipitation > %.2f inches):\n', heavyRainThreshold);<br>
+disp(heavyRainDays);<br>
+</body>
+</html>
