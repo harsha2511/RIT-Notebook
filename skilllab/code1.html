@@ -8,24 +8,21 @@
 </head>
 
 <body>
-    data = readtable(file_path);
-    BPvalues = data{:, 4};
-    is_diabetic = data{:, 9};
-    Blood_PressureValues = data{:,4}
-    % Separate the Blood_Pressure for diabetic and non-diabetic groups
-    bloodPressureDiabetic = Blood_PressureValues(is_diabetic == 1)
-    bloodPressureNonDiabetic = Blood_PressureValues(is_diabetic == 0)
-
-
-    % Create a boxplot plot to compare the distributions
-
-    figure;
-    subplot(1, 2, 1);
-    boxplot(bloodPressureDiabetic);
-    title('Blood Pressure - Diabetic');
-    subplot(1, 2, 2);
-    boxplot(bloodPressureNonDiabetic);
-    title('Blood Pressure - Non-Diabetic');
+    data = readtable(file_path);<br>
+    BPvalues = data{:, 4};<br>
+    is_diabetic = data{:, 9};<br>
+    Blood_PressureValues = data{:,4}<br>
+    % Separate the Blood_Pressure for diabetic and non-diabetic groups<br>
+    bloodPressureDiabetic = Blood_PressureValues(is_diabetic == 1)<br>
+    bloodPressureNonDiabetic = Blood_PressureValues(is_diabetic == 0)<br> 
+    % Create a boxplot plot to compare the distributions<br>
+    figure;<br>
+    subplot(1, 2, 1);<br>
+    boxplot(bloodPressureDiabetic);<br>
+    title('Blood Pressure - Diabetic');<br>
+    subplot(1, 2, 2);<br>
+    boxplot(bloodPressureNonDiabetic);<br>
+    title('Blood Pressure - Non-Diabetic');<br>
 
 </body>
 
