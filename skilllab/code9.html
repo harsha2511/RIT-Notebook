@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    age_groups = {'Young', 'Middle-Aged', 'Elderly'};<br>
+age_thresholds = [0, 35, 60, 90]; % Define age thresholds for age groups<br>
+<br>
+% Categorize individuals into age groups<br>
+data.AgeGroup = categorical(discretize(data.Age, age_thresholds, 'categorical', age_groups));<br>
+% Use the 'convertvars' function to replace the original 'Age' variable with the 'AgeGroup' variable<br>
+data = convertvars(data, 'AgeGroup', 'categorical') <br>
+
+% Summary statistics by age group<br>
+summary_stats = groupsummary(data, 'AgeGroup', 'mean',  ['Outcome','BloodPressure',"Glucose"]);
+<br>
+% Display the summary statistics<br>
+disp(summary_stats);
+<br>
+% Create bar plots to visualize diabetes status by age group<br>
+figure;<br>
+bar(summary_stats.AgeGroup, summary_stats.mean_Outcome);<br>
+xlabel('Age Group');<br>
+ylabel('Mean Diabetes Status (1=Diabetic, 0=Non-Diabetic)');<br>
+title('Diabetes Status by Age Group');<br>
+
+% Create bar plots to visualize mean Glucose levels by age group<br>
+figure;<br>
+bar(summary_stats.AgeGroup, summary_stats.mean_Glucose);<br>
+xlabel('Age Group');<br>
+ylabel('Mean Glucose Level');<br>
+title('Mean Glucose Levels by Age Group');<br>
+
+% Create bar plots to visualize mean Blood Pressure by age group<br>
+figure;<br>
+bar(summary_stats.AgeGroup, summary_stats.mean_BloodPressure);<br>
+xlabel('Age Group');<br>
+ylabel('Mean Blood Pressure');<br>
+title('Mean Blood Pressure by Age Group');<br>
+</body>
+</html>
