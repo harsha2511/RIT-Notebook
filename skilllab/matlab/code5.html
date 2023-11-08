@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    file_path = "D:\ML2023\Matlab2023\Diabetics1.csv";<br>
+% Load the dataset from the CSV file<br>
+data = readtable(file_path);<br>
+ 
+is_diabetic = data{:, 9};<br>
+Blood_PressureValues = data{:,4}<br>
+% Separate the Blood_Pressure for diabetic and non-diabetic groups<br>
+bmiDiabetic = Blood_PressureValues(is_diabetic == 1)<br>
+bmiNonDiabetic = Blood_PressureValues(is_diabetic == 0)<br>
+ 
+
+% Create a histogram to visualize the BMI distribution<br>
+figure;<br>
+histogram(bmiDiabetic, 'BinWidth', 2, 'FaceColor', 'blue', 'EdgeColor', 'black');<br>
+title('BMI Distribution in Diabetic Patients');<br>
+xlabel('BMI');<br>
+ylabel('Frequency');<br>
+figure;<br>
+% Create a histogram to visualize the BMI distribution<br>
+figure;<br>
+histogram(bmiNonDiabetic, 'BinWidth', 2, 'FaceColor', 'blue', 'EdgeColor', 'black');<br>
+title('BMI Distribution in Diabetic Patients');<br>
+xlabel('BMI');<br>
+ylabel('Frequency');
+</body>
+</html>

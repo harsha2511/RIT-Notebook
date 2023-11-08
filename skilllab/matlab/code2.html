@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+rng(1); % Set random seed for reproducibility<br>
+n = 100; % Number of data points<br>
+t = (1:n)'; % Time points<br>
+price_mean = 1000; % Mean stock price<br>
+price_std = 5; % Standard deviation<br>
+stock_prices = price_mean + price_std * randn(n, 1) <br>
+
+% Create a time series object<br>
+ts = timeseries(stock_prices, t, 'Name', 'Stock Prices');<br>
+
+% Plot the historical stock prices<br>
+figure;<br>
+plot(ts.Time, ts.Data);<br>
+title('Historical Stock Prices');<br>
+xlabel('Time');<br>
+ylabel('Stock Price');<br>
+
+% Perform time series analysis and prediction (simple moving average)<br>
+window_size = 5; % Moving average window size<br>
+moving_avg = movmean(ts.Data, window_size); % Simple moving average
+<br>
+% Plot the original stock prices and moving average<br>
+figure;<br>
+plot(ts.Time, ts.Data, 'b', 'DisplayName', 'Stock Prices');<br>
+hold on;<br>
+plot(ts.Time, moving_avg, 'r', 'DisplayName', 'Moving Average');<br>
+title('Stock Prices vs. Moving Average');<br>
+xlabel('Time');<br>
+ylabel('Value');<br>
+legend('Location', 'northwest');<br>
+
+% Predict future stock prices (simple extrapolation)<br>
+forecast_horizon = 10; % Number of days to forecast<br>
+last_price = ts.Data(end); % Last observed stock price<br>
+meanvalue = mean(diff(ts.Data))<br>
+forecasted_prices = last_price + (1:forecast_horizon) * meanvalue <br>
+
+% Plot the original stock prices and forecasted prices<br>
+figure;<br>
+plot(ts.Time, ts.Data, 'b', 'DisplayName', 'Stock Prices');<br>
+hold on;<br>
+plot(ts.Time(end) + (1:forecast_horizon), forecasted_prices, 'r', 'DisplayName', 'Forecasted Prices');<br>
+title('Stock Prices vs. Forecasted Prices');<br>
+xlabel('Time');<br>
+ylabel('Value');<br>
+legend('Location', 'northwest');<br>
+</body>
+</html>
