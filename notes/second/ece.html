@@ -1,0 +1,636 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+
+    <title>Notes</title>
+    <style>
+        header {
+            width: 92%;
+            height: 40px;
+        }
+
+        body {
+            margin: 10px;
+            padding: 10px;
+            align-items: center;
+            background-color: white;
+            font-size: larger;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .year {
+            font-size: 50px;
+            text-align: center;
+            margin: 5px;
+            margin-top: 30px;
+            padding: 10px 2px 0px 10px;
+        }
+
+        .branch {
+            text-align: center;
+            margin: 2px 2px 0px 2px;
+            padding: 10px 2px 2px 0;
+        }
+
+        .branch1 {
+            text-align: center;
+            margin: 2px 2px 0px 2px;
+            padding: 10px 2px 0px 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+
+        .maincontain {
+            margin: 50px 50px 0px 50px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 550px 550px;
+            grid-gap: 150px;
+            grid-area: inherit;
+        }
+
+        .option {
+            font-size: 10px;
+            color: aliceblue;
+        }
+
+
+        #over {
+            margin: 10px;
+            padding: 30px;
+            text-align: left;
+            text-decoration: none;
+        }
+
+
+
+        .contain {
+            display: grid;
+            grid-template-rows: 100px 100px 100px 100px;
+            /* grid-gap: 50px; */
+            grid-area: inherit;
+            display: grid;
+            background-color: rgb(243, 244, 246);
+            text-decoration: none;
+        }
+
+        .action {
+            margin: 10px;
+            padding: 5px;
+            align-items: center;
+            text-align: center;
+        }
+
+        #go {
+            margin: 2px 2px 2px 2px;
+            padding: 10px;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            background-color: black;
+        }
+
+        #go:hover {
+            align-items: center;
+            letter-spacing: 2px;
+            /* font-size: 25px; */
+        }
+
+        #hi {
+            margin: 10px 10px 0px 0px;
+            padding: 20px 20px 20px 0;
+            text-decoration: none;
+            color: black;
+            line-height: 2;
+        }
+
+
+        #list {
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .op {
+            background-color: black;
+            color: aqua;
+        }
+
+        .op1 {
+            color: white;
+        }
+
+        h2 {
+            margin: 5px 2px 0px 2px;
+            padding: auto;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: black;
+            padding: 10px 0;
+        }
+
+        .hii {
+            margin: 0px 0px 0px 100px;
+            padding: 0px 0px 0px 100px;
+        }
+
+        footer {
+            width: 100%;
+            background: linear-gradient(70deg, rgb(24, 24, 24), rgb(25, 29, 29));
+            padding: 40px;
+        }
+
+        footer ul {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        footer li {
+            width: 80px;
+            height: 80px;
+            margin: 0 50px;
+        }
+
+        footer img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #optionpyq {
+            margin: 0;
+            width: 5px;
+            height: 25px;
+            align-items: left;
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0);
+            color: black;
+            border: 0;
+            margin-left: -10px;
+            margin-top: -25px;
+            font-size: 25px;
+        }
+
+        #hi {
+            margin: 5px;
+            color: black;
+            text-decoration: none;
+        }
+
+
+        .dropdown-menu {
+            --bs-dropdown-zindex: 1000;
+            --bs-dropdown-min-width: 10rem;
+            --bs-dropdown-padding-x: 0;
+            --bs-dropdown-padding-y: 1.0rem 0.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .maincontain {
+                margin: 100px;
+                padding: 5px;
+                display: grid;
+                grid-template-columns: 550px;
+                grid-gap: 90px;
+                grid-area: inherit;
+            }
+
+            footer {
+                width: 550px;
+                height: 100px;
+            }
+
+            #over {
+                margin: 30px;
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+
+            .maincontain {
+                display: none;
+                flex-direction: column;
+                top: 200px;
+                left: 0;
+                right: 0;
+                display: block;
+                margin: 10px 0;
+            }
+        }
+
+
+        /* nav bar */
+        @media (max-width: 768px) {
+            .menu1 {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                text-align: center;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle1 {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                margin-top: -10px;
+                color: white;
+            }
+
+            .menu1 li {
+                margin: 10px 0;
+                list-style: none;
+            }
+
+            #list div {
+                margin-left: -30px;
+                margin-top: 8px;
+                font-size: 15px;
+            }
+
+            #hi {
+                font-size: 15px;
+            }
+
+            footer {
+                width: 350px;
+            }
+
+            h2,
+            h1 {
+                font-weight: 800;
+            }
+
+            .maincontain {
+                margin-left: -30px;
+            }
+        }
+        .branch1 a {
+            font-weight: 600;
+            color: black;
+            text-decoration: none;
+            margin: 10px;
+            padding: 10px;
+            background-color: rgb(244, 244, 244);
+        }
+
+        .branch1 a:hover {
+            background-color: black;
+            color: rgb(244, 244, 244);
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="../../index.html" class="logo">RIT NoteBook</a>
+                <div class="menu-toggle1">&#9776</div>
+                <ul class="menu1">
+                    <li><a href="../../index.html">Home</a>
+                    </li>
+                    <li><a href="../../pyq.html">PYQ</a></li>
+                    <li class="dropdown1">
+                        <a href="#">Notes &#9662</a>
+                        <ul class="dropdown-menu1">
+                            <li><a href="../first.html">First year</a></li>
+                            <li><a href="../second.html">Second year</a></li>
+                            <li><a href="../third.html">Third year</a></li>
+                            <li><a href="../fourth.html">Fourth year</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../labcodes.html">Lab Codes</a></li>
+                    <li><a href="../../about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1 class="year">Electronics and Communication Engineering</h1>
+            <p class="branch1">
+                <a href="https://drive.google.com/file/d/1jdbItGcLI_EAwMLPgHtQD3gNWRraqp3P/view?usp=sharing" target="_blank">Time Table</a>
+                <a href="https://drive.google.com/drive/folders/1IQWCS4OgNdsvH8XEu11NjludO2yHT1rs?usp=sharing" target="_blank">Maths Ques Bank</a>
+                <a href="https://drive.google.com/file/d/1e1ObhIsML3ud2PRMQrtArfhk5dci7Iee/view?usp=sharing" target="_blank">Syllabus</a>
+            </p>
+            <div class="maincontain">
+                <div>
+                    <div class="contain" id="over">
+                        <h2>3rd Semester</h2>
+                        <div>
+                            <ul id="cycle">
+                                <li id="list">
+                                    <div class="dropdown">Mathematics
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/14NfPE0XsUE3wVq_4IN_SiJWfznf-N5P2?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/19nrF-alNv2yUooWMahUq8eOcBk2xRblR?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1_PnRpDuM7dVlh7cFFV4j0P0Ldtlp8f3j?usp=sharing"
+                                                    target="_blank">Question Bank</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">C++ Programming
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1eOy6qFmSa17A0GtWlGd-FqAP2UZe65aA?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/11mezP6CGYNagf1erQ-WpAl3jg40ppw0_?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Analog Electronics Circuits
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1NR1bbfqM6AKKZvAQ-gHwaT1GZenSNdae?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1GDP82D6bL4QgSJr5ppeecgBQUONAWXGD?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Network Analysis & Control System
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1E2L3EXYtnWZdAmZov0isEude1K83oTUW?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1dadIpzGja9XCOy_s107HPp-nFGlefHaj?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Digital Design & HDL
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/11sLYD83KqCQcYVduyjLSxX3zhpClhUcm?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1NkNQ2XkLQCzeAEGlSIH7Uw6-jZ0Bgfmh?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Ability Enhancement Course
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1lWP1cntIFPN-dK65IRoq-n4Hv1Z0Kegq?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1a2Wi21GcH1MrCGbbWbuUTOdNhh3SDaRv?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Universal Human Values
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/150u-9s19NZULHkPJGt3kB0u85nuws0-M?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1DDQaXCa1FcuZlybmA-dkkCOsN7IL2hqb?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="contain" id="over">
+                        <h2>4th Semester</h2>
+                        <div>
+                            <ul id="cycle">
+                                <li id="list">
+                                    <div class="dropdown">Mathematics
+                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1MArB37msbhAVaTC7d3B7yXBnNzndkgLx?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1dZrq4l34tWFoIwpKS8nQV9wxi0Lc0ch8?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1Tvo1pJ_2z7yKrM3FHR2Iagc60OEMQkMo?usp=sharing"
+                                                    target="_blank">Question Bank</a>
+                                            </li>
+                                        </ul> -->
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Engineering Electromagnetics
+                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1PvPeYzPPg1cRFMK7yWXo_EegZQGLn2pH?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1SoWC7n2GiTQBWAabxWn9fxvWB8nnARU6?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul> -->
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Communication System-I
+                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1hIiGKjE-38h8pOMq6u5Pi28BZzixMBFS?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1BbT3sj9zvJxWMG0hcUBvTtVC87MVqCpi?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul> -->
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Microprocessors
+                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1JRk0g78UGig5YUAnlCQcf9VqmMLuDgSx?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/18yhdCWqDdI_Uq-50O5Evy9SLq-QkEMLC?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul> -->
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Signal Processing
+                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1yWBQPEOL5cWrSmYReQWsZ3GJ4Q3xeK1Z?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1Nba45kqw-Hd6cO2bNEWsuQ-zZ3DcTJTt?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul> -->
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Ability Enhancement Course
+                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/11yzYZ4luW0_PaDemi6ZD60F0C2Zvxtif?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1a2Wi21GcH1MrCGbbWbuUTOdNhh3SDaRv?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul> -->
+                                    </div>
+                                </li>
+                                <li id="list">
+                                    <div class="dropdown">Universal Human Values
+                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/150u-9s19NZULHkPJGt3kB0u85nuws0-M?usp=sharing"
+                                                    target="_blank">Notes</a>
+                                            </li>
+                                            <li><a id="hi"
+                                                    href="https://drive.google.com/drive/folders/1DDQaXCa1FcuZlybmA-dkkCOsN7IL2hqb?usp=sharing"
+                                                    target="_blank">pyq</a>
+                                            </li>
+                                        </ul> -->
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle1");
+        const menu = document.querySelector(".menu1");
+
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("active");
+        });
+    });
+</script>
+</body>
+
+</html>
