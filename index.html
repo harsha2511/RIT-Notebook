@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="ritnotebook,rit notebook, msrit, notes, ramaiah notes, ramaiah previous year question papers, rit, pyq, note sharing, ritnotebook.pages.dev">
-    <meta name="description" content="The place to get all your notes, pyq's and the lab codes at a single place">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +11,8 @@
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Libre+Baskerville:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="styles/animation.css">
     <link rel="icon" href="images/icons/favicon.png" type="image/x-icon">
     <title>RITNoteBook</title>
     <style>
@@ -25,6 +25,7 @@
             margin: 10px;
             padding: 10px;
             align-items: center;
+            /* background: linear-gradient(30deg, rgb(77, 77, 77), rgb(58, 58, 58)); */
             background-color: white;
             font-size: larger;
             margin: 10px;
@@ -33,6 +34,7 @@
         /*Blocks*/
         .maincontain {
             margin: 50px;
+            margin-left: 70px;
             padding: 10px;
             display: grid;
             grid-template-columns: 400px 500px;
@@ -80,7 +82,7 @@
         }
 
         .seat1 {
-            width: 500px;
+            width: 220px;
             height: 100px;
             margin: 10px;
             padding: 10px;
@@ -108,6 +110,7 @@
             color: white;
             text-decoration: none;
             background-color: black;
+            /* background: linear-gradient(30deg, rgb(174, 15, 97), rgb(167, 45, 216)); */
         }
 
 
@@ -211,6 +214,57 @@
             animation-duration: 2s;
         }
 
+        #over {
+            margin-left: -50px;
+            display: grid;
+            grid-template-columns: 300px 300px;
+            gap: 50px
+        }
+
+        .contain {
+            height: 0px;
+        }
+
+        #rit {
+            text-align: center;
+            color: black;
+            margin: 0px;
+        }
+
+        #ritp {
+            font-size: 20px;
+            width: 600px;
+            margin: 15px;
+            margin-left: -20px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        #first {
+            display: grid;
+            grid-template-columns: 150px 150px 150px;
+            gap: 50px;
+        }
+
+        .actions2 {
+            margin: 10px;
+        }
+
+        #go1 {
+            font-size: 15px;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid black;
+            color: white;
+            background-color: black;
+            text-decoration: none;
+        }
+
+        #go1:hover {
+            letter-spacing: 2px;
+            background-color: #333;
+        }
+
         /* Media queries for responsiveness */
         @media (max-width: 768px) {
             .menu {
@@ -253,6 +307,7 @@
             #mainimg {
                 width: 10px;
             }
+
         }
 
         @media only screen and (min-width: 400px) and (max-width: 768px) {
@@ -272,6 +327,7 @@
                 grid-gap: 100px;
                 grid-area: inherit;
             }
+
 
             .seat1 {
                 width: 300px;
@@ -308,7 +364,35 @@
                 margin: 5px;
                 font-size: 22px;
             }
+
+
+            #first {
+                display: grid;
+                grid-template-columns: 150px 150px 150px;
+                gap: 50px;
+            }
+
+            .actions2 {
+                margin: 10px;
+            }
+
+            #go1 {
+                font-size: 15px;
+                margin: 10px;
+                padding: 10px;
+                border: 2px solid black;
+                color: white;
+                background-color: black;
+                text-decoration: none;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+
+            #go1:hover {
+                letter-spacing: 2px;
+                background-color: #333;
+            }
         }
+
         @media only screen and (min-width: 481px) and (max-width: 768px) and (orientation:landscape) {
             body {
                 background-color: #333;
@@ -318,14 +402,15 @@
                 color: white;
             }
 
-            .contain {
+            /* .contain {
                 margin: 5px;
                 display: grid;
                 grid-template-columns: 200px 200px;
                 grid-gap: 100px;
                 grid-area: inherit;
-            }
+            } */
         }
+
         @media only screen and (min-width: 330px) and (max-width: 480px) {
             body {
                 background-color: #333;
@@ -343,8 +428,20 @@
                 grid-area: inherit;
             }
 
+            #ritp {
+                margin: 0px;
+                margin-top: -30px;
+            }
+
+            #over {
+
+                display: grid;
+                grid-template-columns: 10px;
+                grid-gap: 80px;
+            }
+
             .seat1 {
-                width: 200px;
+                width: 250px;
                 height: 100px;
                 margin: 10px;
                 padding: 0px;
@@ -354,6 +451,28 @@
                 text-decoration: solid;
                 text-align: center;
                 border-radius: 10px;
+            }
+
+            .contain {
+                background: linear-gradient(90deg, #007cf0, #00dfd8);
+                /* background: linear-gradient(90deg, rgb(6, 6, 6), #303232); */
+                background-clip: text;
+            }
+
+            #rit {
+                font-size: 0px;
+                text-align: center;
+                color: black;
+                margin: 10px;
+            }
+
+            #ritp {
+                margin: 5px;
+                color: white;
+                width: 300px;
+                font-size: 15px;
+                line-height: 1.2;
+                text-align: justify;
             }
 
             .action {
@@ -376,23 +495,62 @@
                 margin: 5px;
                 font-size: 22px;
             }
+
+            #first {
+                margin: 20px;
+                margin-left: -20px;
+                display: grid;
+                grid-template-columns: 90px 125px 80px;
+                gap: 10px;
+            }
+
+            .actions2 {
+                margin: 10px;
+            }
+
+            #over {
+                margin-left: 5px;
+                width: 10px;
+            }
+            .logo{
+                font-size: 30px;
+            }
+
+            #go1 {
+                font-size: 15px;
+                margin: 10px;
+                padding: 10px;
+                border: 2px solid black;
+                color: white;
+                background-color: black;
+                text-decoration: none;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
         }
 
-        @media only screen  and (min-width: 900px) {
-        .seat1:hover {
-            font-size: 20px;
-            width: 510px;
-            height: 110px;
-            background-color: rgb(244, 246, 246);
-            border: 3px black solid;
-            letter-spacing: 2px;
+        @media only screen and (min-width: 900px) {
+            .seat1:hover {
+                font-size: 20px;
+                /* width: 510px;
+            height: 110px; */
+                background-color: rgb(244, 246, 246);
+                border: 3px black solid;
+                letter-spacing: 2px;
+            }
+
+            #go:hover {
+                align-items: center;
+                letter-spacing: 2px;
+            }
+
         }
 
-        #go:hover {
-            align-items: center;
-            letter-spacing: 2px;
-        }
-    }
+        /* #last{
+            margin:-250px auto auto 300px;
+            display: grid;
+            grid-template-columns: 100px 100px 100px 100px;
+            gap: 100px;
+        } */
     </style>
 </head>
 
@@ -433,6 +591,30 @@
                     <img id="mainimg" src="images/icons/logo.png">
                 </div>
                 <div>
+                    <div>
+                        <h1 id="rit">RIT Notebook</h1>
+                        <p id="ritp">
+                            This website provides a seamless note-taking experience at your fingertips. Organize
+                            effortlessly, collaborate seamlessly, and sync across devices with RIT Notebook. Its intuitive
+                            interface, rich media support, and customizable templates redefine the way you capture
+                            ideas. Elevate productivity with RIT Notebook - your ultimate note-taking companion!
+                        <div id="first">
+                            <div class="actions2">
+                                <a id="go1" href="https://drive.google.com/drive/folders/1Y9bxPO7G3SptQZRbSXZ537FCjE4eQ0Py?usp=sharing">Syllabus</a>
+                            </div>
+                            <div class="actions2">
+                                <a id="go1" href="/skilllab.html">Skill Lab
+                                </a>
+                            </div>
+                            <div class="actions2">
+                                <a id="go1" href="mailto:labcodesandnotes@gamail.com">Contact</a>
+                            </div>
+                        </div>
+                        </p>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
                     <div class="contain" id="over">
                         <div class="seat1">
                             <h3>First Year</h3><br>
@@ -463,8 +645,6 @@
             </div>
         </section>
     </main>
-
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const menuToggle = document.querySelector(".menu-toggle");
