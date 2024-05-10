@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -393,6 +393,7 @@
         }
 
         p {
+            text-align: justify;
             margin: 20px;
             padding: 10px;
             font-size: 20px;
@@ -413,7 +414,7 @@
         }
 
         /* Media queries for responsiveness */
-        
+
 
         @media only screen and (min-width: 769px) and (max-width: 1024px) {
 
@@ -469,17 +470,20 @@
                 display: grid;
                 grid-template-columns: 100px;
             }
-            .team img{
+
+            .team img {
                 width: 200px;
                 height: auto;
                 margin-left: -10px;
             }
-            .inner{
+
+            .inner {
                 margin-left: 10px;
                 display: grid;
                 grid-template-columns: 10px;
             }
         }
+
         @media (max-width: 768px) {
             .menu {
                 display: none;
@@ -507,6 +511,7 @@
                 margin: 10px 0;
             }
         }
+
         @media (max-width: 768px) {
             body {
                 margin: 10px;
@@ -555,12 +560,43 @@
                 margin-top: 10px;
                 padding-top: 20px;
             }
-            footer, hr{
+
+            footer,
+            hr {
                 width: 450px;
             }
-            /* body{
-                margin-left: -10px;
-            } */
+
+            #me {
+                margin: 0 0 0 -19px;
+                width: 260px;
+                height: auto;
+                border: 2px solid black;
+                /* border-radius: 10%; */
+            }
+            #dev,
+            .me1,#c1,#c2,#c3{
+                margin: 0 0 0 -65px;
+                width: 350px;
+            }
+            hr{
+                width: 0;
+            }
+            .me1{
+                margin-left: 8px;
+            }
+            #c1{
+                font-size: 30px;
+            }
+            footer{
+                height: 100px;
+                width: auto;
+            }
+            footer img{
+                margin-top: -25px;
+            }
+            body{
+                width: auto;
+            }
         }
     </style>
 </head>
@@ -569,20 +605,13 @@
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="index.html" class="logo">RIT NoteBook</a>
+                <a href="index.html" class="logo">RIT Note Book</a>
                 <div class="menu-toggle">&#9776</div>
                 <ul class="menu">
-                    <li><a href="index.html">Home</a>
-                    </li>
-                    <li><a href="notes/first.html">Notes</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pyq.html">Math_QB</a></li>
                     <li><a href="labcodes.html">Lab Codes</a></li>
-                    <li class="dropdown">
-                        <a href="#">PYQ &#9662</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="pyq.html">First year</a></li>
-                            <li><a href="pyq.html">Math_Question_Bank</a></li>
-                        </ul>
-                    </li>
                     <li><a href="about.html">About</a></li>
                 </ul>
             </div>
@@ -601,12 +630,12 @@
         <section>
             <div class="me">
                 <div class="me2">
-                    <img src="images/team/harsha1.jpeg" id="me" class="img-thumbnail" alt="Harsha">
+                    <img src="images/team/harsha.jpeg" id="me" class="img-thumbnail" alt="Harsha">
                     <!-- <p id="harsha">Harsha</p> -->
                 </div>
                 <div class="me2">
-                    <h1 class="name">Developer</h1>
-                    <p>
+                    <h1 class="name" id="dev">Developer</h1>
+                    <p id="dev">
                         Welcome to my website! I'm Harsha, an electrical engineering student set to graduate in
                         2026. In just one month, I've crafted this platform to share my passion for technology and
                         innovation. Join me on this exciting journey as we explore the electrifying world of engineering
@@ -622,8 +651,8 @@
                             </a>
                         </div>
                         <div><a href="mailto:labcodesandnotes@gamail.com">
-                            <img id="contact" src="images/icons/gmail.png" alt="Instagram logo">
-                        </a>
+                                <img id="contact" src="images/icons/gmail.png" alt="Instagram logo">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -632,11 +661,11 @@
         </section>
         <hr><br>
         <section>
-            <h2>Contact Us</h2>
-            <p>
+            <h2 id="c1">Contact Us</h2>
+            <p id="c2">
                 If you have any questions or inquiries, please don't hesitate to contact us.
             </p>
-            <address>
+            <address id="c3">
                 Contact: <a href="mailto:labcodesandnotes@gmail.com">Email</a><br>
             </address>
         </section>
@@ -651,18 +680,18 @@
         </ul>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const menuToggle = document.querySelector(".menu-toggle");
-                const menu = document.querySelector(".menu");
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu");
 
-                menuToggle.addEventListener("click", function () {
-                    menu.classList.toggle("active");
-                });
+            menuToggle.addEventListener("click", function () {
+                menu.classList.toggle("active");
             });
-        </script>
+        });
+    </script>
 </body>
 
 </html>
- -->
