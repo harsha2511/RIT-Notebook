@@ -4,639 +4,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/style.css">
     <link rel="icon" href="../images/icons/favicon.png" type="image/x-icon">
-
     <title>Notes</title>
-    <style>
-        header {
-            width: 92%;
-            height: 40px;
-        }
-
-        body {
-            margin: 10px;
-            padding: 10px;
-            align-items: center;
-            background-color: white;
-            font-size: larger;
-        }
-
-        .year {
-            font-size: 50px;
-            text-align: center;
-            margin: 5px;
-            margin-top: 30px;
-            margin-left: -100px;
-            padding: 10px 2px 0px 10px;
-        }
-
-        .branch {
-            text-align: center;
-            margin: 2px 2px 0px 2px;
-            padding: 10px 2px 2px 0;
-        }
-
-        .branch1 {
-            text-align: center;
-            margin: 2px 2px 0px 2px;
-            padding: 10px 2px 0px 0;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-
-        .maincontain {
-            margin: 50px 50px 0px 50px;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: 550px 550px;
-            grid-gap: 150px;
-            grid-area: inherit;
-        }
-
-        .option {
-            font-size: 10px;
-            color: aliceblue;
-        }
-
-
-        #over {
-            margin: 10px;
-            padding: 30px;
-            text-align: left;
-            text-decoration: none;
-        }
-
-        .contain {
-            display: grid;
-            grid-template-rows: 100px 100px 100px 100px;
-            grid-area: inherit;
-            display: grid;
-            background-color: rgb(243, 244, 246);
-            text-decoration: none;
-        }
-
-        .action {
-            margin: 10px;
-            padding: 5px;
-            align-items: center;
-            text-align: center;
-        }
-
-        #go {
-            margin: 2px 2px 2px 2px;
-            padding: 10px;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            background-color: black;
-        }
-
-        #go:hover {
-            align-items: center;
-            letter-spacing: 2px;
-            /* font-size: 25px; */
-        }
-
-        #hi {
-            margin: 10px 10px 0px 0px;
-            padding: 20px 20px 20px 0;
-            text-decoration: none;
-            color: black;
-            line-height: 2;
-        }
-
-
-        #list {
-            text-decoration: none;
-            list-style: none;
-        }
-
-        .op {
-            background-color: black;
-            color: aqua;
-        }
-
-        .op1 {
-            color: white;
-        }
-
-        h2 {
-            margin: 5px 2px 0px 2px;
-            padding: auto;
-        }
-
-        .navbar {
-            background-color: #333;
-            color: black;
-            padding: 10px 0;
-        }
-
-        .hii {
-            margin: 0px 0px 0px 100px;
-            padding: 0px 0px 0px 100px;
-        }
-
-        footer {
-            width: 100%;
-            background: linear-gradient(70deg, rgb(24, 24, 24), rgb(25, 29, 29));
-            padding: 40px;
-        }
-
-        footer ul {
-            display: flex;
-            justify-content: center;
-
-        }
-
-        footer li {
-            width: 80px;
-            height: 80px;
-            margin: 0 50px;
-        }
-
-        footer img {
-            width: 100%;
-            height: 100%;
-        }
-
-        #optionpyq {
-            margin: 0;
-            width: 5px;
-            height: 25px;
-            align-items: left;
-            text-align: left;
-            background-color: rgba(0, 0, 0, 0);
-            color: black;
-            border: 0;
-            margin-left: -10px;
-            margin-top: -25px;
-            font-size: 25px;
-        }
-
-        #hi {
-            margin: 5px;
-            color: black;
-            text-decoration: none;
-        }
-
-
-        .dropdown-menu {
-            --bs-dropdown-zindex: 1000;
-            --bs-dropdown-min-width: 10rem;
-            --bs-dropdown-padding-x: 0;
-            --bs-dropdown-padding-y: 1.0rem 0.5rem;
-        }
-
-        header {
-            width: 92%;
-            height: 50px;
-        }
-
-        body {
-            margin: 10px;
-            padding: 10px;
-            align-items: center;
-            background-color: white;
-            font-size: larger;
-            margin: 10px;
-            padding: 10px;
-        }
-
-        .container1 {
-            display: grid;
-            grid-template-columns: 250px 250px 250px 250px;
-            grid-gap: 50px;
-            grid-area: inherit;
-            align-items: center;
-            margin: 50px 10px 10px 60px;
-        }
-
-        #over {
-            text-align: center;
-        }
-
-        #overview {
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-decoration: solid;
-            text-align: center;
-            text-shadow: 2px 2px 2px black;
-        }
-
-        #container1 {
-            display: grid;
-            grid-template-columns: 500px 500px;
-            grid-gap: 100px;
-            grid-area: inherit;
-        }
-
-        #seat1 {
-            color: black;
-            background-color: rgb(179, 177, 177);
-            border: 2px black solid;
-            border-radius: 3px;
-            text-align: center;
-            text-decoration: solid;
-        }
-
-        .seat1 {
-            color: black;
-            background-color: rgb(248, 244, 244);
-            border: 1px black solid;
-            border-radius: 3px;
-            text-align: center;
-            text-decoration: solid;
-            height: 220px;
-            align-items: center;
-        }
-
-        p {
-            margin: 0px 0px 35px 0px;
-        }
-
-        .seat1:hover {
-            color: black;
-            background-color: rgb(236, 234, 234);
-            border: 3px black solid;
-            letter-spacing: 2px;
-        }
-
-        .action {
-            align-items: center;
-            text-align: center;
-        }
-
-        #go {
-            /* margin: 2px 2px 2px 100px; */
-            padding: 10px;
-            align-items: center;
-            color: white;
-            background-color: black;
-        }
-
-        #go:hover {
-            align-items: center;
-            letter-spacing: 2px;
-        }
-
-        .seat1 h3 {
-            margin: 10px;
-        }
-
-        main {
-            margin-left: 50px;
-        }
-
-        @media (max-width: 480px) {
-            .maincontain {
-                margin: 100px;
-                padding: 5px;
-                display: grid;
-                grid-template-columns: 550px;
-                grid-gap: 90px;
-                grid-area: inherit;
-            }
-
-            footer {
-                width: 550px;
-                height: 100px;
-            }
-
-            #over {
-                margin: 30px;
-                padding: 10px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                text-align: center;
-            }
-
-            .menu.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-
-            .menu li {
-                margin: 10px 0;
-            }
-
-            .maincontain {
-                display: none;
-                flex-direction: column;
-                top: 200px;
-                left: 0;
-                right: 0;
-                display: block;
-                margin: 10px 0;
-            }
-        }
-
-
-        /* nav bar */
-        @media (max-width: 768px) {
-            .menu1 {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: #333;
-                text-align: center;
-            }
-
-            .menu.active {
-                display: flex;
-            }
-
-            .menu-toggle1 {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                margin-top: -10px;
-                color: white;
-            }
-
-            .menu1 li {
-                margin: 10px 0;
-                list-style: none;
-            }
-
-            #list div {
-                margin-left: -30px;
-                margin-top: 8px;
-                font-size: 15px;
-            }
-
-            #hi {
-                font-size: 15px;
-            }
-
-            h2,
-            h1 {
-                font-weight: 800;
-            }
-
-            .maincontain {
-                margin-left: -30px;
-            }
-
-            .container1 {
-                display: grid;
-                grid-template-columns: 170px 170px;
-                grid-gap: 20px;
-                grid-area: inherit;
-                align-items: center;
-                margin: 50px 10px 10px 60px;
-            }
-
-            .year {
-                margin: 10px;
-                margin-top: 50px;
-                margin-bottom: -30px;
-                font-size: 30px;
-            }
-
-            header {
-                width: 350px;
-                margin-left: -15px;
-            }
-
-            .seat1 {
-                color: black;
-                background-color: rgb(248, 244, 244);
-                border: 1px black solid;
-                border-radius: 3px;
-                text-align: center;
-                text-decoration: solid;
-                height: 180px;
-                align-items: center;
-            }
-
-            main {
-                margin: -50px;
-            }
-        }
-
-        li {
-            list-style: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/year.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="../index.html" class="logo">RIT NoteBook</a>
-                <div class="menu-toggle1">&#9776</div>
-                <ul class="menu1">
-                    <li><a href="../index.html">Home</a>
-                    </li>
-                    <li><a href="../pyq.html">Math_QB</a></li>
-                    <li class="dropdown1">
-                        <a href="#">Notes &#9662</a>
-                        <ul class="dropdown-menu1">
-                            <li><a href="first.html">First year</a></li>
-                            <li><a href="second.html">Second year</a></li>
-                            <li><a href="third.html">Third year</a></li>
-                            <li><a href="fourth.html">Fourth year</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="../labcodes.html">Lab Codes</a></li>
-                    <li><a href="../about.html">About</a></li>
-                </ul>
+    <div class="navbar">
+        <div class="logo">
+            <img src="../Images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes</button>
+                <div class="dropdown-content">
+                    <a href="../notes/first.html">First</a>
+                    <a href="../notes/second.html">Second</a>
+                    <a href="../notes/third.html">Third</a>
+                    <a href="../notes/fourth.html">Fourth</a>
+                </div>
             </div>
-        </nav>
-    </header>
+            <a href="../labcodes.html">Lab Codes</a>
+            <a href="../about.html">About</a>
+        </div>
+    </div>
+
     <main>
         <section>
             <h1 class="year">Second Year</h1>
         </section>
         <section>
-            <div class="container1" id="over">
-                <div class="seat1">
+            <div class="container1">
+                <div class="box">
                     <h3>CSE</h3>
                     <p>Computer Science Engineering</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1e51k--ZTN4kXJwCfAL0BoB17-9KfY09o?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1e51k--ZTN4kXJwCfAL0BoB17-9KfY09o?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>ISE</h3>
                     <p>Information Science Engineering</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1DXlO4dJees_yV3oXOd9p8AogrMb6KlBO?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1DXlO4dJees_yV3oXOd9p8AogrMb6KlBO?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>AIML</h3>
                     <p>Artificial intelligence and machine learning</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1LwpdH4S5BY95Lag8qBr4-4IZ1s0EoE4U"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1LwpdH4S5BY95Lag8qBr4-4IZ1s0EoE4U" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>AIDS</h3>
                     <p>Artificial intelligence and Data Science</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1LwpdH4S5BY95Lag8qBr4-4IZ1s0EoE4U"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1LwpdH4S5BY95Lag8qBr4-4IZ1s0EoE4U" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>CSE-AIML</h3>
                     <p>CSE- Artificial intelligence and machine learning</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1jclM1XLV7bbg233trVU8Fyh_uSSm8e7s?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1jclM1XLV7bbg233trVU8Fyh_uSSm8e7s?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>CSE-Cyber</h3>
-                    <p>CSE- Cyber <br>Security</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/13YLW6ZC0RGkf4P05kdr61Xk6B3U3Lyqr?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <p>CSE- Cyber Security</p>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/13YLW6ZC0RGkf4P05kdr61Xk6B3U3Lyqr?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>ECE</h3>
                     <p>Electronics and Communication Engineering</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1J7ZlAWcW6aEMJxi2nsP1PdYs2KX1i_Fy?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1J7ZlAWcW6aEMJxi2nsP1PdYs2KX1i_Fy?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>EEE</h3>
                     <p>Electrical and Electronics Engineering</p>
-                    <div class="actions">
-                        <a id="go" 
-                            href="https://drive.google.com/drive/folders/1qSyEjG2-JCBWWARbo7dxeWJYlwHsf9tN?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1qSyEjG2-JCBWWARbo7dxeWJYlwHsf9tN?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>EIE</h3>
                     <p>Electronics and Instrumentation Engineering</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1fYbkbt39xr8C9uzaTkQBJgYUe84EqIO2?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1fYbkbt39xr8C9uzaTkQBJgYUe84EqIO2?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>ETE</h3>
                     <p>Electronics and Telecommunication Engineering</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1-KsJg82D9klXS-GLelQlN1syLu1sbSE4?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1-KsJg82D9klXS-GLelQlN1syLu1sbSE4?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>ME</h3>
                     <p>Mechanical Engineering</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1Y35O1D78kM0b42PD3x0sfmyUHGr30I_E?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1Y35O1D78kM0b42PD3x0sfmyUHGr30I_E?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>Civil</h3>
                     <p>Civil Engineering</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1oNCT6kfLJuKrnkJ7HNs_5WqDJNDHDiHE?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1oNCT6kfLJuKrnkJ7HNs_5WqDJNDHDiHE?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>CH</h3>
                     <p>Chemical Engineering</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1eDMUN2Skw_mhR-m-IqbFHhsWSSUbNFPN?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1eDMUN2Skw_mhR-m-IqbFHhsWSSUbNFPN?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>BT</h3>
                     <p>Biotechnology Engineering</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/1SdM4b6m2gxRyrHEkO5R5Kv9vvX8uWGhn?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/1SdM4b6m2gxRyrHEkO5R5Kv9vvX8uWGhn?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>MD</h3>
                     <p>Medical Electronics</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/15OCEtFsNq8O5Ub554m3bOU1ndKJ09Vx6?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/15OCEtFsNq8O5Ub554m3bOU1ndKJ09Vx6?usp=sharing" target="_blank">View</a>
                 </div>
-                <div class="seat1">
+                <div class="box">
                     <h3>IEM</h3>
                     <p>Industrial Engineering and Management</p>
-                    <div class="actions">
-                        <a id="go"
-                            href="https://drive.google.com/drive/folders/12RL3sCcXvnQ1Mqy4aoPtAQcTonWECjag?usp=sharing"
-                            target="_blank">View</a>
-                    </div>
+                    <a class="view-btn" href="https://drive.google.com/drive/folders/12RL3sCcXvnQ1Mqy4aoPtAQcTonWECjag?usp=sharing" target="_blank">View</a>
                 </div>
             </div>
         </section>
     </main>
-</body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle1");
+            const menu = document.querySelector(".menu1");
 
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const menuToggle = document.querySelector(".menu-toggle1");
-        const menu = document.querySelector(".menu1");
-
-        menuToggle.addEventListener("click", function () {
-            menu.classList.toggle("active");
+            menuToggle.addEventListener("click", function () {
+                menu.classList.toggle("active");
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
