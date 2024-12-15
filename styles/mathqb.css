@@ -1,32 +1,19 @@
-/* Global Reset */
-* {
+/* General Reset */
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* General Layout */
-body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #e3f2fd; /* Light Blue Background */
+    background-color: #edf6fc; /* Light blue background */
+    height: 100%;
 }
 
 /* Navigation Bar */
 .navbar {
     display: flex;
-    justify-content: space-between;
-    
-    background-color: #0044cc; /* Dark blue */
-    padding: 10px 20px;
-    
-}
-.navbar {
-    display: flex;
     align-items: center;
     justify-content: space-between;
     align-items: center;
-    background-color: #004aad;
+    background-color: #1E3A8A;
     color: white;
     padding: 10px 20px;
     position: sticky;
@@ -146,118 +133,65 @@ body {
     background-color: #ddd;
 }
 
-/* Buttons Section */
-.buttons-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.nav-btn {
-    background-color: #1E3A8A; /* Dark Blue for Buttons */
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.nav-btn:hover {
-    background-color: #1565c0; /* Darker Blue on hover */
-}
-
-/* Heading Section */
-.heading-box {
-    background-color: #edf4f7; /* Light Blue Background for Heading Section */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    text-align: justify; /* Center the content */
-}
-
-.heading-box h2 {
-    margin-bottom: 10px;
+/* Section styling */
+.year {
+    text-align: center;
     font-size: 30px;
-    color: black; /* Dark Blue color for heading */
-    text-align: center;
-    font-weight: 100%;
+    margin-top: 30px;
+    font-weight: bold;
 }
 
-.heading-box p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: rgb(28, 28, 28);
-    text-align: center;
-}
-
-/* Box Layout */
-.box {
+.container1 {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 20px;
+    justify-content: space-between; /* Ensures horizontal placement */
+    flex-wrap: wrap; /* Allows wrapping if necessary */
+    margin: 10px 0;
+    flex-direction: row;
 }
 
-.inner-box {
-    background-color: #ffffff; /* White background for Physics and Chemistry Boxes */
-    padding: 20px;
-    border-radius: 5px;
-    width: 48%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.inner-box h3 {
+.seat1 {
+    background-color: #f4f4f4;
+    align-items: center;
     text-align: center;
-    background-color: #cbd9f6;
-    margin-bottom: 15px;
-    color: #000000; /* Black color for Physics and Chemistry Titles */
+    padding: 10px;
+    margin: 20px;
+    width: 200px; /* Adjust the width to ensure 4 boxes fit in a row */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-ul {
-    list-style: none; /* Removing list style */
-}
-
-ul li {
+.seat1 h3 {
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
-a {
-    color: black; /* Links in black */
+.seat1 p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.actions a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
     text-decoration: none;
+    border-radius: 5px;
 }
 
-a:hover {
-    text-decoration: underline;
+.actions a:hover {
+    background-color: #0056b3;
 }
 
-/* Dropdown Styling */
-.dropdown-content {
-    display: none;
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-}
-
-.dropdown-btn {
-    cursor: pointer;
-    text-decoration: underline;
-    color: black;
-}
-
-.dropdown.open .dropdown-content {
-    display: block;
-}
-
-/* Responsive Design */
+/* Responsive layout for smaller screens */
 @media (max-width: 768px) {
-    .box {
+    .container1 {
         flex-direction: column;
+        align-items: center;
     }
 
-    .inner-box {
-        width: 100%;
+    .seat1 {
+        width: 80%; /* Makes the boxes take up more width on smaller screens */
+        margin-bottom: 20px;
     }
 }
