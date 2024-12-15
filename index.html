@@ -1,587 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Libre+Baskerville:wght@400;700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="styles/animation.css">
-    <link rel="icon" href="images/icons/favicon.png" type="image/x-icon">
-    <title>RITNoteBook</title>
-    <style>
-        header {
-            width: 92%;
-            height: 40px;
-        }
-
-        body {
-            margin: 10px;
-            padding: 10px;
-            align-items: center;
-            /* background: linear-gradient(30deg, rgb(77, 77, 77), rgb(58, 58, 58)); */
-            background-color: white;
-            font-size: larger;
-            margin: 10px;
-        }
-
-        /*Blocks*/
-        .maincontain {
-            margin: 50px;
-            margin-left: 70px;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: 400px 500px;
-            grid-gap: 100px;
-            grid-area: inherit;
-        }
-
-        #mainimg {
-            padding: 10px;
-            width: 700px;
-            height: auto;
-            overflow: hidden;
-            position: relative;
-            position: absolute;
-            left: 0;
-            margin: -50px 10px 10px -320px;
-            border-radius: 95%;
-        }
-
-        #mainimg:hover {
-            margin: 10px;
-            padding: 10px;
-            width: 550px;
-            height: auto;
-        }
-
-        #over {
-            text-align: center;
-        }
-
-        #overview {
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-decoration: solid;
-            text-align: center;
-            text-shadow: 2px 2px 2px rgb(210, 151, 246);
-        }
-
-        .contain {
-            display: grid;
-            grid-template-rows: 100px 100px 100px 100px;
-            grid-gap: 50px;
-            grid-area: inherit;
-            display: grid;
-        }
-
-        .seat1 {
-            width: 220px;
-            height: 100px;
-            margin: 10px;
-            padding: 10px;
-            color: black;
-            background-color: white;
-            border: 2px black solid;
-            text-decoration: solid;
-            border-radius: 3px;
-            text-align: center;
-            text-decoration: solid;
-            border-radius: 10px;
-        }
-
-        .action {
-            margin: 10px;
-            padding: 5px;
-            align-items: center;
-            text-align: center;
-        }
-
-        #go {
-            margin: 2px 2px 2px 2px;
-            padding: 10px;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            background-color: black;
-            /* background: linear-gradient(30deg, rgb(174, 15, 97), rgb(167, 45, 216)); */
-        }
-
-
-        /* dropdown*/
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 200px;
-            text-align: left;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-menu li {
-            padding: 10px;
-        }
-
-        .dropdown-menu a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #ff9900;
-        }
-
-        /* Reset some default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Apply some basic styles to the body */
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        /* Style the navigation bar */
-        .navbar {
-            background-color: #333;
-            color: black;
-            padding: 10px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            color: #fff;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .menu {
-            list-style: none;
-            display: flex;
-        }
-
-        .menu li {
-            margin-right: 20px;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .menu a:hover {
-            color: #ff9900;
-        }
-
-
-        ul {
-            list-style: none;
-        }
-
-        #mainimg {
-            animation: fadeIn;
-            animation-duration: 2s;
-        }
-
-        #over {
-            margin-left: -50px;
-            display: grid;
-            grid-template-columns: 300px 300px;
-            gap: 50px
-        }
-
-        .contain {
-            height: 0px;
-        }
-
-        #rit {
-            text-align: center;
-            color: black;
-            margin: 0px;
-        }
-
-        #ritp {
-            font-size: 20px;
-            width: 600px;
-            margin: 15px;
-            margin-left: -20px;
-            line-height: 1.5;
-            text-align: justify;
-        }
-
-        #first {
-            display: grid;
-            grid-template-columns: 150px 150px 150px;
-            gap: 50px;
-        }
-
-        .actions2 {
-            margin: 10px;
-        }
-
-        #go1 {
-            font-size: 15px;
-            margin: 10px;
-            padding: 10px;
-            border: 2px solid black;
-            color: white;
-            background-color: black;
-            text-decoration: none;
-        }
-
-        #go1:hover {
-            letter-spacing: 2px;
-            background-color: #333;
-        }
-
-        /* Media queries for responsiveness */
-        @media (max-width: 768px) {
-            .menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: #333;
-                text-align: center;
-            }
-
-            .menu.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-
-            .menu li {
-                margin: 10px 0;
-            }
-
-            .maincontain {
-                display: none;
-                flex-direction: column;
-                top: 200px;
-                left: 0;
-                right: 0;
-                background-color: #333;
-                display: block;
-                margin: 10px 0;
-            }
-
-            #mainimg {
-                width: 10px;
-            }
-
-        }
-
-        @media only screen and (min-width: 400px) and (max-width: 768px) {
-            body {
-                background-color: #333;
-            }
-
-            .menu-toggle {
-                color: white;
-            }
-
-            .contain {
-                margin: 10px;
-                /* margin-left: 40px; */
-                display: grid;
-                grid-template-rows: 30px 30px 30px 30px;
-                grid-gap: 100px;
-                grid-area: inherit;
-            }
-
-
-            .seat1 {
-                width: 300px;
-                height: 110px;
-                margin: 10px;
-                padding: 0px;
-                color: black;
-                background-color: white;
-                border: 2px black solid;
-                text-decoration: solid;
-                border-radius: 3px;
-                text-align: center;
-                text-decoration: solid;
-                border-radius: 10px;
-            }
-
-            .action {
-                margin: 10px;
-                padding: 5px;
-                align-items: center;
-                text-align: center;
-            }
-
-            #go {
-                margin: 2px 2px 2px 2px;
-                padding: 10px;
-                align-items: center;
-                color: white;
-                text-decoration: none;
-                background-color: black;
-            }
-
-            h3 {
-                margin: 5px;
-                font-size: 22px;
-            }
-
-
-            #first {
-                display: grid;
-                grid-template-columns: 150px 150px 150px;
-                gap: 50px;
-            }
-
-            .actions2 {
-                margin: 10px;
-            }
-
-            #go1 {
-                font-size: 15px;
-                margin: 10px;
-                padding: 10px;
-                border: 2px solid black;
-                color: white;
-                background-color: black;
-                text-decoration: none;
-                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            }
-
-            #go1:hover {
-                letter-spacing: 2px;
-                background-color: #333;
-            }
-        }
-
-        @media only screen and (min-width: 481px) and (max-width: 768px) and (orientation:landscape) {
-            body {
-                background-color: #333;
-            }
-
-            .menu-toggle {
-                color: white;
-            }
-
-            /* .contain {
-                margin: 5px;
-                display: grid;
-                grid-template-columns: 200px 200px;
-                grid-gap: 100px;
-                grid-area: inherit;
-            } */
-        }
-
-        @media only screen and (min-width: 330px) and (max-width: 480px) {
-            body {
-                background-color: #333;
-            }
-
-            .menu-toggle {
-                color: white;
-            }
-
-            .contain {
-                margin: 10px;
-                display: grid;
-                grid-template-rows: 30px 30px 30px 30px;
-                grid-gap: 100px;
-                grid-area: inherit;
-            }
-
-            #ritp {
-                margin: 0px;
-                margin-top: -30px;
-            }
-
-            #over {
-
-                display: grid;
-                grid-template-columns: 10px;
-                grid-gap: 80px;
-            }
-
-            .seat1 {
-                width: 250px;
-                height: 100px;
-                margin: 10px;
-                padding: 0px;
-                color: black;
-                background-color: white;
-                border: 2px black solid;
-                text-decoration: solid;
-                text-align: center;
-                border-radius: 10px;
-            }
-
-            .contain {
-                background: linear-gradient(90deg, #007cf0, #00dfd8);
-                /* background: linear-gradient(90deg, rgb(6, 6, 6), #303232); */
-                background-clip: text;
-            }
-
-            #rit {
-                font-size: 0px;
-                text-align: center;
-                color: black;
-                margin: 10px;
-            }
-
-            #ritp {
-                margin: 5px;
-                color: white;
-                width: 300px;
-                font-size: 15px;
-                line-height: 1.2;
-                text-align: justify;
-            }
-
-            .action {
-                margin: 10px;
-                padding: 5px;
-                align-items: center;
-                text-align: center;
-            }
-
-            #go {
-                margin: 2px 2px 2px 2px;
-                padding: 10px;
-                align-items: center;
-                color: white;
-                text-decoration: none;
-                background-color: black;
-            }
-
-            h3 {
-                margin: 5px;
-                font-size: 22px;
-            }
-
-            #first {
-                margin: 20px;
-                margin-left: -20px;
-                display: grid;
-                grid-template-columns: 80px 120px 80px;
-                gap: 10px;
-            }
-
-            .actions2 {
-                margin: 10px;
-            }
-
-            #over {
-                margin-left: 5px;
-                width: 10px;
-            }
-            .logo{
-                font-size: 30px;
-            }
-
-            #go1 {
-                font-size: 10px;
-                margin: 10px;
-                padding: 10px;
-                border: 2px solid black;
-                color: white;
-                background-color: black;
-                text-decoration: none;
-                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            }
-        }
-
-        @media only screen and (min-width: 900px) {
-            .seat1:hover {
-                font-size: 20px;
-                /* width: 510px;
-            height: 110px; */
-                background-color: rgb(244, 246, 246);
-                border: 3px black solid;
-                letter-spacing: 2px;
-            }
-
-            #go:hover {
-                align-items: center;
-                letter-spacing: 2px;
-            }
-
-        }
-
-        /* #last{
-            margin:-250px auto auto 300px;
-            display: grid;
-            grid-template-columns: 100px 100px 100px 100px;
-            gap: 100px;
-        } */
-    </style>
-    <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var y=window,t="cabcb6496419aaadd3ef7bbd36ba45be",j=[["siteId",388+629*143-465+4979530],["minBid",0.001],["popundersPerIP","1,2"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer",!0]],q=["d3d3LmRpc3BsYXl2ZXJ0aXNpbmcuY29tL3VqcXVlcnkuY2hvY29sYXQubWluLmNzcw==","ZDNtem9rdHk5NTFjNXcuY2xvdWRmcm9udC5uZXQvc2NyaXB0cy9ueGNoYXJ0cy5taW4uanM="],i=-1,k,x,w=function(){clearTimeout(x);i++;if(q[i]&&!(1732804225000<(new Date).getTime()&&1<i)){k=y.document.createElement("script");k.type="text/javascript";k.async=!0;var p=y.document.getElementsByTagName("script")[0];k.src="https://"+atob(q[i]);k.crossOrigin="anonymous";k.onerror=w;k.onload=function(){clearTimeout(x);y[t.slice(0,16)+t.slice(0,16)]||w()};x=setTimeout(w,5E3);p.parentNode.insertBefore(k,p)}};if(!y[t]){try{Object.freeze(y[t]=j)}catch(e){}w()}})();
-/*]]>/* */
-</script>
-
+    <title>RITNotebook</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <script src="scripts/script.js" defer></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-            <div class="container">
-                <a href="index.html" class="logo">RIT Note Book</a>
-                <div class="menu-toggle">&#9776</div>
-                <ul class="menu">
-                    <li><a href="pyq.html">Math_QB</a></li>
-<!--                     <li class="dropdown">
-                        <a href="#">PYQ &#9662</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="pyq.html">Maths Quesiton Bank</a></li>
-                            <li><a href="pyq.html">Previous Year papers</a></li>
-                        </ul>
-                    </li> -->
+            <div class="logo">
+                <img src="images/logo.png" alt="RITLogo" class="logo-img">
+            </div>
+            <div class="menu-toggle" id="menuToggle">&#9776;</div>
+
+            <div class="menu-left">
+                <ul>
+                    <li><a href="pyq.html">Maths Question Bank</a></li>
                     <li class="dropdown">
-                        <a href="#">Notes &#9662</a>
+                        <a href="#">Notes &#9662;</a>
                         <ul class="dropdown-menu">
-                            <li><a href="notes/first.html">First year</a></li>
-                            <li><a href="notes/second.html">Second year</a></li>
-                            <li><a href="notes/third.html">Third year</a></li>
-                            <li><a href="notes/fourth.html">Fourth year</a></li>
+                            <li><a href="notes/first.html">First</a></li>
+                            <li><a href="notes/second.html">Second</a></li>
+                            <li><a href="notes/third.html">Third</a></li>
+                            <li><a href="notes/fourth.html">Fourth</a></li>
                         </ul>
                     </li>
                     <li><a href="labcodes.html">Lab Codes</a></li>
@@ -590,78 +35,48 @@
             </div>
         </nav>
     </header>
+
     <main>
-        <section>
-            <div class="maincontain">
-                <div>
-                    <img id="mainimg" src="images/icons/logo.png">
-                </div>
-                <div>
-                    <div>
-                        <h1 id="rit">RIT Notebook</h1>
-                        <p id="ritp">
-                            Hey there, academic adventurers! Dive into our web oasis—it's like the cheat code to
-                            surviving college. We've got notes, past questions, and the secret sauce to ace exams
-                            without losing your sanity. Join the chill side of learning; we're all about making
-                            college a little less crazy and a lot more fun! 
-                        <div id="first">
-                            <div class="actions2">
-                                <a id="go1" href="https://drive.google.com/drive/folders/1Y9bxPO7G3SptQZRbSXZ537FCjE4eQ0Py?usp=sharing" target="_blank">Syllabus</a>
-                            </div>
-                            <div class="actions2">
-                                <a id="go1" href="https://drive.google.com/drive/folders/1mmSJ0ukPci6q6hrifFVa3bvSb0WMd_KC?usp=sharing" target="_blank">Skill Lab
-                                </a>
-                            </div>
-                            <div class="actions2">
-                                <a id="go1" href="mailto:labcodesandnotes@gamail.com">Contact</a>
-                            </div>
-                        </div>
-                        </p>
-                    </div>
-                    <br>
-                    <hr>
-                    <br>
-                    <div class="contain" id="over">
-                        <div class="seat1">
-                            <h3>First Year</h3><br>
-                            <div class="actions">
-                                <a id="go" href="notes/first.html">View</a>
-                            </div>
-                        </div>
-                        <div class="seat1">
-                            <h3>Second Year</h3><br>
-                            <div class="actions">
-                                <a id="go" href="notes/second.html">View</a>
-                            </div>
-                        </div>
-                        <div class="seat1">
-                            <h3>Third Year</h3><br>
-                            <div class="actions">
-                                <a id="go" href="notes/third.html">View</a>
-                            </div>
-                        </div>
-                        <div class="seat1">
-                            <h3>Fourth Year</h3><br>
-                            <div class="actions">
-                                <a id="go" href="notes/fourth.html">View</a>
-                            </div>
-                        </div>
-                    </div>
+        <section class="center-box">
+            <div class="image-container">
+                <img src="images/logo.png" alt="Circular Image" class="circle-image">
+            </div>
+            <div class="content-box">
+                <h2>RIT Notebook</h2>
+                <p>Hey there, academic adventurers! Dive into our web oasis—it's like the cheat code to surviving college. We've got notes, past questions, and the secret sauce to ace exams without losing your sanity. Join the chill side of learning.</p>
+                <!-- Buttons Section -->
+                <div class="button-group">
+                    <a href="https://drive.google.com/drive/folders/1Y9bxPO7G3SptQZRbSXZ537FCjE4eQ0Py?usp=sharing" target="_blank" class="btn">Syllabus</a>
+                    <a href="pyq.html" class="btn">Maths Question Bank</a>
+                    <a href="https://drive.google.com/drive/folders/1mmSJ0ukPci6q6hrifFVa3bvSb0WMd_KC?usp=sharing" target="_blank" class="btn">Skill Lab</a>
+                    <a id="go1" href="mailto:labcodesandnotes@gamail.com" class="btn">Contact</a>
                 </div>
             </div>
         </section>
+
+        <section class="year-boxes">
+            <div class="year-box">
+                <img src="images/1styr.png" alt="First Year" class="circle-image">
+                <h3>First Year</h3>
+                <a href="notes/first.html" class="view-btn">View</a>
+            </div>
+            <div class="year-box">
+                <img src="images/2ndyr.png" alt="Second Year" class="circle-image">
+                <h3>Second Year</h3>
+                <a href="notes/second.html" class="view-btn">View</a>
+            </div>
+            <div class="year-box">
+                <img src="images/3rdyr.png" alt="Third Year" class="circle-image">
+                <h3>Third Year</h3>
+                <a href="notes/third.html" class="view-btn">View</a>
+            </div>
+            <div class="year-box">
+                <img src="images/4thyr.png" alt="Fourth Year" class="circle-image">
+                <h3>Fourth Year</h3>
+                <a href="notes/fourth.html" class="view-btn">View</a>
+            </div>
+        </section>
     </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.querySelector(".menu-toggle");
-            const menu = document.querySelector(".menu");
-
-            menuToggle.addEventListener("click", function () {
-                menu.classList.toggle("active");
-            });
-        });
-    </script>
-
 </body>
 
 </html>
