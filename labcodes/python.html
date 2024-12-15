@@ -5,324 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Programming</title>
-    <link rel="stylesheet" href="../styles/shared.css">
-    <link rel="stylesheet" href="../styles/places.css" />
     <link rel="icon" href="../images/icons/favicon.png" type="image/x-icon">
-    <style>
-        body {
-            background-color: rgb(133, 129, 129);
-            font-size: larger;
-            margin: 10px;
-            padding: 10px;
-        }
-
-        nav {
-            color: white;
-            text-align: center;
-            word-spacing: 15px;
-            border: 1px;
-            font-size: 18px;
-            padding: 20px;
-            position: absolute;
-            border-radius: 10px;
-            min-width: 18px;
-            padding: 5px 5px;
-            height: 30px;
-            font-weight: bold;
-            line-height: 6px;
-            top: 0px;
-            left: 0px;
-        }
-
-        a {
-            color: black;
-        }
-
-        nav a:hover {
-            color: rgb(255, 89, 0);
-            text-decoration: solid;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: 300px 300px 300px;
-            grid-gap: 100px;
-            grid-area: inherit;
-            margin-left: 100px;
-            margin-right: 100px;
-            margin-bottom: 50px;
-        }
-
-        .seat1 {
-            color: rgb(0, 0, 0);
-            background-color: rgb(247, 248, 249);
-            border: 2px rgb(30, 7, 234) solid;
-            border-radius: 3px;
-            text-align: center;
-            text-decoration: solid;
-        }
-
-        h3 {
-            font-size: 30px;
-            color: rgb(15, 8, 243);
-        }
-
-        .content {
-            margin: 50px;
-            padding: 40px;
-            text-align: center;
-            word-spacing: 4px;
-            align-items: center;
-            background-color: antiquewhite;
-            border: 2px solid rgb(0, 0, 0);
-            border-radius: 50px;
-        }
-
-        .content a {
-            letter-spacing: 2px;
-            font-size: 24px;
-            text-decoration: none;
-        }
-
-        .content a:hover {
-            margin: 5px;
-            padding: 5px;
-            font-size: 28px;
-            background-color: rgb(250, 224, 190);
-            border-radius: 15px;
-            font-weight: 500%;
-            box-shadow: 10px;
-        }
-
-        main p {
-            margin: 5px;
-            align-items: center;
-        }
-
-        main p a {
-            margin: 10px;
-            padding: 10px;
-            color: white;
-            text-decoration: solid;
-            font-size: 20px;
-            background-color: rgb(14, 15, 15);
-            border: 1px solid whitesmoke;
-        }
-
-        main p a:hover {
-            margin: 10px;
-            padding: 10px;
-            color: white;
-            text-decoration: solid;
-            font-size: 20px;
-            background-color: rgb(14, 15, 15);
-            border: 2px solid whitesmoke;
-            letter-spacing: 2px;
-        }
-
-        header {
-            width: 100%;
-            height: 100px;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 200px;
-            text-align: left;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-menu li {
-            padding: 10px;
-        }
-
-        .dropdown-menu a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #ff9900;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .navbar {
-            width: inherit;
-            color: black;
-            padding: 10px 0;
-        }
-
-        .container {
-            max-width: 1500px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            color: rgb(181, 243, 253);
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .menu {
-            list-style: none;
-            display: flex;
-        }
-
-        .menu li {
-            margin-right: 20px;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .menu a:hover {
-            color: black;
-            background-color: white;
-        }
-
-        nav {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .logo {
-            font-size: 50px;
-            margin: 10px 0 10px 0;
-            padding: 20px 0 20px 0;
-        }
-
-        ul li a {
-            letter-spacing: 1px;
-            word-spacing: 1px;
-        }
-
-        /* Media queries for responsiveness */
-        @media (max-width: 768px) {
-            body {
-                margin: 10px;
-                padding: 0;
-                font-size: 15px;
-            }
-
-            .menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: #333;
-                text-align: center;
-            }
-
-            .menu.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                font-size: 30px;
-                color: white;
-            }
-
-            .menu li {
-                margin: 10px 0;
-            }
-
-            .quescontainer {
-                display: grid;
-                grid-template-columns: 200px;
-                grid-gap: 100px;
-                grid-area: inherit;
-                margin-bottom: 50px;
-            }
-
-            .logo {
-                font-size: 20px;
-                margin-top: 10px;
-                padding-top: 20px;
-            }
-        }
-    </style>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="../styles/code.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="../labcodes.html" class="logo">Python Programming</a>
-                <div class="menu-toggle">&#9776</div>
-                <ul class="menu">
-                    <li><a href="../index.html">Home</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Notes &#9662</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../notes/first.html">First year</a></li>
-                            <li><a href="../notes/second.html">Second year</a></li>
-                            <li><a href="../notes/second.html">Third year</a></li>
-                            <li><a href="../notes/fourth.html">Fourth year</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Codes &#9662</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="matlab.html">Matlab</a></li>
-                            <li><a href="web.html">Web Programming</a></li>
-                            <li><a href="c.html">C</a></li>
-                            <li><a href="cpp.html">C++</a></li>
-                            <li><a href="java.html">Java</a></li>
-                            <li><a href="python.html">Python</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="../pyq.html">Math_QB</a></li>
-                    <li><a href="../about.html">About</a></li>
-                </ul>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../Images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes</button>
+                <div class="dropdown-content">
+                    <a href="../notes/first.html">First</a>
+                    <a href="../notes/second.html">Second</a>
+                    <a href="../notes/third.html">Third</a>
+                    <a href="../notes/fourth.html">Fourth</a>
+                </div>
             </div>
-        </nav>
-    </header>
+            <a href="../labcodes.html">Lab Codes</a>
+            <a href="../about.html">About</a>
+        </div>
+    </div>
+
     <main>
-        <!-- <p>
-            <iframe id="pd1" src="pdf/Web.pdf" width="100%" height="800px"></iframe>
-        </p> -->
-        <p><a href="https://drive.google.com/file/d/1Qd4a082fnM-XS5G54F_rf-Oj-TqmvQsU/view?usp=drive_linkf" target="_blank">python.pdff</a></p>
-    </main>
-    <section class="content">
-        <ul>
+        <h3>Python Codes</h3><div class="btn-link">
+            <a href="https://drive.google.com/file/d/1Qd4a082fnM-XS5G54F_rf-Oj-TqmvQsU/view" target="_blank">Download Python PDF</a>
+        </div>
+        <div class="container">
+            <ol>
             <li><a href="pythoncodes/p1.html">Add loop</a></li><br>
             <li><a href="pythoncodes/p2.html">Arithmatic Operators</a></li><br>
             <li><a href="pythoncodes/p3.html">Ditctionary</a></li><br>
@@ -333,21 +48,20 @@
             <li><a href="pythoncodes/p8.html">Linear search using recursion</a></li><br>
             <li><a href="pythoncodes/p9.html">Longest shortest word</a></li><br>
             <li><a href="pythoncodes/p10.html">Module area</a></li>
-            <!-- <p>
-                <iframe id="pd1" src="pdf/Web.pdf" width="100%" height="800px"></iframe>
-            </p> -->
-        </ul>
-    </section>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.querySelector(".menu-toggle");
-            const menu = document.querySelector(".menu");
-    
-            menuToggle.addEventListener("click", function () {
-                menu.classList.toggle("active");
-            });
+        </ol>
+    </div>
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
+
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("active");
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>
