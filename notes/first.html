@@ -1,1757 +1,256 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/style.css">
     <link rel="icon" href="../images/icons/favicon.png" type="image/x-icon">
-
     <title>Notes</title>
-    <style>
-        header {
-            width: 92%;
-            height: 40px;
-        }
-
-        body {
-            margin: 10px;
-            padding: 10px;
-            align-items: center;
-            background-color: white;
-            font-size: larger;
-            margin: 10px;
-            padding: 10px;
-        }
-
-        .year {
-            font-size: 50px;
-            text-align: center;
-            margin: 5px;
-            margin-top: 30px;
-            padding: 10px 2px 0px 10px;
-        }
-
-        .branch {
-            text-align: center;
-            margin: 2px 2px 0px 2px;
-            padding: 10px 2px 2px 0;
-        }
-
-        .branch1 {
-            text-align: center;
-            margin: 2px 2px 0px 2px;
-            padding: 10px 2px 0px 0;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-
-
-        .maincontain {
-            margin: 50px 50px 0px 50px;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: 550px 550px;
-            grid-gap: 150px;
-            grid-area: inherit;
-        }
-
-        .option {
-            font-size: 10px;
-            color: aliceblue;
-        }
-
-
-        #over {
-            margin: 10px;
-            padding: 30px;
-            text-align: left;
-            text-decoration: none;
-        }
-
-
-
-        .contain {
-            display: grid;
-            grid-template-rows: 100px 100px 100px 100px;
-            /* grid-gap: 50px; */
-            grid-area: inherit;
-            display: grid;
-            background-color: rgb(243, 244, 246);
-            text-decoration: none;
-        }
-
-        .action {
-            margin: 10px;
-            padding: 5px;
-            align-items: center;
-            text-align: center;
-        }
-
-        #go {
-            margin: 2px 2px 2px 2px;
-            padding: 10px;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            background-color: black;
-        }
-
-        #go:hover {
-            align-items: center;
-            letter-spacing: 2px;
-            /* font-size: 25px; */
-        }
-
-        #hi {
-            margin: 10px 10px 0px 0px;
-            padding: 20px 20px 20px 0;
-            text-decoration: none;
-            color: black;
-            line-height: 2;
-        }
-
-
-        #list {
-            text-decoration: none;
-            list-style: none;
-        }
-
-        .op {
-            background-color: black;
-            color: aqua;
-        }
-
-        .op1 {
-            color: white;
-        }
-
-        h2 {
-            margin: 5px 2px 0px 2px;
-            padding: auto;
-        }
-
-        .navbar {
-            background-color: #333;
-            color: black;
-            padding: 10px 0;
-        }
-
-        .hii {
-            margin: 0px 0px 0px 100px;
-            padding: 0px 0px 0px 100px;
-        }
-
-        footer {
-            width: 100%;
-            background: linear-gradient(70deg, rgb(24, 24, 24), rgb(25, 29, 29));
-            padding: 40px;
-        }
-
-        footer ul {
-            display: flex;
-            justify-content: center;
-
-        }
-
-        footer li {
-            width: 80px;
-            height: 80px;
-            margin: 0 50px;
-        }
-
-        footer img {
-            width: 100%;
-            height: 100%;
-        }
-
-        #optionpyq {
-            margin: 0;
-            width: 5px;
-            height: 25px;
-            align-items: left;
-            text-align: left;
-            background-color: rgba(0, 0, 0, 0);
-            color: black;
-            border: 0;
-            margin-left: -10px;
-            margin-top: -25px;
-            font-size: 25px;
-        }
-
-        #hi {
-            margin: 5px;
-            color: black;
-            text-decoration: none;
-        }
-
-
-        .dropdown-menu {
-            --bs-dropdown-zindex: 1000;
-            --bs-dropdown-min-width: 10rem;
-            --bs-dropdown-padding-x: 0;
-            --bs-dropdown-padding-y: 1.0rem 0.5rem;
-        }
-
-        @media (max-width: 480px) {
-            .maincontain {
-                margin: 100px;
-                padding: 5px;
-                display: grid;
-                grid-template-columns: 550px;
-                grid-gap: 90px;
-                grid-area: inherit;
-            }
-
-            footer {
-                width: 550px;
-                height: 100px;
-            }
-
-            #over {
-                margin: 30px;
-                padding: 10px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                text-align: center;
-            }
-
-            .menu.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-
-            .menu li {
-                margin: 10px 0;
-            }
-
-            .maincontain {
-                display: none;
-                flex-direction: column;
-                top: 200px;
-                left: 0;
-                right: 0;
-                display: block;
-                margin: 10px 0;
-            }
-        }
-        
-        
-        /* nav bar */
-        @media (max-width: 768px) {
-            .menu1 {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: #333;
-                text-align: center;
-            }
-
-            .menu.active {
-                display: flex;
-            }
-
-            .menu-toggle1 {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                margin-top: -10px;
-                color: white;
-            }
-            .menu1 li {
-                margin: 10px 0;
-                list-style: none;
-            }
-            #list div{
-                margin-left: -30px;
-                margin-top: 8px;
-                font-size: 15px;
-            }
-            #hi{
-                font-size: 15px;
-            }
-            footer{
-                width: 350px;
-            }
-            h2, h1{
-                font-weight: 800;
-            }
-            .maincontain{
-                margin-left: -30px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/first.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="../index.html" class="logo">RIT NoteBook</a>
-                <div class="menu-toggle1">&#9776</div>
-                <ul class="menu1">
-                    <li><a href="../index.html">Home</a>
-                    </li>
-                    <li><a href="../pyq.html">Math_QB</a></li>
-                    <li class="dropdown1">
-                        <a href="#">Notes &#9662</a>
-                        <ul class="dropdown-menu1">
-                            <li><a href="first.html">First year</a></li>
-                            <li><a href="second.html">Second year</a></li>
-                            <li><a href="third.html">Third year</a></li>
-                            <li><a href="fourth.html">Fourth year</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="../labcodes.html">Lab Codes</a></li>
-                    <li><a href="../about.html">About</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h1 class="year">First Year</h1>
-            <h1 class="branch">Computer Science & Engineering Stream</h1>
-            <p class="branch1">CSE, ISE, AIML, AIDS, CSE-AIML, CSE-Cyber</p>
-            <div class="maincontain">
-                <div>
-                    <div class="contain" id="over">
-                        <h2>Physics Cycle</h2>
-                        <div>
-                            <ul id="cycle">
-                                <li id="list">
-                                    <div class="dropdown">Mathematics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1tBGTOy3OYG3MZKsc9qonxmQTws4WTK6_?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/17IJGfRcDlw8U1MRDEGcMUSs8FV0ekScD?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1-tqne-7OV5Abex7C9f8LhpMgNBogtiDf?usp=sharing"
-                                                    target="_blank">Question Bank</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Physics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Communication English
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1Hx27I6XiNQ6SBXDBZmC8ckNNyPgtgCPs?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Kannada Kali / Manasu
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">A Scientific Approach to Health
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Principles of
-                                        Programming Using C
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1V9vDDmV3qLyFggmTvHQEEoE7rcKmES02?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1KRHLH2tvjsmuqYmDW07XGsM3LxeGe7St?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">ESC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/18xraMjql0EWAlZwa6ek4ZMswcBdqalsC?usp=sharing"
-                                                    target="_blank">Introduction to Civil Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1OjwVDcycZ0-9JiVm6eDbiaXFDb5ktxaG?usp=sharing"
-                                                    target="_blank">Introduction to Electrical Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1a0nlT3ttxarlyoG5okUMQ_ozamNPrKk7?usp=sharing"
-                                                    target="_blank">Introduction to Electronics Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1oQHHz-HE9xfEme2fsypmrP_skg88BnMw?usp=sharing"
-                                                    target="_blank">Introduction to Mechanical Engineering</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">PLC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1p-p8ZoWUBZHHF4U1DrIRZmsoY-2DE9uv?usp=sharing"
-                                                    target="_blank">Introduction to Web Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1ydGW8t7pMhAceKfG-EvdRT5NlVBTIZq8?usp=sharing"
-                                                    target="_blank">Introduction to Python Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1zcj4TG5b3n6-Qef0uu_YxCc0GkzA_A1d?usp=sharing"
-                                                    target="_blank">Basics of JAVA programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1iiJTG8bnZ5k-bLRBIw27zHsJ2LkRDZj5?usp=sharing"
-                                                    target="_blank">Introduction to C++ Programming</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../Images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <!-- <div class="dropdown">
+                <button class="dropbtn">Notes</button>
+                <div class="dropdown-content">
+                    <a href="../notes/first.html">First</a>
+                    <a href="../notes/second.html">Second</a>
+                    <a href="../notes/third.html">Third</a>
+                    <a href="../notes/fourth.html">Fourth</a>
                 </div>
-                <div>
-                    <div class="contain" id="over">
-                        <h2>Chemistry Cycle</h2>
-                        <div>
-                            <ul id="cycle">
-                                <li id="list">
-                                    <div class="dropdown">Mathematics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/10neY4vTk5WYWfFwiwy7CQXrcz7WJXm8d?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1MhYIyQGVm2UUgIdlJxbJiUMASaXL8G1N?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1nNnKZm3ceoCNBIJ_CtGKKJ3T_y_fYYCv?usp=sharing"
-                                                    target="_blank">Question Bank</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Engineering Chemistry
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown"> Professional Writing Skills in English
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Constitution of India
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Design Thinking
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Computer-Aided Engineering Drawing
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1mNEdzATPcyMDrPIn_y5uqvnrdJ0H6Vfd?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">ESC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/18xraMjql0EWAlZwa6ek4ZMswcBdqalsC?usp=sharing"
-                                                    target="_blank">Introduction to Civil Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1OjwVDcycZ0-9JiVm6eDbiaXFDb5ktxaG?usp=sharing"
-                                                    target="_blank">Introduction to Electrical Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1a0nlT3ttxarlyoG5okUMQ_ozamNPrKk7?usp=sharing"
-                                                    target="_blank">Introduction to Electronics Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1oQHHz-HE9xfEme2fsypmrP_skg88BnMw?usp=sharing"
-                                                    target="_blank">Introduction to Mechanical Engineering</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">ETC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/16V5tn4AwUYC5muLlhG0y2S8_ionl2OkQ?usp=sharing"
-                                                    target="_blank">Green Buildings</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1ALnwqCl72WeP0uXwWdmSZknwDjN5NQtd?usp=sharing"
-                                                    target="_blank">Operation and Maintenance of Solar Electric
-                                                    Systems</a></a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1hvxXhgIGSsYJrmOY7dTJHzoP4L02GLIg?usp=sharing"
-                                                    target="_blank">Introduction to Sustainable Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1OXSH5sETBwbomaH9B8famhLCP9rTKwQ5?usp=sharing"
-                                                    target="_blank">Renewable Energy Sources</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1U5vtyIamFHJxoll0Bq54OuPDGpOl6Vj1?usp=sharing"
-                                                    target="_blank">Introduction to Internet of Things(IoT)</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1AtdJq-FUx68nolkQhQVBhnqjo1USQljV?usp=sharing"
-                                                    target="_blank">Introduction to Cyber Security</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <hr>
-        <section>
-            <h1 class="branch">Electrical & Electronics Engineering Stream</h1>
-            <p class="branch1"> ECE, EEE, EIE, ETE and MD</p>
-            <div class="maincontain">
-                <div class="contain" id="over">
-                    <h2>Chemistry Cycle</h2>
-                    <div>
-                        <ul id="cycle">
-                            <li id="list">
-                                <div class="dropdown">Mathematics
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1Ivj2ErFpk4hzX939_lD7-txvg-8Dp81D?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1W4Rhwi38VHKud7iYZBJ9wVt3orX8geC4?usp=drive_link"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1iq2trognE86qIH5qD_G_C2iLKDHi0CBm?usp=drive_link"
-                                                target="_blank">Question Bank</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">Engineering Chemistry
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=drive_link"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown"> Professional Writing Skills in English
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=sharing"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">Constitution of India
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=sharing"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">Design Thinking
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi" href="#" target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">Computer-Aided Engineering Drawing
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=sharing"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">ESC
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/18xraMjql0EWAlZwa6ek4ZMswcBdqalsC?usp=sharing"
-                                                target="_blank">Introduction to Civil Engineering</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1OjwVDcycZ0-9JiVm6eDbiaXFDb5ktxaG?usp=sharing"
-                                                target="_blank">Introduction to Electrical Engineering</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1a0nlT3ttxarlyoG5okUMQ_ozamNPrKk7?usp=sharing"
-                                                target="_blank">Introduction to Electronics Engineering</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1oQHHz-HE9xfEme2fsypmrP_skg88BnMw?usp=sharing"
-                                                target="_blank">Introduction to Mechanical Engineering</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1hRwyNPvHDivKRvneUN23gixxPyEpilcY?usp=sharing"
-                                                target="_blank">Introduction to C Programming</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">ETC
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/16V5tn4AwUYC5muLlhG0y2S8_ionl2OkQ?usp=sharing"
-                                                target="_blank">Green Buildings</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1ALnwqCl72WeP0uXwWdmSZknwDjN5NQtd?usp=sharing"
-                                                target="_blank">Operation and Maintenance of Solar Electric
-                                                Systems</a></a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1hvxXhgIGSsYJrmOY7dTJHzoP4L02GLIg?usp=sharing"
-                                                target="_blank">Introduction to Sustainable Engineering</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1OXSH5sETBwbomaH9B8famhLCP9rTKwQ5?usp=sharing"
-                                                target="_blank">Renewable Energy Sources</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1U5vtyIamFHJxoll0Bq54OuPDGpOl6Vj1?usp=sharing"
-                                                target="_blank">Introduction to Internet of Things(IoT)</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1AtdJq-FUx68nolkQhQVBhnqjo1USQljV?usp=sharing"
-                                                target="_blank">Introduction to Cyber Security</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div class="contain" id="over">
-                        <h2>Physics Cycle</h2>
-                        <div>
-                            <ul id="cycle">
-                                <li id="list">
-                                    <div class="dropdown">Mathematics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1mDDDspXLKE_es264UykAMl10ORR_ewXD?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1O7bsw1K_dLRvlDucXcetgtyuWy5lnrBv?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1nNnKZm3ceoCNBIJ_CtGKKJ3T_y_fYYCv?usp=drive_link"
-                                                    target="_blank">Question Bank</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Physics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi" href="#" target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Communication English
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Kannada Kali / Manasu
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">A Scientific Approach to Health
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Basic Electronics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1KDfSRCFmE0F-uv6_dJmfSkYg7fg9fSSu?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1Rs5Uk4zA39lDHmvCGXtm9fV4y8YIF5F0?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Elements of Electrical Engineering
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1W1QxgCYi2IoYadANklUzs90pZWPmDTGD?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1BpoaXGGdnmrgAYqsMfrKkVCQKrJ6Rgm-?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">ESC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1hRwyNPvHDivKRvneUN23gixxPyEpilcY?usp=sharing"
-                                                    target="_blank">Introduction to C Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1OjwVDcycZ0-9JiVm6eDbiaXFDb5ktxaG?usp=sharing"
-                                                    target="_blank">Introduction to Electrical Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1a0nlT3ttxarlyoG5okUMQ_ozamNPrKk7?usp=sharing"
-                                                    target="_blank">Introduction to Electronics Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1oQHHz-HE9xfEme2fsypmrP_skg88BnMw?usp=sharing"
-                                                    target="_blank">Introduction to Mechanical Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/18xraMjql0EWAlZwa6ek4ZMswcBdqalsC?usp=sharing"
-                                                    target="_blank">Introduction to Civil Engineering</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">PLC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1p-p8ZoWUBZHHF4U1DrIRZmsoY-2DE9uv?usp=sharing"
-                                                    target="_blank">Introduction to Web Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1ydGW8t7pMhAceKfG-EvdRT5NlVBTIZq8?usp=sharing"
-                                                    target="_blank">Introduction to Python Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1zcj4TG5b3n6-Qef0uu_YxCc0GkzA_A1d?usp=sharing"
-                                                    target="_blank">Basics of JAVA programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1iiJTG8bnZ5k-bLRBIw27zHsJ2LkRDZj5?usp=sharing"
-                                                    target="_blank">Introduction to C++ Programming</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <hr>
-        <section>
-            <h1 class="branch">Civil Engineering Stream</h1>
-            <p class="branch1">Civil</p>
-            <div class="maincontain">
-                <div>
-                    <div class="contain" id="over">
-                        <h2>Physics Cycle</h2>
-                        <div>
-                            <ul id="cycle">
-                                <li id="list">
-                                    <div class="dropdown">Mathematics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1b41pqxIbRYlaV3DG7TvkwZlXKlc4Wnct?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1VTgaqci2qvJA43ovYatgXhX-w2llzl2M?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1bCBEJLu598sT8il2HXCCfRBvSD-psYFb?usp=sharing"
-                                                    target="_blank">Question Bank</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Physics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Communication English
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1Hx27I6XiNQ6SBXDBZmC8ckNNyPgtgCPs?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Kannada Kali / Manasu
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">A Scientific Approach to Health
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Civil Engineering Mechanics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1t8qv3PSzukXbCprKONu3h-McOzijW_Il?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/18uKT1Ffmi8HC6FKfncVioMrc_jn79a84?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">ESC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1hRwyNPvHDivKRvneUN23gixxPyEpilcY?usp=sharing"
-                                                    target="_blank">Introduction to C Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1OjwVDcycZ0-9JiVm6eDbiaXFDb5ktxaG?usp=sharing"
-                                                    target="_blank">Introduction to Electrical Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1a0nlT3ttxarlyoG5okUMQ_ozamNPrKk7?usp=sharing"
-                                                    target="_blank">Introduction to Electronics Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1oQHHz-HE9xfEme2fsypmrP_skg88BnMw?usp=sharing"
-                                                    target="_blank">Introduction to Mechanical Engineering</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">PLC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1p-p8ZoWUBZHHF4U1DrIRZmsoY-2DE9uv?usp=sharing"
-                                                    target="_blank">Introduction to Web Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1ydGW8t7pMhAceKfG-EvdRT5NlVBTIZq8?usp=sharing"
-                                                    target="_blank">Introduction to Python Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1zcj4TG5b3n6-Qef0uu_YxCc0GkzA_A1d?usp=sharing"
-                                                    target="_blank">Basics of JAVA programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1iiJTG8bnZ5k-bLRBIw27zHsJ2LkRDZj5?usp=sharing"
-                                                    target="_blank">Introduction to C++ Programming</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="contain" id="over">
-                        <h2>Chemistry Cycle</h2>
-                        <div>
-                            <ul id="cycle">
-                                <li id="list">
-                                    <div class="dropdown">Mathematics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1AhEL12d0SJUjfeRciYbDJ6HGGfFdKpLc?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/13kzrmVDdHFjZqd2rC6bPUjJsn6dtyCOg?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1QfJ55X6U0A85yLmNYhEZLrEHX7sjWMEA?usp=sharing"
-                                                    target="_blank">Question Bank</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Engineering Chemistry
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown"> Professional Writing Skills in English
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Constitution of India
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Design Thinking
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Computer-Aided Engineering Drawing
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li id="list"><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1mNEdzATPcyMDrPIn_y5uqvnrdJ0H6Vfd?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">ESC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/18xraMjql0EWAlZwa6ek4ZMswcBdqalsC?usp=sharing"
-                                                    target="_blank">Introduction to Civil Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1OjwVDcycZ0-9JiVm6eDbiaXFDb5ktxaG?usp=sharing"
-                                                    target="_blank">Introduction to Electrical Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1a0nlT3ttxarlyoG5okUMQ_ozamNPrKk7?usp=sharing"
-                                                    target="_blank">Introduction to Electronics Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1hRwyNPvHDivKRvneUN23gixxPyEpilcY?usp=sharing"
-                                                    target="_blank">Introduction to C Programming</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">ETC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/16V5tn4AwUYC5muLlhG0y2S8_ionl2OkQ?usp=sharing"
-                                                    target="_blank">Green Buildings</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1ALnwqCl72WeP0uXwWdmSZknwDjN5NQtd?usp=sharing"
-                                                    target="_blank">Operation and Maintenance of Solar Electric
-                                                    Systems</a></a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1hvxXhgIGSsYJrmOY7dTJHzoP4L02GLIg?usp=sharing"
-                                                    target="_blank">Introduction to Sustainable Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1OXSH5sETBwbomaH9B8famhLCP9rTKwQ5?usp=sharing"
-                                                    target="_blank">Renewable Energy Sources</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1U5vtyIamFHJxoll0Bq54OuPDGpOl6Vj1?usp=sharing"
-                                                    target="_blank">Introduction to Internet of Things(IoT)</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1AtdJq-FUx68nolkQhQVBhnqjo1USQljV?usp=sharing"
-                                                    target="_blank">Introduction to Cyber Security</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <hr>
-        <section>
-            <h1 class="branch">Mechanical Engineering Stream</h1>
-            <p class="branch1"> ME, IEM and CH</p>
-            <div class="maincontain">
-                <div class="contain" id="over">
-                    <h2>Chemistry Cycle</h2>
-                    <div>
-                        <ul id="cycle">
-                            <li id="list">
-                                <div class="dropdown">Mathematics
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1W3KfTYdAqV4UqavE38IFtcXOIeOIx36m?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/10M4eUtPQm0bsDnjzlikIyu-i4bWwyU78?usp=sharing"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1IT0o1xtjzauiaezfceEpcpt9Wlm8fwmz?usp=sharing"
-                                                target="_blank">Question Bank</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">Engineering Chemistry
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1g2qJneas0h5cl-GPXH7FEBuilr_38GYt?usp=sharing"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown"> Professional Writing Skills in English
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1pfUbbzU7UftYzub1skWP1d5xYKC9AIDB?usp=drive_link"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">Constitution of India
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1lUx-X_xZ4NtpEwlQo5S1pzTfMzjH35qh?usp=drive_link"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">Design Thinking
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1X8YSegub3AV-TcmL7-IIQ2EjL6e_skSs?usp=drive_link"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">Computer-Aided Engineering Drawing
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li id="list"><a id="hi"
-                                                href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
-                                                target="_blank">Notes</a>
-                                        </li>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1mNEdzATPcyMDrPIn_y5uqvnrdJ0H6Vfd?usp=drive_link"
-                                                target="_blank">pyq</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">ESC
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/18xraMjql0EWAlZwa6ek4ZMswcBdqalsC?usp=sharing"
-                                                target="_blank">Introduction to Civil Engineering</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1OjwVDcycZ0-9JiVm6eDbiaXFDb5ktxaG?usp=sharing"
-                                                target="_blank">Introduction to Electrical Engineering</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1a0nlT3ttxarlyoG5okUMQ_ozamNPrKk7?usp=sharing"
-                                                target="_blank">Introduction to Electronics Engineering</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1hRwyNPvHDivKRvneUN23gixxPyEpilcY?usp=sharing"
-                                                target="_blank">Introduction to C Programming</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li id="list">
-                                <div class="dropdown">ETC
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                        data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/16V5tn4AwUYC5muLlhG0y2S8_ionl2OkQ?usp=sharing"
-                                                target="_blank">Green Buildings</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1ALnwqCl72WeP0uXwWdmSZknwDjN5NQtd?usp=sharing"
-                                                target="_blank">Operation and Maintenance of Solar Electric
-                                                Systems</a></a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1hvxXhgIGSsYJrmOY7dTJHzoP4L02GLIg?usp=sharing"
-                                                target="_blank">Introduction to Sustainable Engineering</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1OXSH5sETBwbomaH9B8famhLCP9rTKwQ5?usp=sharing"
-                                                target="_blank">Renewable Energy Sources</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1U5vtyIamFHJxoll0Bq54OuPDGpOl6Vj1?usp=sharing"
-                                                target="_blank">Introduction to Internet of Things(IoT)</a>
-                                        </li>
-                                        <hr>
-                                        <li><a id="hi"
-                                                href="https://drive.google.com/drive/folders/1AtdJq-FUx68nolkQhQVBhnqjo1USQljV?usp=sharing"
-                                                target="_blank">Introduction to Cyber Security</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div class="contain" id="over">
-                        <h2>Physics Cycle</h2>
-                        <div>
-                            <ul id="cycle">
-                                <li id="list">
-                                    <div class="dropdown">Mathematics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1Gl1NoM6Wvirxkc_2ZMttRKvy2qHtO13B?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1Nh_4RPpU2VokTjYj_STpYg6jw6FLBOcD?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1CaGzCPeoaaaP7kxdE0_JuJKVYbLoRsWs?usp=sharing"
-                                                    target="_blank">Question Bank</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Physics
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1-quCvWbeFxNZtK9FG9qeynpPLznr0YU0?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Communication English
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1Hx27I6XiNQ6SBXDBZmC8ckNNyPgtgCPs?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Kannada Kali / Manasu
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1lPb_c_xLn3hjU1pEy7HqyKDFm7IZbfmC?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">A Scientific Approach to Health
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1PKg8_HlKAHrVDwPPn_g9M17ApzPlVsel?usp=drive_link"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">Elements of Mechanical Engineering
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1UqjYKdhhbNC1VkzF6eV893ulhFjloIfn?usp=sharing"
-                                                    target="_blank">Notes</a>
-                                            </li>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1gypaDmlHR6DaUm4-vkeZnY2kpDcDm7nU?usp=sharing"
-                                                    target="_blank">pyq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">ESC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/18xraMjql0EWAlZwa6ek4ZMswcBdqalsC?usp=sharing"
-                                                    target="_blank">Introduction to Civil Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1OjwVDcycZ0-9JiVm6eDbiaXFDb5ktxaG?usp=sharing"
-                                                    target="_blank">Introduction to Electrical Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1a0nlT3ttxarlyoG5okUMQ_ozamNPrKk7?usp=sharing"
-                                                    target="_blank">Introduction to Electronics Engineering</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1hRwyNPvHDivKRvneUN23gixxPyEpilcY?usp=sharing"
-                                                    target="_blank">Introduction to C Programming</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li id="list">
-                                    <div class="dropdown">PLC
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionpyq"
-                                            data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1p-p8ZoWUBZHHF4U1DrIRZmsoY-2DE9uv?usp=sharing"
-                                                    target="_blank">Introduction to Web Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1ydGW8t7pMhAceKfG-EvdRT5NlVBTIZq8?usp=sharing"
-                                                    target="_blank">Introduction to Python Programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1zcj4TG5b3n6-Qef0uu_YxCc0GkzA_A1d?usp=sharing"
-                                                    target="_blank">Basics of JAVA programming</a>
-                                            </li>
-                                            <hr>
-                                            <li><a id="hi"
-                                                    href="https://drive.google.com/drive/folders/1iiJTG8bnZ5k-bLRBIw27zHsJ2LkRDZj5?usp=sharing"
-                                                    target="_blank">Introduction to C++ Programming</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <ul>
-            <li>
-                <a href="mailto:labcodesandnotes@gamail.com">
-                    <img src="../images/icons/gmail.png" alt="Gmail logo">
-                </a>
-            </li>
-        </ul>
-    </footer>
-</body>
+            </div> -->
+            <a href="../labcodes.html">Lab Codes</a>
+            <a href="../about.html">About</a>
+        </div>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+    <!-- Buttons Section -->
+    <section class="buttons-section">
+        <button class="nav-btn" onclick="scrollToSection('section1')">Computer Science & Engineering Stream</button>
+        <button class="nav-btn" onclick="scrollToSection('section2')">Electrical & Electronics Engineering
+            Stream</button>
+        <button class="nav-btn" onclick="scrollToSection('section3')">Civil Engineering Stream</button>
+        <button class="nav-btn" onclick="scrollToSection('section4')">Mechanical Engineering Stream</button>
+    </section>
 
+    <!-- Content Boxes -->
+    <section id="section1" class="content-section">
+        <div class="heading-box">
+            <h2>Computer Science & Engineering Stream</h2>
+            <p>CSE, ISE, AIML, AIDS, CSE-AIML, CSE-Cyber</p>
+            <div class="box">
+                <div class="inner-box yellow">
+                    <h3>Physics Cycle</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/folders/1tBGTOy3OYG3MZKsc9qonxmQTws4WTK6_?usp=sharing"
+                                target="_blank">Mathematics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
+                                target="_blank">Physics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
+                                target="_blank">Communication English &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
+                                target="_blank">Kannada Kali / Manasu &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
+                                target="_blank">A Scientific Approach to Health &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1V9vDDmV3qLyFggmTvHQEEoE7rcKmES02?usp=sharing"
+                                target="_blank">Principles of Programming Using C &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1x8GwDxOmfOo2iyE7nnYdu9KqOQDFO0B0?usp=sharing"
+                                target="_blank">ESC &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1iZESy8SPtUsZlu64PR46tyb2xNKNHhJz?usp=drive_link"
+                                target="_blank">PLC &#9662</a></li>
+                    </ul>
+                </div>
+                <div class="inner-box yellow">
+                    <h3>Chemistry Cycle</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/folders/1Ivj2ErFpk4hzX939_lD7-txvg-8Dp81D?usp=sharing"
+                                target="_blank">Mathematics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=drive_link"
+                                target="_blank">Chemistry &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
+                                target="_blank">Professional Writing Skills in English &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
+                                target="_blank">Constitution of India &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
+                                target="_blank">Design Thinking &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
+                                target="_blank">Computer-Aided Engineering Drawing &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1x8GwDxOmfOo2iyE7nnYdu9KqOQDFO0B0?usp=sharing"
+                                target="_blank">ESC &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1mF2M2f9Kw2l6H2l7KVl9KRa-QJJ3z-O9?usp=sharing"
+                                target="_blank">ETC &#9662</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const menuToggle = document.querySelector(".menu-toggle1");
-        const menu = document.querySelector(".menu1");
+    <section id="section2" class="content-section">
+        <div class="heading-box">
+            <h2>Electrical & Electronics Engineering Stream</h2>
+            <p>ECE, EEE, EIE, ETE and MD</p>
+            <div class="box">
 
-        menuToggle.addEventListener("click", function () {
-            menu.classList.toggle("active");
-        });
-    });
-</script>
+                <div class="inner-box yellow">
+                    <h3>Chemistry Cycle</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/folders/1Ivj2ErFpk4hzX939_lD7-txvg-8Dp81D?usp=sharing"
+                                target="_blank">Mathematics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=drive_link"
+                                target="_blank">Chemistry &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
+                                target="_blank">Professional Writing Skills in English &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
+                                target="_blank">Constitution of India &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
+                                target="_blank">Design Thinking &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
+                                target="_blank">Computer-Aided Engineering Drawing &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1x8GwDxOmfOo2iyE7nnYdu9KqOQDFO0B0?usp=sharing"
+                                target="_blank">ESC &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1mF2M2f9Kw2l6H2l7KVl9KRa-QJJ3z-O9?usp=sharing"
+                                target="_blank">ETC &#9662</a></li>
+                    </ul>
+                </div>
+                <div class="inner-box yellow">
+                    <h3>Physics Cycle</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/folders/1tBGTOy3OYG3MZKsc9qonxmQTws4WTK6_?usp=sharing"
+                                target="_blank">Mathematics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
+                                target="_blank">Physics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
+                                target="_blank">Communication English &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
+                                target="_blank">Kannada Kali / Manasu &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
+                                target="_blank">A Scientific Approach to Health &#9662</a></li>
+                                <li><a href="https://drive.google.com/drive/folders/1KDfSRCFmE0F-uv6_dJmfSkYg7fg9fSSu?usp=sharing"
+                                        target="_blank">Basic Electronics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1W1QxgCYi2IoYadANklUzs90pZWPmDTGD?usp=sharing"
+                                target="_blank">Elements of Electrical Engineering &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1x8GwDxOmfOo2iyE7nnYdu9KqOQDFO0B0?usp=sharing"
+                                target="_blank">ESC &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1iZESy8SPtUsZlu64PR46tyb2xNKNHhJz?usp=drive_link"
+                                target="_blank">PLC &#9662</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section3" class="content-section">
+        <div class="heading-box">
+            <h2>Civil Engineering Stream</h2>
+            <p>Civil</p>
+            <div class="box">
+                <div class="inner-box yellow">
+                    <h3>Physics Cycle</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/folders/1tBGTOy3OYG3MZKsc9qonxmQTws4WTK6_?usp=sharing"
+                                target="_blank">Mathematics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
+                                target="_blank">Physics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
+                                target="_blank">Communication English &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
+                                target="_blank">Kannada Kali / Manasu &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
+                                target="_blank">A Scientific Approach to Health &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1t8qv3PSzukXbCprKONu3h-McOzijW_Il?usp=drive_link"
+                                target="_blank">Civil Engineering Mechanics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1x8GwDxOmfOo2iyE7nnYdu9KqOQDFO0B0?usp=sharing"
+                                target="_blank">ESC &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1iZESy8SPtUsZlu64PR46tyb2xNKNHhJz?usp=drive_link"
+                                target="_blank">PLC &#9662</a></li>
+                    </ul>
+                </div>
+                <div class="inner-box yellow">
+                    <h3>Chemistry Cycle</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/folders/1Ivj2ErFpk4hzX939_lD7-txvg-8Dp81D?usp=sharing"
+                                target="_blank">Mathematics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=drive_link"
+                                target="_blank">Chemistry &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
+                                target="_blank">Professional Writing Skills in English &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
+                                target="_blank">Constitution of India &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
+                                target="_blank">Design Thinking &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
+                                target="_blank">Computer-Aided Engineering Drawing &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1x8GwDxOmfOo2iyE7nnYdu9KqOQDFO0B0?usp=sharing"
+                                target="_blank">ESC &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1mF2M2f9Kw2l6H2l7KVl9KRa-QJJ3z-O9?usp=sharing"
+                                target="_blank">ETC &#9662</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section4" class="content-section">
+        <div class="heading-box">
+            <h2>Mechanical Engineering Stream</h2>
+            <p>ME, IEM and CH</p>
+            <div class="box">
+                <div class="inner-box yellow">
+                    <h3>Chemistry Cycle</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/folders/1Ivj2ErFpk4hzX939_lD7-txvg-8Dp81D?usp=sharing"
+                                target="_blank">Mathematics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/166-4ZRAy__G7_0-dNjxrYM_1cCmkZkIJ?usp=drive_link"
+                                target="_blank">Chemistry &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1Eh6B7NoiM2cNn69z56EJXWN-s04w-oe1?usp=sharing"
+                                target="_blank">Professional Writing Skills in English &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1TD-LUsVS16Ry_-H6lQNyRQS1pRnepRv-?usp=sharing"
+                                target="_blank">Constitution of India &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1vcxv4xmglhkSAIZtTzElGfz78_gjmtNg?usp=sharing"
+                                target="_blank">Design Thinking &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/105AA3TJrM60rKkWWlUJJudfCeQLtWkYX?usp=sharing"
+                                target="_blank">Computer-Aided Engineering Drawing &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1x8GwDxOmfOo2iyE7nnYdu9KqOQDFO0B0?usp=sharing"
+                                target="_blank">ESC &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1mF2M2f9Kw2l6H2l7KVl9KRa-QJJ3z-O9?usp=sharing"
+                                target="_blank">ETC &#9662</a></li>
+                    </ul>
+                </div>
+                <div class="inner-box yellow">
+                    <h3>Physics Cycle</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/folders/1tBGTOy3OYG3MZKsc9qonxmQTws4WTK6_?usp=sharing"
+                                target="_blank">Mathematics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/14ZLhu4G2KB6vY1T68NCcjSXBJHFYtazR?usp=sharing"
+                                target="_blank">Physics &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1vA_LTTV7vTXLYor31-5LMzX7Rnkvwdfp?usp=sharing"
+                                target="_blank">Communication English &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1q1xubLhJVdeSTTqJH9y70F6O1Yx45Eyg?usp=sharing"
+                                target="_blank">Kannada Kali / Manasu &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1r6awFQINcGiwt4ZBvTWMZjTxoRmn4qcy?usp=sharing"
+                                target="_blank">A Scientific Approach to Health &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1UqjYKdhhbNC1VkzF6eV893ulhFjloIfn?usp=drive_link"
+                                target="_blank">Elements of Mechanical Engineering &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1x8GwDxOmfOo2iyE7nnYdu9KqOQDFO0B0?usp=sharing"
+                                target="_blank">ESC &#9662</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/1iZESy8SPtUsZlu64PR46tyb2xNKNHhJz?usp=drive_link"
+                                target="_blank">PLC &#9662</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <script src="../scripts/first.js"></script>
+    
 </body>
 
 </html>
