@@ -1,0 +1,313 @@
+/* Navbar Styles */
+.navbar {
+    background-color: #1E3A8A;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative; /* Ensure the navbar stays above other content */
+    z-index: 1000; /* Bring navbar to the front */
+}
+
+.logo-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: rotate(360deg);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.2);
+}
+
+.menu-left {
+    display: flex;
+    animation: fadeIn 1s ease-in;
+}
+
+.menu-left ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-left li {
+    margin-right: 20px;
+    position: relative; /* Allow dropdown to position correctly */
+}
+
+.menu-left a {
+    color: white;
+    font-weight: bold;
+    font-size: 18px; /* Increased font size */
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, font-size 0.3s ease; /* Added transitions for new styles */
+    text-decoration: none; /* Remove underline */
+    padding: 5px 10px; /* Added padding for background color */
+    border-radius: 5px; /* Optional: makes the background color rounded */
+}
+
+/* Hover effect to make the link glow, grow, change background color and font size */
+.menu-left a:hover {
+    color: #F0F9FF; /* Change text color */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5); /* Glowing effect */
+    background-color: #3B82F6; /* Change background color on hover */
+    font-size: 20px; /* Increase font size */
+}
+
+/* Dropdown Menu Styles */
+.menu-left .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1D4ED8;
+    display: none;
+    padding: 15px; /* Increased padding for a bigger dropdown menu */
+    border-radius: 5px;
+    min-width: 200px; /* Increase the width of the dropdown menu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.menu-left .dropdown-menu li {
+    margin: 10px 0; /* Add more space between dropdown items */
+}
+
+.menu-left .dropdown-menu a {
+    color: white;
+    font-size: 18px; /* Slightly larger font size for dropdown links */
+    padding: 8px 12px; /* Add more padding inside each dropdown link */
+    display: block; /* Ensures full clickable area for padding */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-left .dropdown-menu a:hover {
+    background-color: #3B82F6; /* Change background color on hover */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+/* Dropdown Hover to Show */
+.menu-left .dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+}
+
+
+/* Center Section Styles */
+.center-box {
+    position: relative;
+    width: 60%;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #d1eaff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Section */
+.image-container {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.circle-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: -10px 0 0 -13px;
+}
+
+.content-box {
+    padding-top: 10px;
+}
+
+.content-box h2 {
+    font-size: 2rem;
+    color: #1E3A8A;
+}
+
+.content-box p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 15px;
+}
+
+/* Button Group */
+.button-group {
+    margin-top: 20px;
+}
+
+.button-group .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #1E3A8A;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button-group .btn:hover {
+    background-color: #3B82F6;
+}
+
+/* Year Boxes */
+.year-boxes {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.year-box {
+    text-align: center;
+    width: 220px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+.year-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.circle-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #1E3A8A;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.view-btn {
+    padding: 10px 20px;
+    background-color: #1E3A8A;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-btn:hover {
+    background-color: #3B82F6;
+    transform: scale(1.1);
+}
+
+
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+    .menu-left {
+        display: none;
+        position: absolute;
+        top: 70px; /* Dropdown starts below the navbar */
+        left: 0;
+        width: 100%;
+        background-color: #1E3A8A;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    .menu-left.active {
+        display: block;
+    }
+
+    .menu-left ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-left li {
+        width: 100%;
+        text-align: left;
+        margin: 0;
+    }
+
+    .menu-left .dropdown-menu {
+        position: static;
+        display: none;
+        padding-left: 20px;
+        background-color: #1E3A8A;
+        width: 90%;
+    }
+
+    .menu-left .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    .menu-left {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #1E3A8A;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    .menu-left.active {
+        display: flex; /* Show the menu when active class is toggled */
+    }
+
+    .menu-left li {
+        text-align: center; /* Center-align items */
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Ensure toggle is visible */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
