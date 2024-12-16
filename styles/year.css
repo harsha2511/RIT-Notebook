@@ -157,63 +157,61 @@ body {
     display: none;
 }
 
+/* Year Title */
 .year {
     color: #003366;
-    margin: 20px 0 0px 0;
+    margin: 20px 0 10px 0;
     text-align: center;
-    display: block;
     font-size: 2.5rem;
     font-weight: bold;
-    unicode-bidi: isolate;
 }
 
+/* Container for Boxes */
 .container1 {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* Maximum 4 blocks per row */
     gap: 20px;
     padding: 20px;
-    margin: 10px;
     justify-items: center;
 }
 
+/* Box Styling */
 .box {
-    margin: 10px;
-    padding: 10px;
     background-color: #ffffff;
-    /* White background */
-    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     border-radius: 8px;
     transition: transform 0.3s ease;
-    height: 150px;
-    /* Set a fixed height */
-    width: 100%;
-    /* Make the width 100% of its container */
-    max-width: 300px;
-    /* Max width for responsiveness */
+    aspect-ratio: 1 / 1; /* Ensures square dimensions */
+    width: 80%; /* Fill available space */
+    height: 90%;
+    max-width: 300px; /* Constrain maximum size */
+    box-shadow: 0 6px 12px rgba(1, 34, 247, 0.2);
 }
 
 .box:hover {
     transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(255, 217, 3, 0.2);
+
 }
 
+/* Content Inside Boxes */
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 10px;
     color: #003366;
-    /* Dark blue color for headings */
+    margin: 20px;
 }
 
 p {
     font-size: 1rem;
     color: #666;
-    margin-bottom: 15px;
+    margin: 35px 10px;
 }
 
 .view-btn {
+    margin: 10px;
     background-color: #007BFF;
-    /* Primary blue color */
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -223,42 +221,22 @@ p {
 }
 
 .view-btn:hover {
-    background-color: #0056b3;
-    /* Darker blue on hover */
+    background-color: #ff9900;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .menu1 {
-        display: none;
-        position: absolute;
-        background-color: #003366;
-        /* Dark blue for dropdown */
-        top: 60px;
-        right: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .menu1.active {
-        display: flex;
-    }
-
-    .menu-toggle1 {
-        display: block;
-    }
-
     .container1 {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .container1 {
+        grid-template-columns: 1fr;
     }
 
     .box {
         max-width: 90%;
-        /* Allow boxes to take up 90% of width on smaller screens */
-        margin-bottom: 20px;
     }
 }
