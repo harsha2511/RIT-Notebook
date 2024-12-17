@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Newton's Raphson Backward Difference</h1>
+            <div class="code-box">
+                <p>
+                    clc;<br>
+                    clear all;<br>
+                    syms p<br>
+                    %Defining x and y arrays<br>
+                    x = input('Input x values as an array : ');<br>
+                    y = input('Input y values as an array : ');<br>
+                    x0 = input('Enter the x for which y is to be found : ');<br>
+                    %Finding the length of x<br>
+                    n = length(x);<br>
+                    D = zeros(n,n);<br>
+                    D(:,1) = y;<br>
+                    for j = 2:n<br>
+                    for i = n:-1:j<br>
+                    D(i,j) = D(i,j-1)-D(i-1,j-1);<br>
+                    end<br>
+                    end<br>
+                    h = x(2) - x(1);<br>
+                    u = (p-x(n))/h;<br>
+                    fx = @(p) y(n);<br>
+                    G = u;<br>
+                    for k = 1:n-1<br>
+                    fx = fx+G*D(n,k+1);<br>
+                    G = G*(u+k)/(k+1);<br>
+                    end<br>
+                    fx = simplify(fx)<br>
+                    fprintf('Value of f(x0) using Newtons Backward interpolation formula is f(%f) =
+                    %f',x0,subs(fx,p,x0))<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

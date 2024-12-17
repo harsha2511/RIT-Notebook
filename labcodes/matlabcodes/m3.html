@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Newton Raphson Single variable</h1>
+            <div class="code-box">
+                <p>
+                    clc;<br>
+                    clear;<br>
+                    syms x<br>
+                    f(x)= x*sin(x)+cos(x);<br>
+                    df(x)= diff (f, x);<br>
+                    a=2;<br>
+                    b=3;<br>
+                    if f(a)*f(b) &#60 0 <br>
+                    x0=(a+b)/2;<br>
+                    else<br>
+                    fprintf ("change interval value")<br>
+                    end<br>
+                    x0=input ("enter the initial approximation:");<br>
+                    for n=1: 5000<br>
+                    xn= x0-(f(x0)/df(x0));<br>
+                    fprintf ('\n The required root at %d is: %f', n, xn);<br>
+                    if abs(f(xn)) &#60 =0.000001<br>
+                    break;<br>
+                    else<br>
+                    x0=xn;<br>
+                    end<br>
+                    end<br>
+                    fplot(f);<br>
+                    xlim([-10 10])<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Legrange's Interpolation</h1>
+            <div class="code-box">
+                <p>
+                    %Program to solve ordinary differential equations using modified Euler's method<br>
+                            clc;<br>
+                            clear;<br>
+                            close;<br>
+                            x0 = 0;<br>
+                            y0 = 1;<br>
+                            h = 0.1; % Step size<br>
+                            xn = 0.1; % Final value<br>
+                            % Define the function y' = f(x,y)<br>
+                            f = @(x,y) -y^2+ x ;<br>
+                            % Implement Euler's modified method<br>
+                            x = x0:h:xn;<br>
+                            y = zeros(size(x));<br>
+                            y(1) = y0;<br>
+                            for i = 2:length(x)<br>
+                            % Predictor step<br>
+                            y(i) = y(i-1) + h*f(x(i-1), y(i-1));<br>
+                            fprintf('Required value by Euler''s method (Predictor method) %f \n :' ,y(i));<br>
+                            %disp(y(i))<br>
+                            x(i)=x(i-1)+h;<br>
+                            y(i,1)=y(i);<br>
+                            % Corrector step<br>
+                            for j=2:20<br>
+                            y(i,j) = y(i-1) + (h/2)*(f(x(i-1), y(i-1)) + f(x(i), y(i,j-1)));<br>
+                            disp(y(i,j));<br>
+                            if abs(y(i,j)-y(i,j-1)) &#60 0.00001<br>
+                            y(i)=y(i,j);<br>
+                            fprintf('Required value by Euler''s modified method (Corrector
+                            method) %f \n :' , y(i));<br>
+                            break;<br>
+                            end<br>
+                            end<br>
+                            end<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

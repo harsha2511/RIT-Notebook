@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Maxima Minima</h1>
+            <div class="code-box">
+                <p>
+                    syms x y real<br>
+                    f=input('Enter the function f(x,y):')<br>
+                    dfx=diff(f,x); %first derivative<br>
+                    dfy=diff(f,y);<br>
+                    eqns=[dfx==0,dfy==0];<br>
+                    S=solve(eqns,[x y], 'Real', true);% Gives stationary points<br>
+                    G=S.x;<br>
+                    H=S.y;<br>
+                    dfxx=diff(dfx,x); % f_xx %double derivative<br>
+                    dfyy=diff(dfy,y); % f_yy<br>
+                    dfxy=diff(dfy,x); %f_xy<br>
+                    A=subs(dfxx,S); %for AC-B^2<br>
+                    B=subs(dfxy,S);<br>
+                    C=subs(dfyy,S);<br>
+                    fun=subs(f,S); % Subsitutuion of values<br>
+                    for i=1: length(A)<br>
+                    if A(i)*C(i)-B(i)*B(i)>0 & A(i) &#60 0 <br>
+                    fprintf('The Maximum point is %d %d',[G(i), H(i)]);<br>
+                    fprintf('\n The maximum value is %d',fun(i)); <br>
+                    figure; <br>
+                    fsurf(f,[-3 3 -3 3]); <br>
+                    hold on<br>
+                    plot3(G(i),H(i),fun,'*w','markersize',10)<br>
+                    hold off <br>
+                    elseif A(i)*C(i)-B(i)*B(i) &#62 0 & A(i) &#62 0<br>
+                    fprintf('Minimum point is %d %d',[G(i), H(i)]);<br>
+                    fprintf('\n The minimum value is %d',fun(i));<br>
+                    figure;<br>
+                    fsurf(f,[-3 3 -3 3]);<br>
+                    hold on<br>
+                    plot3(G(i),H(i),fun,'*w','markersize',10)<br>
+                    hold off<br>
+                    elseif A(i)*C(i)-B(i)*B(i) &#60 0 fprintf('Saddle point is %d %d', [G(i), H(i)]);<br>
+                    else<br>
+                    fprintf('No conclusion can be drawn for %d %d',[G(i), H(i)]); <br>
+                    end <br>
+                    end <br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Euler's Method</h1>
+            <div class="code-box">
+                <p>
+                    %Program to solve ordinary differential equations using Euler's method<br>
+                    clc;<br>
+                    close;<br>
+                    clear;<br>
+                    % Define the function f(x,y) that represents the differential equation<br>
+                    f = @(x,y) x + y;<br>
+                    % Define the initial conditions<br>
+                    x0 = 0; % initial x value<br>
+                    y0 = 1; % initial y value<br>
+                    xn = 1; % final x value<br>
+                    % Define the step size and the range of x values to approximate<br>
+                    h = 0.1; % step size<br>
+                    x = x0:h:xn; % range of x values<br>
+                    % Initialize the y vector with the initial value y0<br>
+                    y = zeros(size(x));<br>
+                    y(1) = y0;<br>
+                    % Use Euler's method to approximate the solution<br>
+                    for i = 2:length(x)<br>
+                    y(i) = y(i-1) + h * f(x(i-1), y(i-1));<br>
+                    disp(y(i))<br>
+                    end<br>
+                    %Analytical solution<br>
+                    syms s(t)<br>
+                    ode = diff(s)-t-s;<br>
+                    cond = s(0) == 1;<br>
+                    sSol(t) = dsolve(ode,cond)<br>
+                    t=[0:0.1:1];<br>
+                    %To plot numerical solution<br>
+                    plot(x, y, 'r');<br>
+                    hold on<br>
+                    %To plot the approximate solution
+                    plot(t, sSol(t),'b')<br>
+                    hold off<br>
+                    legend('Exact solution','Numerical solution')<br>
+                    xlabel('x');<br>
+                    ylabel('y');<br>
+                    title('Exact and Numerical Solution using Euler''s Method');<br></p>
+
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

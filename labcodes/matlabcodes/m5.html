@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>RK Method</h1>
+            <div class="code-box">
+                <p>
+                    clc;<br>
+                    clear;<br>
+                    f = @(x,y) x+y;<br>
+                    %Define the interval<br>
+                    x0=1;<br>
+                    y0=1;<br>
+                    h=0.2;<br>
+                    xn=2;<br>
+                    n=(xn-x0)/h;<br>
+                    x = x0:h:xn;<br>
+                    y = zeros(size(x));<br>
+                    y(1) = y0;<br>
+                    x(1)=x0;<br>
+                    for i = 2:length(x)<br>
+                    k1=h*f(x(i-1),y(i-1));<br>
+                    k2=h*f(x(i-1)+h/2,y(i-1)+k1/2);<br>
+                    k3=h*f(x(i-1)+h/2,y(i-1)+k2/2);<br>
+                    k4=h*f(x(i-1)+h,y(i-1)+k3);<br>
+                    y(i)=y(i-1)+(k1+2*k2+2*k3+k4)/6;<br>
+                    x(i)=x(i-1)+h;<br>
+                    fprintf("The value of y(%f) is %f\n", x(i), y(i));<br>
+                    end<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

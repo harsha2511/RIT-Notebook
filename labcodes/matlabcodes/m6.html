@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Taylor series in 1 variable</h1>
+            <div class="code-box">
+                <p>
+                    syms x<br>
+                    T1=taylor(exp(x)) %Maculurian Series<br>
+                    T2=taylor(sin(x))<br>
+                    T3=taylor(log(sin(x)),x,2) % Taylor series at x=2<br>
+                    T4=taylor(log(x),x,1)<br>
+                </p>
+            </div>
+        </div>
+        <div class="content-container">
+            <h1>Taylor series in 2 variable</h1>
+            <div class="code-box">
+                <p>
+                    syms x y<br>
+                    f = y*exp(x - 1) - x*log(y);<br>
+                    T = taylor (f, [x y], [1 1],'Order',3)<br>
+                    %taylor series in multiple variables<br>
+                    syms x y z<br>
+                    f = sin(x) + cos(y) + exp(z);<br>
+                    T = taylor(f)<br>
+                    %taylor series plot<br>
+                    syms x<br>
+                    f = sin(x);<br>
+                    T6 = taylor (f, x);<br>
+                    T8 = taylor (f, x,'Order',8);<br>
+                    T10 = taylor (f, x,'Order',10);<br>
+                    fplot ([T6 T8 T10 f])<br>
+                    xlim ([-4 4])<br>
+                    grid on<br>
+                    legend(O(x^6)', O(x^8)', O(x^{10})','sin(x)')<br>
+                    title('Taylor Series Expansion')<br>
+                </p>
+            </div>
+        </div>
+        <div class="content-container">
+            <h1>Taylor series in multiple variables</h1>
+            <div class="code-box">
+                <p>
+                    syms x y z<br>
+                    f = sin(x) + cos(y) + exp(z);<br>
+                    T = taylor(f)<br>
+                    %taylor series plot<br>
+                    syms x<br>
+                    f = sin(x);<br>
+                    T6 = taylor (f, x);<br>
+                    T8 = taylor (f, x,'Order',8);<br>
+                    T10 = taylor (f, x,'Order',10);<br>
+                    fplot ([T6 T8 T10 f])<br>
+                    xlim ([-4 4])<br>
+                    grid on<br>
+                    legend(O(x^6)', O(x^8)', O(x^{10})',<br>
+                    'sin(x)')<br>
+                    title('Taylor Series Expansion')<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

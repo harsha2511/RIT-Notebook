@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Solving DE using taylor's method</h1>
+            <div class="code-box">
+                <p>
+                    %Program to solve ordinary differential equations using modified Taylor’s
+                    method<br>
+                    clc;<br>
+                    clear;<br>
+                    close all;<br>
+                    syms x y;<br>
+                    %Define function<br>
+                    f(x,y)=1/(x^2+y);<br>
+                    y0=4;<br>
+                    h=0.1;<br>
+                    x0=4;<br>
+                    xn=4.1;<br>
+                    % Define the order of the Taylor series expansion<br>
+                    n=1;<br>
+                    y(1)=y0;<br>
+                    y(2)=f(x,y);<br>
+                    % Compute the values of h^n/n! for n = 0, 1, 2, 3,...,<br>
+                    ht=h.^(0:n)./factorial(0:n);<br>
+                    for i=2:n<br>
+                    % To compute the values of derivatives<br>
+                    y(i+1)=diff(y(i),x)<br>
+                    end<br>
+                    for i=1:n<br>
+                    x=x0+i*h;<br>
+                    c=eval(y);<br>
+                    % Compute the values of yb using the Taylor series expansion<br>
+                    yb=sum(c.*ht);<br>
+                    fprintf('The value of y(%f) is %f\n',x,yb);<br>
+                    end<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

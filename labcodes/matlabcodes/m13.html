@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>solving higher order ode with initial condition</h1>
+            <div class="code-box">
+                <p>
+                    clc;<br>
+                    clear all;<br>
+                    close all;<br>
+                    % Define the differential equation<br>
+                    syms y(x);<br>
+                    eqn=input('enter the differential equation')<br>
+                    Dy = diff(y,x);<br>
+                    cond=input('Enter the Initial Condition')<br>
+                    yg= simplify( dsolve(eqn))<br>
+                    yp = simplify(dsolve(eqn,cond))<br>
+                    ezplot(yp)<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

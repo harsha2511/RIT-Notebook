@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matlab Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Newton Raphson Multi variable</h1>
+            <div class="code-box">
+                <p>
+                    clc;<br>
+                            syms x y h k<br>
+                            f (x, y) =x^2-y^2-4;<br>
+                            g (x, y) =y^2+x^2-16;<br>
+                            dfx = diff (f, x);%derivative<br>
+                            dfy = diff(f,y);<br>
+                            dgx = diff(g,x);<br>
+                            dgy = diff(g,y);<br>
+                            x0=input ("Enter the initial value of x:");<br>
+                            y0=input ("Enter the initial value of y:");<br>
+                            for i=1:100<br>
+                            EQ1=dfx (x0, y0) *h+dfy (x0, y0) *k+f (x0, y0);<br>
+                            EQ2=dgx (x0, y0) *h+dgy (x0, y0) *k+g (x0, y0);<br>
+                            DEPARTMENT OF MATHEMATICS, RIT, BENGALURU 8<br>
+                            S=solve ([EQ1==0, EQ2==0],[h,k]);<br>
+                            xn=x0+S.h;<br>
+                            yn=y0+S.k;<br>
+                            fprintf ("The required root at %d is %f \n %f\n",i,xn,yn);<br>
+                            if abs (f(xn, yn))<=0.00001 <br>
+                                break; <br>
+                                else <br>
+                                x0=xn;<br>
+                                y0=yn; <br>
+                                end <br>
+                                end <br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+                            
