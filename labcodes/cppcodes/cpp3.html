@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Write a C++ program to find the area of a triangle given its sides</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 iostream &#62<br>
+                            #include &#60 math.h &#62<br>
+                            using namespace std;<br>
+                            int main()<br>
+                            {<br>
+                            float s1,s2,s3,s,area;<br>
+                            cout&#60&#60” enter the three sides of a triangle\n”;<br>
+                            cin>>s1>>s2>>s3;<br>
+                            s = (s1 + s2 + s3)/2;<br>
+                            area = sqrt(s*(s - s1)*(s - s2)*(s - s3));<br>
+                            cout &#60&#60"Area of a triangle given its sides are= " &#60&#60 endl&#60&#60area;<br>
+                            return 0;<br>
+                            }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
