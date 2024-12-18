@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1> Write a C program to enter the marks of a student in four subjects. Then
+                calculate the
+                total, aggregate and display the grades obtained by the student (Using SWITCH).</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 stdio.h&#62<br>
+                    int main()<br>
+                    {<br>
+                    int phy, chem, math, comp, sum, agg; <br>
+                    float per; <br>
+                    /* Input marks of four subjects from user */
+                    printf("Enter four subjects marks: ");<br>
+                    scanf("%d%d%d%d", &phy, &chem, &math, &comp);<br>
+                    /* Calculate percentage */
+                    sum = phy + chem + math + comp;<br>
+                    per =sum / 4.0;<br>
+                    //agg = sum / 4;<br>
+                    agg = per;<br> // auto conversion from float to int
+                    printf("Percentage = %.2f\n", per);<br>
+                    printf("aggregate = %d\n", agg);<br>
+                    switch(agg/10)<br>
+                    {<br>
+                    case 10:<br>
+                    case 9: printf("Grade A \n");<br>
+                    break;<br>
+                    case 8: printf("Grade B \n");<br>
+                    break;<br>
+                    case 7: printf("Grade C \n");<br>
+                    break;<br>
+                    case 6: printf("Grade D \n");<br>
+                    break;<br>
+                    case 5: printf("Grade Pass \n");<br>
+                    break;<br>
+                    default: printf("Fail \n");<br>
+                    }<br>
+                    return 0;<br>
+                    }<br>
+                   
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

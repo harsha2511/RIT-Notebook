@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Write a C program to read two floating point numbers. Add these numbers and
+                assign the result to an integer. Finally display the value of all three variables.</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 stdio.h&#62<br>
+                            {<br>
+                                float f1,f2;<br>
+                                int total;<br>
+                                printf("Enter your floating point number1:");<br>
+                                scanf("%f",&f1);<br>
+                                printf("Enter your floating point number2:");<br>
+                                scanf("%f",&f2);<br>
+                                total = f1 + f2;<br>
+                                printf("The sum of %f and %f is %d”,f1,f2,total);<br>
+                                return 0;<br>
+                                }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

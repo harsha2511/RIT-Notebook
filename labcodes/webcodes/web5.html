@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>
+                Write an HTML page that contains a selection box with a list of 5 countries.
+                When the user
+                selects a country; its capital should be printed next in the list. Add CSS to customize the
+                properties of the font of the capital (color, bold and font size).
+            </h1>
+            <div class="code-box">
+                <p>
+                    &#60!DOCTYPE html&#62<br>
+                    &#60html&#62<br>
+                    &#60head&#62<br>
+                    &#60title&#62Country Capitals&#60/title&#62<br>
+                    &#60style&#62<br>
+                    #capital {<br>
+                    color: blue;<br>
+                    font-weight: bold;<br>
+                    font-size: 20px;<br>
+                    }<br>
+                    &#60/style&#62<br>
+                    &#60/head&#62<br>
+                    &#60body&#62<br>
+                    &#60h1&#62Select a Country&#60/h1&#62<br>
+                    &#60select id="countrySelect" onchange="showCapital()"&#62<br>
+                    &#60option value=""&#62-- Select a Country --&#60/option&#62<br>
+                    &#60option value="USA"&#62United States&#60/option&#62<br>
+                    &#60option value="INDIA"&#62BHARATHA&#60/option&#62<br>
+                    &#60option value="France"&#62France&#60/option&#62<br>
+                    &#60option value="Germany"&#62Germany&#60/option&#62<br>
+                    &#60option value="Australia"&#62Australia&#60/option&#62<br>
+                    &#60/select&#62<br>
+                    &#60p>Capital: &#60span id="capital">&#60/span>&#60/p&#62<br>
+                    &#60script&#62<br>
+                    function showCapital() {<br>
+                    // Get the selected country from the select element<br>
+                    var selectElement = document.getElementById("countrySelect");<br>
+                    var selectedCountry = selectElement.options[selectElement.selectedIndex].value;<br>
+
+                    // Set the capital based on the selected country<br>
+                    var capitalElement = document.getElementById("capital");<br>
+                    switch (selectedCountry) {<br>
+                    case "USA":<br>
+                    capitalElement.innerText = "Washington, D.C.";<br>
+                    break;<br>
+                    case "INDIA":<br>
+                    capitalElement.innerText = "Newdelhi";<br>
+                    break;<br>
+                    case "France":<br>
+                    capitalElement.innerText = "Paris";<br>
+                    break;<br>
+                    case "Germany":<br>
+                    capitalElement.innerText = "Berlin";<br>
+                    break;<br>
+                    case "Australia":<br>
+                    capitalElement.innerText = "Canberra";<br>
+                    break;<br>
+                    default:<br>
+                    capitalElement.innerText = "";<br>
+                    break;<br>
+                    }<br>
+                    }<br>
+                    &#60/script&#62<br>
+                    &#60/body&#62<br>
+                    &#60/html&#62
+                </p>
+            </div>
+            <div class="content-container">
+                <h1>With Css</h1>
+                <div class="code-box">
+                    <p>
+                        &#60!DOCTYPE html&#62<br>
+                        &#60html&#62<br>
+                        &#60head&#62<br>
+                        &#60title&#62Country Capitals&#60/title&#62<br>
+                        &#60style&#62<br>
+                        #capital {<br>
+                        color: blue;<br>
+                        font-weight: bold;<br>
+                        font-size: 20px;<br>
+                        }<br>
+                        &#60/style&#62<br>
+                        &#60/head&#62<br>
+                        &#60body&#62<br>
+                        &#60h1&#62Select a Country&#60/h1&#62<br>
+                        &#60select id="countrySelect" onchange="showCapital()"&#62<br>
+                        &#60option value=""&#62-- Select a Country --&#60/option&#62<br>
+                        &#60option value="USA"&#62United States&#60/option&#62<br>
+                        &#60option value="INDIA"&#62BHARATHA&#60/option&#62<br>
+                        &#60option value="France"&#62France&#60/option&#62<br>
+                        &#60option value="Germany"&#62Germany&#60/option&#62<br>
+                        &#60option value="Australia"&#62Australia&#60/option&#62<br>
+                        &#60/select&#62<br>
+                        &#60p>Capital: &#60span id="capital">&#60/span>&#60/p&#62<br>
+                        &#60script&#62<br>
+                        function showCapital() {<br>
+                        // Get the selected country from the select element<br>
+                        var selectElement = document.getElementById("countrySelect");<br>
+                        var selectedCountry = selectElement.options[selectElement.selectedIndex].value;<br>
+                        // Set the capital based on the selected country<br>
+                        var capitalElement = document.getElementById("capital");<br>
+                        switch (selectedCountry) {<br>
+                        case "USA":<br>
+                        capitalElement.innerText = "Washington, D.C.";<br>
+                        break;<br>
+                        case "INDIA":<br>
+                        capitalElement.innerText = "Newdelhi";<br>
+                        break;<br>
+                        case "France":<br>
+                        capitalElement.innerText = "Paris";<br>
+                        break;<br>
+                        case "Germany":<br>
+                        capitalElement.innerText = "Berlin";<br>
+                        break;<br>
+                        case "Australia":<br>
+                        capitalElement.innerText = "Canberra";<br>
+                        break;<br>
+                        default:<br>
+                        capitalElement.innerText = "";<br>
+                        break;<br>
+                        }<br>
+                        }<br>
+                        &#60/script&#62<br>
+                        &#60/body&#62<br>
+                        &#60/html&#62
+                    </p>
+                </div>
+
+                <div>
+                    <em><br>Save the code in an HTML file, and you can open it in a web browser to see your biodata
+                        webpage.
+                        Remember to include your photo file (e.g., your_photo.jpg) in the same directory as the HTML
+                        file or provide the correct file path in the src attribute of the img tag.</em>
+                </div>
+            </div>
+    </main>
+</body>
+
+</html>

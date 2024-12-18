@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>
+                Write a program to calculate the parking charges of a vehicle. Enter the type
+                of
+                vehicle as a character (like c for car, b for bus etc) and the number of hours. Then
+                calculate the charges as given below. [Program must be implemented using Switch
+                and else-if]
+                • Truck / Bus - Rs 20 per hour
+                • Car - Rs 10 per hour
+                • Scooter/ Cycle/ Motor cycle - Rs 5 per hour</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 stdio.h&#62<br>
+                    void main()<br>
+                    {<br>
+                    int car=10,bus=20,Sc=5,noofhours, charges=0;<br>
+                    char choice;<br>
+                    printf("Please enter vehicle details c-car b-bus and s-scooter \n");<br>
+                    scanf("%c”, &choice);<br>
+                    printf("Please enter no of hours");<br>
+                    scanf("%d",&noofhours);<br>
+                    switch(choice)<br>
+                    {<br>
+                    case 'c': charges=car*noofhours;<br>
+                    printf("Parking charges for your car = %d \n",charges);<br>
+                    break;<br>
+                    case 'b': charges=bus*noofhours;<br>
+                    printf("Parking charges for your bus = %d \n",charges);<br>
+                    break;<br>
+                    case 's': charges=Sc*noofhours;<br>
+                    printf("Parking charges for your Scooter = %d \n",charges);<br>
+                    break; <br>
+                    default: printf("Invalid Choice \n");<br>
+                    }<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

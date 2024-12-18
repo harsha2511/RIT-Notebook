@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1> Write a C program to find the average of all elements of a 1D array.</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 stdio.h&#62<br>
+
+                    int main()<br>
+                    {<br>
+                    int array[10]={1,2,3,4,5,6,7,8,9,0};<br>
+                    int sum, a, loop ;<br>
+                    float avg;<br>
+                    sum = avg = 0;<br>
+                    for(loop =0; loop &#60 10; loop++)<br>
+                    {<br>
+                    sum = sum + array[loop];<br>
+                    }<br>
+                    avg=(float)sum / loop;<br>
+                    printf("Average of array values is %.2f",avg);<br>
+                    return0;<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

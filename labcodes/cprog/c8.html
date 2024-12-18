@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Write a program to determine whether the given character is a vowel or not.</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 stdio.h&#62<br>
+                    int main()<br>
+                    {<br>
+                    char c;<br>
+                    intlowercase_vowel, uppercase_vowel;<br>
+                    printf("Enter an alphabet: ");<br>
+                    scanf("%c", &c);<br>
+                    // evaluates to 1 if variable c is a lowercase vowel<br>
+                    lowercase_vowel = (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');<br>
+                    // evaluates to 1 if variable c is a uppercase vowel<br>
+                    uppercase_vowel = (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');<br>
+                    // evaluates to 1 (true) if c is a vowel<br>
+                    if (lowercase_vowel || uppercase_vowel)<br>
+                    printf("%c is a vowel.", c);<br>
+                    else<br>
+                    printf("%c is a consonant.", c);<br>
+                    return 0;<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

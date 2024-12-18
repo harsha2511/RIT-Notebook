@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>
+                Write a JavaScript to design a simple calculator to perform the following
+                operations: sum,
+                product, difference and quotient
+            </h1>
+            <div class="code-box">
+                <p>
+                    &#60! DOCTYPE html&#62<br>
+                    &#60html&#62<br>
+                    &#60head&#62<br>
+                    &#60title&#62Factorial Calculator&#60/title&#62<br>
+                    &#60script&#62<br>
+                    // Function to compute the factorial of a number<br>
+                    function calculateFactorial() {<br>
+                    var num = parseInt(document.getElementById("number").value);<br>
+                    var factorial = 1;<br>
+                    if (num >= 0) {<br>
+                    for (var i = 1; i <= num; i++) {<br>
+                        factorial *= i;<br>
+                        }<br>
+                        alert("Factorial of " + num + " is: " + factorial);<br>
+                        } else {<br>
+                        alert("Please enter a non-negative number!");<br>
+                        }<br>
+                        }<br>
+                        &#60/script&#62<br>
+                        &#60/head&#62<br>
+                        &#60body&#62<br>
+                        &#60h1 &#62Factorial Calculator&#60/h1&#62<br>
+
+                        &#60label for="number">Enter a number:&#60/label&#62<br>
+                        &#60input type="number" id="number"&#62 &#60br&#62<br>
+
+                        &#60button onclick="calculateFactorial()"&#62Calculate Factorial&#60/button&#62<br>
+                        &#60/body&#62<br>
+                        &#60/html&#62<br>
+                </p>
+            </div>
+            <div>
+                <em><br>Save the code in an HTML file, and you can open it in a web browser to see your biodata webpage.
+                    Remember to include your photo file (e.g., your_photo.jpg) in the same directory as the HTML
+                    file or provide the correct file path in the src attribute of the img tag.</em>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

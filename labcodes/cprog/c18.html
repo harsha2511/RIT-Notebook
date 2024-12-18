@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Write a program to generate prime numbers within a given range. [using for
+                loop]</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 stdio.h&#62<br>
+
+                    #include &#60 stdlib.h&#62<br>
+                    void main()<br>
+                    {<br>
+                    int num1, num2, i, j, flag, temp;<br>
+                    printf("Enter the value of num1 and num2 \n");<br>
+                    scanf("%d %d", &num1, &num2);<br>
+                    printf("Prime numbers are \n");<br>
+                    temp = num1;<br>
+                    if (num1 % 2 == 0)<br>
+                    {<br>
+                    num1++;<br>
+                    }<br>
+                    for (i = num1; i &#60 = num2; i = i + 2)<br>
+                    {<br>
+                    flag = 0;<br>
+                    for (j = 2; j &#60 = i / 2; j++)<br>
+                    {<br>
+                    if ((i % j) == 0)<br>
+                    {<br>
+                    flag = 1;<br>
+                    break;<br>
+                    }<br>
+                    }<br>
+                    if (flag == 0)<br>
+                    {<br>
+                    printf("%d\n", i); <br>
+                    }<br>
+                    }<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

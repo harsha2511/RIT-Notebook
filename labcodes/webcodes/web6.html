@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>
+                Write a JavaScript to design a simple calculator to perform the following operations: sum,
+                product, difference and quotient
+            </h1>
+            <div class="code-box">
+                <p>
+                    &#60!DOCTYPE html&#62<br>
+                    &#60html&#62<br>
+                    &#60head&#62<br>
+                    &#60title&#62Simple Cal<br>culator&#60/title&#62<br>
+                    &#60script&#62
+                    // Function to perform the addition operation
+                    function add() {<br>
+                    var num1 = parseFloat(document.getElementById("num1").value);<br>
+                    var num2 = parseFloat(document.getElementById("num2").value);<br>
+                    var result = num1 + num2;<br>
+                    document.getElementById("result").value = result;<br>
+                    }<br>
+                    // Function to perform the subtraction operation
+                    function subtract() {<br>
+                    var num1 = parseFloat(document.getElementById("num1").value);<br>
+                    var num2 = parseFloat(document.getElementById("num2").value);<br>
+                    var result = num1 - num2;<br>
+                    document.getElementById("result").value = result;<br>
+                    }<br>
+                    // Function to perform the multiplication operation
+                    function multiply() {
+                    var num1 = parseFloat(document.getElementById("num1").value);<br>
+                    var num2 = parseFloat(document.getElementById("num2").value);<br>
+                    var result = num1 * num2;<br>
+                    document.getElementById("result").value = result;<br>
+                    }<br>
+                    // Function to perform the division operation
+                    function divide() {<br>
+                    var num1 = parseFloat(document.getElementById("num1").value);<br>
+                    var num2 = parseFloat(document.getElementById("num2").value);<br>
+                    var result = num1 / num2;<br>
+                    if (isNaN(result)) {<br>
+                    document.getElementById("result").value = "Cannot divide by zero";<br>
+                    } else {<br>
+                    document.getElementById("result").value = result;<br>
+                    }<br>
+                    }<br>
+                    &#60/script&#62<br>
+                    &#60/head&#62<br>
+                    &#60body&#62<br>
+                    &#60h1>Simple Calculator&#60/h1&#62<br>
+                    &#60label for="num1">Number 1:&#60/label&#62<br>
+                    &#60input type="number" id="num1">&#60br&#62<br>
+
+                    &#60label for="num2">Number 2:&#60/label&#62<br>
+                    &#60input type="number" id="num2">&#60br&#62<br>
+
+                    &#60button onclick="add()"&#62Add&#60/button&#62<br>
+                    &#60button onclick="subtract()"&#62Subtract&#60/button&#62<br>
+                    &#60button onclick="multiply()"&#62Multiply&#60/button&#62<br>
+                    &#60button onclick="divide()"&#62Divide&#60/button&#62<br>
+
+                    &#60label for="result">Result:&#60/label&#62<br>
+                    &#60input type="text" id="result" readonly&#62<br>
+                    &#60/body&#62<br>
+                    &#60/html&#62
+                </p>
+            </div>
+        </div>
+        <div class="content-container">
+            <h1>
+                With CSS
+            </h1>
+            <div class="code-box">
+                <p>
+                    &#60!DOCTYPE html&#62<br>
+                    &#60html&#62<br>
+                    &#60head&#62<br>
+                    &#60title&#62Country Capitals&#60/title&#62<br>
+                    &#60style&#62<br>
+                    #capital {<br>
+                    color: blue;<br>
+                    font-weight: bold;<br>
+                    font-size: 20px;<br>
+                    }<br>
+                    &#60/style&#62<br>
+                    &#60/head&#62<br>
+                    &#60body&#62<br>
+                    &#60h1&#62Select a Country&#60/h1&#62<br>
+                    &#60select id="countrySelect" onchange="showCapital()"&#62<br>
+                    &#60option value=""&#62-- Select a Country --&#60/option&#62<br>
+                    &#60option value="USA"&#62United States&#60/option&#62<br>
+                    &#60option value="INDIA"&#62BHARATHA&#60/option&#62<br>
+                    &#60option value="France"&#62France&#60/option&#62<br>
+                    &#60option value="Germany"&#62Germany&#60/option&#62<br>
+                    &#60option value="Australia"&#62Australia&#60/option&#62<br>
+                    &#60/select&#62<br>
+                    &#60p>Capital: &#60span id="capital">&#60/span>&#60/p&#62<br>
+                    &#60script&#62<br>
+                    function showCapital() {<br>
+                    // Get the selected country from the select element<br>
+                    var selectElement = document.getElementById("countrySelect");<br>
+                    var selectedCountry = selectElement.options[selectElement.selectedIndex].value;<br>
+                    // Set the capital based on the selected country<br>
+                    var capitalElement = document.getElementById("capital");<br>
+                    switch (selectedCountry) {<br>
+                    case "USA":<br>
+                    capitalElement.innerText = "Washington, D.C.";<br>
+                    break;<br>
+                    case "INDIA":<br>
+                    capitalElement.innerText = "Newdelhi";<br>
+                    break;<br>
+                    case "France":<br>
+                    capitalElement.innerText = "Paris";<br>
+                    break;<br>
+                    case "Germany":<br>
+                    capitalElement.innerText = "Berlin";<br>
+                    break;<br>
+                    case "Australia":<br>
+                    capitalElement.innerText = "Canberra";<br>
+                    break;<br>
+                    default:<br>
+                    capitalElement.innerText = "";<br>
+                    break;<br>
+                    }<br>
+                    }<br>
+                    &#60/script&#62<br>
+                    &#60/body&#62<br>
+                    &#60/html&#62<br>
+                </p>
+            </div>
+            <div>
+                <em><br>Save the code in an HTML file, and you can open it in a web browser to see your biodata webpage.
+                    Remember to include your photo file (e.g., your_photo.jpg) in the same directory as the HTML
+                    file or provide the correct file path in the src attribute of the img tag.</em>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

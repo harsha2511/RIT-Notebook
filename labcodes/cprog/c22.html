@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1> Write a C program to search for an element using Linear Search</h1>
+            <div class="code-box">
+                <p> #include &#60 stdio.h&#62<br>
+
+                    int main()<br>
+                    {<br>
+                    int array[100], key, c, number;<br>
+                    printf("Enter the number of elements in array\n");<br>
+                    scanf("%d",&number);<br>
+                    printf("Enter %d numbers\n", number);<br>
+                    for ( c = 0 ; c &#60 number ; c++ )<br>
+                    scanf("%d",&array[c]);<br>
+                    printf("Enter the number to search\n");<br>
+                    scanf("%d",&key);<br>
+                    for ( c = 0 ; c &#60 number ; c++ )<br>
+                    {<br>
+                    if ( array[c] == key )<br> /* if required element found */
+                    {<br>
+                    printf("%d is present at location %d.\n", key, c+1);<br>
+                    break;<br>
+                    }<br>
+                    }<br>
+                    if ( c == number )<br>
+                    printf("%d is not present in array.\n", search);<br>
+                    return 0;<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

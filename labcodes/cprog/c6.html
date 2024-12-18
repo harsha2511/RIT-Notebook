@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Write a program to calculate the salary of an employee, given his basic pay
+                (to
+                be entered by user), HRA = 10% of the basic pay, TA = 5% of basic pay.
+                Define HRA and TA as symbolic constants and calculate the salary of the
+                employee.</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 stdio.h&#62<br>
+                    int main()<br>
+                    {<br>
+                    float TA,HRA, Salary;<br>
+                    int BP;<br>
+                    printf("Enter your Basic Pay:");<br>
+                    scanf("%d",&BP);<br>
+                    TA= 0.05*BP;<br>
+                    HRA = 0.1*BP;<br>
+                    Salary = BP+TA+HRA;<br>
+                    printf("Total Salary is: %f ",Salary);<br>
+                    return 0;<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

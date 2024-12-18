@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>
+                Write a program to generate the Fibonacci series up to 'nth' given number
+                using
+                WHILE loop.</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 stdio.h&#62<br>
+                    int main()<br>
+                    {<br>
+                    int f1=0,f2=1,nextTerm,i=3,n;<br>
+                    printf("Enter a Positive Number \n:");<br>
+                    scanf("%d",&n);<br>
+                    if (n == 1)<br>
+                    printf(“%d”, f1);<br>
+                    else <br>
+                    if (n>=2)<br>
+                    { <br>
+                    printf("%d\t%d",f1,f2); <br>
+                    nextTerm = f1 + f2;<br>
+                    for(i=0; i &#60 n-2 ;i++) <br>
+                    {<br>
+                    printf("\t%d", nextTerm);<br>
+                    f1= f2;<br>
+                    f2= nextTerm;<br>
+                    nextTerm = f1+ f2;<br>
+                    }<br>
+                    return 0;<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

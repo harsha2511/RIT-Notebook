@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Write a C program to search for a book based on the ISBN whether the book is
+                present or not (Binary Search).</h1>
+            <div class="code-box">
+                <p>
+                    #include &#60 stdio.h&#62<br>
+
+                    void main()<br>
+                    {<br>
+                    int a[30],i,num,key,low,mid,high;<br>
+                    printf("\n enter the no of elements");<br>
+                    scanf("%d",&n);<br>
+                    printf("\n enter the elements : ");<br>
+                    for(i=0;i &#60 n;i++)<br>
+                    {<br>
+                    scanf("%d", &a[i]);<br>
+                    }<br>
+                    printf("\n enter the key element to be searched\n");<br>
+                    scanf("%d", &key);<br>
+                    low=0;<br>
+                    high=n-1;<br>
+                    while(low &#60= high)<br>
+                    {<br>
+                    mid=(low+high)/2;<br>
+                    if(a[mid]==key)<br>
+                    {<br>
+                    printf("element %d is found at %d position :",key,mid+1);<br>
+                    exit(0);<br>
+                    }<br>
+                    else if (a[mid] > key)<br>
+                    high = mid-1;<br>
+                    else low = mid+1;<br>
+                    }<br>
+                    printf("element not found\n");<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
