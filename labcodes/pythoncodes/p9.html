@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Longest shortest word</h1>
+            <div class="code-box">
+                <p>
+                    def smallest_largest_words(str1):<br>
+                    word = ""<br>
+                    all_words = []<br>
+                    str1 = str1 + " "<br>
+                    for i in range(0, len(str1)):<br>
+                    if str1[i] != ' ':<br>
+                    word = word + str1[i]<br>
+                    else:<br>
+                    all_words.append(word)<br>
+                    word = ""<br>
+                    small = large = all_words[0]<br>
+
+                    # Find smallest and largest word in the str1<br>
+                    for k in range(0, len(all_words)):<br>
+                    if len(small) > len(all_words[k]):<br>
+                    small = all_words[k]<br>
+                    if len(large) &#60 len(all_words[k]):<br>
+                    large = all_words[k]<br>
+
+                    return small, large<br>
+
+                    myfile = open("test.txt", "w")<br>
+                    line = input("Enter text: ")<br>
+                    myfile.write(line)<br>
+                    myfile.close()<br>
+
+                    myfile = open("test.txt", "r")<br>
+                    lines = myfile.read()<br>
+
+                    small, large = smallest_largest_words(lines)<br>
+                    print("Smallest word: " + small)<br>
+                    print("Length of the shortest word=", len(small))<br>
+                    print("Largest word: " + large)<br>
+                    print("Length of the longest word=", len(large))<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
