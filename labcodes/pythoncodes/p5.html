@@ -33,21 +33,14 @@
 
     <main>
         <div class="content-container">
-            <h1>Garbage Collection</h1>
+            <h1>Factorial of a number using while</h1>
             <div class="code-box">
-                <p>
-                    class gclass{<br>
-                        protected void finalize(){<br>
-                        System.out.println("garbage collected");<br>
-                        }<br>
-                        }<br>
-                        public class fourteen {<br>
-                        public static void main(String[] args) {<br>
-                        gclass obj = new gclass();<br>
-                        obj = null;<br>
-                        System.gc();<br>
-                        }<br>
-                        }<br>
+                <p> a = int(input('Enter a number to find its factorial: '))<br>
+                    num = 1<br>
+                    while a >= 1:<br>
+                    &nbsp;num = num * a<br>
+                    &nbsp;a = a - 1<br>
+                    print('The Factorial of the number is:', num)<br>
                 </p>
             </div>
         </div>

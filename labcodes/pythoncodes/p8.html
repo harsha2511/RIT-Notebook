@@ -33,21 +33,27 @@
 
     <main>
         <div class="content-container">
-            <h1>Garbage Collection</h1>
+            <h1>Linear search using recursion</h1>
             <div class="code-box">
-                <p>
-                    class gclass{<br>
-                        protected void finalize(){<br>
-                        System.out.println("garbage collected");<br>
-                        }<br>
-                        }<br>
-                        public class fourteen {<br>
-                        public static void main(String[] args) {<br>
-                        gclass obj = new gclass();<br>
-                        obj = null;<br>
-                        System.gc();<br>
-                        }<br>
-                        }<br>
+                <p> 
+                    
+                    def linear_search(arr, key, size):<br>
+                    &nbsp;if size == 0:<br>
+                    &nbsp;&nbsp;return -1<br>
+                    &nbsp;elif arr[size - 1] == key:<br>
+                    &nbsp;&nbsp;return size - 1<br>
+                    &nbsp;else:<br>
+                    &nbsp;return linear_search(arr, key, size - 1)<br>
+                <br>
+                arr = [10, 20, 30, 40, 50]<br>
+                key = 20<br>
+                size = len(arr)<br>
+                ans = linear_search(arr, key, size)<br>
+                
+                if ans != -1:<br>
+                    print('The element', key, 'is found at', ans, 'index of the given array')<br>
+                else:<br>
+                    print('The element', key, 'is not found')<br>
                 </p>
             </div>
         </div>

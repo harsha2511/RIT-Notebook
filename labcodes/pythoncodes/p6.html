@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Inheritance</h1>
+            <div class="code-box">
+                <p> class Employee:<br>
+                    &nbsp;def __init__(self, name, salary):<br>
+                    &nbsp;&nbsp;self.name = name<br>
+                    &nbsp;&nbsp;self.salary = salary<br>
+<br>
+                    &nbsp;def get_details(self):<br>
+                    &nbsp;&nbsp;print("from Employee ->")<br>
+                    &nbsp;&nbsp;return "Name: " + self.name + ", Salary: " + str(self.salary)<br>
+<br>
+                    class Clerk(Employee):<br>
+                    &nbsp;print("from clerk->")<br>
+                    &nbsp;pass<br>
+<br>
+                    class SoftwareEngineer(Employee):<br>
+                    &nbsp;def __init__(self, name, salary, programming_languages):<br>
+                    &nbsp;&nbsp;super().__init__(name, salary)<br>
+                    &nbsp;&nbsp;self.programming_languages = programming_languages<br>
+<br>
+                    &nbsp;def get_details(self):<br>
+                    &nbsp;&nbsp;print("from software engineer->")<br>
+                    &nbsp;&nbsp;return super().get_details() + ", Programming Languages: " + self.programming_languages<br>
+<br>
+                    class TeamLeader(SoftwareEngineer):<br>
+                    &nbsp;def __init__(self, name, salary, programming_languages, team_size):<br>
+                    &nbsp;&nbsp;super().__init__(name, salary, programming_languages)<br>
+                    &nbsp;&nbsp;self.team_size = team_size<br>
+<br>
+                    &nbsp;def get_details(self):<br>
+                    &nbsp;&nbsp;print("Team leader->")<br>
+                    &nbsp;&nbsp;return super().get_details() + ", Team Size: " + str(self.team_size)<br>
+<br>
+                    e1 = Employee("John", 5000)<br>
+                    print(e1.get_details())<br>
+                    <br>
+                    c1 = Clerk("Jane", 3000)<br>
+                    print(c1.get_details())<br>
+                    <br>
+                    se1 = SoftwareEngineer("Mike", 6000, "Python, Java")<br>
+                    print(se1.get_details())<br>
+                    <br>
+                    tl1 = TeamLeader("Steve", 8000, "Python, Java, C++", 10)<br>
+                    print(tl1.get_details())<br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

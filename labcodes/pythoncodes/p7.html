@@ -33,21 +33,26 @@
 
     <main>
         <div class="content-container">
-            <h1>Garbage Collection</h1>
+            <h1>Greatest of 3 numbers</h1>
             <div class="code-box">
-                <p>
-                    class gclass{<br>
-                        protected void finalize(){<br>
-                        System.out.println("garbage collected");<br>
-                        }<br>
-                        }<br>
-                        public class fourteen {<br>
-                        public static void main(String[] args) {<br>
-                        gclass obj = new gclass();<br>
-                        obj = null;<br>
-                        System.gc();<br>
-                        }<br>
-                        }<br>
+                <p> 
+                    def max_of_three(a, b, c):<br>
+                    &nbsp;if a > b and a > c:<br>
+                    &nbsp;&nbsp;print(a, 'Is The Largest Number')<br>
+                    &nbsp;&nbsp;return<br>
+                    &nbsp;elif b > a and b > c:<br>
+                    &nbsp;&nbsp;print(b, 'Is The Largest Number')<br>
+                    &nbsp;&nbsp;return<br>
+                    &nbsp;else:<br>
+                    &nbsp;&nbsp;print(c, 'Is The Largest Number')<br>
+                    &nbsp;&nbsp;return<br>
+
+                    a = int(input('Enter the value of a: '))<br>
+                    b = int(input('Enter the value of b: '))<br>
+                    c = int(input('Enter the value of c: '))<br>
+
+                    x = max_of_three(a, b, c)<br>
+                    print(x)<br>
                 </p>
             </div>
         </div>

@@ -33,21 +33,19 @@
 
     <main>
         <div class="content-container">
-            <h1>Garbage Collection</h1>
+            <h1>Divexp</h1>
             <div class="code-box">
-                <p>
-                    class gclass{<br>
-                        protected void finalize(){<br>
-                        System.out.println("garbage collected");<br>
-                        }<br>
-                        }<br>
-                        public class fourteen {<br>
-                        public static void main(String[] args) {<br>
-                        gclass obj = new gclass();<br>
-                        obj = null;<br>
-                        System.gc();<br>
-                        }<br>
-                        }<br>
+                <p> def DivExp(a, b):<br>
+                    &nbsp;assert a > 0<br>
+                    &nbsp;try:<br>
+                    &nbsp;&nbsp;c = a / b<br>
+                    &nbsp;&nbsp;print("Quotient is", c)<br>
+                    &nbsp;except ZeroDivisionError:<br>
+                    &nbsp;&nbsp;print("Error: Denominator cannot be 0.")<br>
+                    &nbsp;quit()<br>
+                    a = int(input("Numerator: "))<br>
+                    b = int(input("Denominator: "))<br>
+                    DivExp(a, b)<br>
                 </p>
             </div>
         </div>
