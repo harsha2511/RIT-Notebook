@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Code 6</h1>
+            <div class="code-box">
+                <p>
+                    #server.py
+                    <br>import socket
+                    <br>from ch import c
+                    <br>s=socket.socket(socket.AF_INET,socket.SOCK_RAW,socket.IPPROTO_ICMP)
+                    <br>while True:
+                    <br>p,_=s.recvfrom(1024)
+                    <br>if p[20]==8:
+                    <br>print("Received:",p[28:])
+                    <br>print("Checksum:", "OK" if c(p[20:])==0 else "Fail")
+                    <br>
+                    <br>#ch.py
+                    <br>def c(d):
+                    <br>s=0
+                    <br>for i in range(0,len(d),2):
+                    <br>w=(d[i] < < 8)+(d[i+1] if i+1<len(d) else 0) s=(s+w)&0xffff return (~s)&0xffff #client.py<br>
+                        <br>    import socket,os,struct<br>
+                        <br>from ch import c
+                        <br>s=socket.socket(socket.AF_INET,socket.SOCK_RAW,socket.IPPROTO_ICMP)
+                        <br>d=b"data"
+                        <br>id=os.getpid()&0xffff
+                        <br>p=struct.pack("!BBHHH",8,0,0,id,1)+d
+                        <br>ck=c(p)
+                        <br>p=struct.pack("! BBHHH ",8,0,ck,id,1) +d
+                        <br>s.sendto(p,(" localhost " , 0 ) )
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

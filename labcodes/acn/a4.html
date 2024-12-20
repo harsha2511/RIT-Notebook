@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Code 4</h1>
+            <div class="code-box">
+                <p>
+                    #server.py
+                    <br>import socket
+                    <br>from ch import ip_checksum
+                    <br>
+                    <br>s=socket.socket()
+                    <br>s.bind(('',9999))
+                    <br>s.listen(1)
+                    <br>x,_=s.accept()
+                    <br>m=x.recv(1024)
+                    <br>msg,cs=m.rsplit(b'|',1)
+                    <br>print("Received:",msg)
+                    <br>print("Received checksum:",cs.decode())
+                    <br>print("Verification:",'OK' if hex(ip_checksum(msg))==cs.decode() else 'Error')
+                    <br>x.close()
+                    <br>s.close()
+                    <br>
+                    <br>#client.py
+                    <br>import socket
+                    <br>from ch import ip_checksum
+                    <br>
+                    <br>s=socket.socket()
+                    <br>s.connect(('localhost',9999))
+                    <br>m=b"Hello"
+                    <br>cs=hex(ip_checksum(m))
+                    <br>s.send(m+b'|'+cs.encode())
+                    <br>s.close()
+                    <br>
+                    <br>#ch.py
+                    <br>def ip_checksum(d):
+                    <br>s=0
+                    <br>for i in range(0,len(d),2):
+                    <br>w=(d[i]< < 8)+(d[i+1] if i+1 < len(d) else 0) s=(s+w)&0xffff return (~s)&0xffff <br>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

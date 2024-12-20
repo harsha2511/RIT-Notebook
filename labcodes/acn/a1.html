@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Read the file</h1>
+            <div class="code-box">
+                <p>
+                    #server.py
+                    <br>import socket,os
+                    <br>s=socket.socket()
+                    <br>s.bind(('',9989))
+                    <br>s.listen(1)
+                    <br>c,addr=s.accept()
+                    <br>f=c.recv(1024).decode()
+                    <br>if os.path.isfile(f):
+                    <br>&nbsp;&nbsp;with open(f) as x:
+                    <br>&nbsp;&nbsp;&nbsp;c.sendall(x.read().encode())
+                    <br>else:
+                    <br>&nbsp;&nbsp;c.send(b'File not found')
+                    <br>c.close()
+                    <br>s.close()
+                    <br>#client.py
+                    <br>import socket
+                    <br>s=socket.socket()
+                    <br>s.connect(('localhost',9989))
+                    <br>s.send(input().encode())
+                    <br>data=s.recv(999999).decode()
+                    <br>print(data)
+                    <br>s.close()
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

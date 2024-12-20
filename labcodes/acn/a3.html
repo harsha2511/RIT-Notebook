@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Code 3</h1>
+            <div class="code-box">
+                <p>
+                    #crc.py
+                    <br>def c(d,g):
+                    <br>d+='0'*(len(g)-1)
+                    <br>D,G=list(d),list(g)
+                    <br>for i in range(len(D)-len(G)+1):
+                    <br>if D[i]=='1':
+                    <br>for j in range(len(G)):
+                    <br>D[i+j]=str(int(D[i+j])^int(G[j]))
+                    <br>return ''.join(D[-(len(G)-1):])
+                    <br>
+                    <br>#server.py
+                    <br>import socket
+                    <br>from crc import c
+                    <br>
+                    <br>s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+                    <br>s.bind(('localhost',6000))
+                    <br>print("Server listening on 6000...")
+                    <br>
+                    <br>while True:
+                    <br>data,addr=s.recvfrom(1024)
+                    <br>m,cs=data.decode().split(',')
+                    <br>if m.lower()=='exit':
+                    <br>print("Client exit, shutting down.")
+                    <br>break
+                    <br>g=input("Enter generator (binary): ")
+                    <br>cc=c(m+cs,g)
+                    <br>print("Received message(CRC):",m+cs)
+                    <br>print("Received checksum:",cs)
+                    <br>print(f"Data from {addr} is {'valid' if all(i=='0' for i in cc) else 'invalid'}.")
+                    <br>
+                    <br>s.close()
+                    <br>
+                    <br>#client.py
+                    <br>import socket
+                    <br>from crc import c
+                    <br>
+                    <br>while True:
+                    <br>m=input("Enter message (binary) or 'exit': ")
+                    <br>if m.lower()=='exit':
+                    <br>with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as x:
+                    <br>x.sendto("exit,exit".encode(),('localhost',6000))
+                    <br>print("Exiting client.")
+                    <br>break
+                    <br>g=input("Enter generator (binary): ")
+                    <br>cs=c(m,g)
+                    <br>print("Checksum code:",cs)
+                    <br>with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as x:
+                    <br>x.sendto(f"{m},{cs}".encode(),('localhost',6000))
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

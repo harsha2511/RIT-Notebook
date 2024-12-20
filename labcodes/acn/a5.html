@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <link rel="stylesheet" href="../../styles/program.css">
+    <link rel="icon" href="../../images/icons/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../../notes/first.html">First</a>
+                    <a href="../../notes/second.html">Second</a>
+                    <a href="../../notes/third.html">Third</a>
+                    <a href="../../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../../labcodes.html">Lab Codes</a>
+            <a href="../../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h1>Code 5</h1>
+            <div class="code-box">
+                <p>
+                    import java.util.ArrayList;
+                    <br>import java.util.List;
+                    <br>import java.util.Scanner;
+                    <br>
+                    <br>class IPFragment {
+                    <br>int id; // Unique Identifier for the IP packet (same for all fragments)
+                    <br>int offset; // Fragment offset in 8-byte units
+                    <br>byte[] fragmentData; // Data of the fragment
+                    <br>boolean moreFragments; // Flag to indicate if more fragments follow
+                    <br>int fragmentSize; // Size of the fragment including the header
+                    <br>
+                    <br>public IPFragment(int id, int offset, byte[] fragmentData, boolean moreFragments, int
+                    fragmentSize)
+                    <br>{
+                    <br>this.id = id;
+                    <br>this.offset = offset;
+                    <br>this.fragmentData = fragmentData;
+                    <br>this.moreFragments = moreFragments;
+                    <br>this.fragmentSize = fragmentSize;
+                    <br>}
+                    <br>
+                    <br>@Override
+                    <br>public String toString() {
+                    <br>return String.format("Fragment ID: %d, Offset: %d, More: %b, Fragment Size: %d",
+                    <br>id, offset, moreFragments, fragmentSize);
+                    <br>}
+                    <br>}
+                    <br>
+                    <br>public class IPFragmenter {
+                    <br>
+                    <br>// Fragmentation algorithm
+                    <br>public static List<IPFragment> fragmentPacket(byte[] originalPacket, int mtu, boolean
+                        doNotFragment)
+                        <br>{
+                        <br>List<IPFragment> fragments = new ArrayList<>();
+                                <br>
+                                <br>int headerSize = 20; // Size of the IP header
+                                <br>int dataSize = originalPacket.length - headerSize;
+                                <br>
+                                <br>// If the packet is smaller than or equal to the MTU, no fragmentation occurs
+                                <br>if (doNotFragment || originalPacket.length <= mtu) { IPFragment singleFragment=new
+                                    <br> IPFragment(1, 0, originalPacket, false, originalPacket.length);
+                                    <br>fragments.add(singleFragment); return fragments; } int maxDataSize=mtu -
+                                    headerSize;
+                                    <br>// Max data size per fragment int fragmentId=(int) (Math.random() * 65536); //
+                                    <br>Generate a random ID for the packet int offset=0; boolean moreFragments=true; //
+                                    <br>Fragment the packet for (int i=0; i < dataSize; i +=maxDataSize) { <br>int
+                                        length=Math.min(maxDataSize, dataSize - i); byte[] fragmentData=new
+                                        byte[length];
+                                        <br>System.arraycopy(originalPacket, headerSize + i, fragmentData, 0, length);
+                                        // If
+                                        <br>it's the last fragment, set "moreFragments" to false moreFragments=(i +
+                                        length < dataSize); // Create a fragment and add it to the list int <br>
+                                            fragmentSize=headerSize +
+                                            <br>fragmentData.length; IPFragment fragment=new IPFragment(fragmentId,
+                                            offset,
+                                            <br>fragmentData, moreFragments, fragmentSize); fragments.add(fragment);
+                                            offset +=length
+                                            <br>/ 8; // Increase the offset by the number of 8-byte blocks } return
+                                            fragments; } //
+                                            <br>Method to reassemble fragmented packets public static byte[]
+                                            <br> reassembleFragments(List<IPFragment> fragments) {
+                                                <br>// Sort fragments by offset to reconstruct the original order
+                                                <br>fragments.sort((f1, f2) -> Integer.compare(f1.offset, f2.offset));
+
+                                                <br>// Calculate total size of the reassembled packet
+                                                <br>int totalSize = 0;
+                                                <br>for (IPFragment fragment : fragments) {
+                                                <br> totalSize += fragment.fragmentData.length;
+                                                <br> }
+                                                <br>
+                                                <br>// Allocate space for the original packet (including the header)
+                                                <br>byte[] reassembledPacket = new byte[totalSize + 20];
+                                                <br>int currentOffset = 20; // Start after the header
+                                                <br>
+                                                <br>// Copy data from fragments into the reassembled packet
+                                                <br>for (IPFragment fragment : fragments) {
+                                                <br>System.arraycopy(fragment.fragmentData, 0, reassembledPacket,
+                                                <br>currentOffset,
+                                                <br>fragment.fragmentData.length);
+                                                <br>currentOffset += fragment.fragmentData.length;
+                                                <br>}
+                                                <br>
+                                                <br>return reassembledPacket;
+                                                <br>}
+                                                <br>
+                                                <br>public static void main(String[] args) {
+                                                <br>Scanner scanner = new Scanner(System.in);
+                                                <br>
+                                                <br>// Input the original packet size (for testing purposes)
+                                                <br>byte[] originalPacket = new byte[1500]; // Example large IP packet
+                                                <br>for (int i = 0; i < originalPacket.length; i++) { <br>
+                                                    originalPacket[i]=(byte) (i % 256); // Fill with some data } // Get
+                                                    <br> MTU from the user System.out.print("Enter MTU (Maximum
+                                                    Transmission
+                                                    Unit): ");
+                                                    <br>int mtu = scanner.nextInt();
+                                                    <br>
+                                                    <br>// Get the DoNotFragment flag from the user
+                                                    <br>System.out.print(" Do you want to allow fragmentation (yes/no)?
+                                                    ");
+                                                    <br>boolean doNotFragment = !scanner.next().equalsIgnoreCase("
+                                                    yes"); // Fragment the original packet
+                                                    <br>List<IPFragment> fragments = fragmentPacket(originalPacket, mtu,
+                                                        doNotFragment);
+                                                        <br>System.out.println("\nFragments:");
+                                                        <br>for (IPFragment fragment : fragments) {
+                                                        <br>System.out.println(fragment);
+                                                        <br>}
+
+                                                        <br>// Reassemble the packet
+                                                        <br>byte[] reassembledPacket = reassembleFragments(fragments);
+                                                        <br>System.out.println("\nReassembled Packet Size: " +
+                                                        <br>reassembledPacket.length);
+                                                        <br>
+                                                        <br>scanner.close();
+                                                        <br>}
+                                                        <br>}
+
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
