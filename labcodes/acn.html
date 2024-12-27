@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACN </title>
+    <link rel="icon" href="../images/icons/favicon.png" type="image/x-icon">
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="../styles/code.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="../images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Notes &#9662</button>
+                <div class="dropdown-content">
+                    <a href="../notes/first.html">First</a>
+                    <a href="../notes/second.html">Second</a>
+                    <a href="../notes/third.html">Third</a>
+                    <a href="../notes/fourth.html">Fourth</a>
+                </div>
+            </div>
+            <a href="../labcodes.html">Lab Codes</a>
+            <a href="../about.html">About</a>
+        </div>
+    </div>
+
+    <main>
+        <h3>ACN Codes</h3><div class="btn-link">
+            <!-- <a href="https://drive.google.com/drive/folders/1WH48DYvUkHvT_iFLqPa1hZVh-glYiK5v?usp=sharing" target="_blank">Download Matlab Codes PDF</a> -->
+        </div>
+        <div class="container">
+            <ol>
+            <li><a href="acn/a1.html">Read File</a></li><br>
+            <li><a href="acn/a2.html">Code 2</a></li><br>
+            <li><a href="acn/a3.html">Code 3</a></li><br>
+            <li><a href="acn/a4.html">Code 4</a></li><br>
+            <li><a href="acn/a5.html">Code 5</a></li><br>
+            <li><a href="acn/a6.html">Code 6</a></li><br>
+        </ol>
+    </div>
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
+
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("active");
+        });
+    });
+</script>
+</body>
+
+</html>
