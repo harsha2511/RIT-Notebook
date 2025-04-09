@@ -321,3 +321,51 @@ h3 {
         transform: translateY(0);
     }
 }
+
+/* EEE Box Styles */
+.eee-box {
+    background: linear-gradient(135deg, #fff3b0, #ffe066);
+    border: 2px solid #f1c40f;
+    margin: 20px auto;
+    padding: 15px 20px;
+    width: fit-content;
+    max-width: 90%;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #7a4e00;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.5);
+    animation: fadeIn 1s ease-in;
+    transition: transform 0.3s ease;
+}
+
+.eee-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 200, 0, 0.6);
+}
+
+.eee-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: #f59e0b;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid #d97706;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(255, 145, 0, 0.3);
+    line-height: 1.4;
+}
+
+.eee-btn:hover {
+    background-color: #facc15;
+    color: #1f2937;
+    border-color: #fbbf24;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 184, 0, 0.5);
+}
