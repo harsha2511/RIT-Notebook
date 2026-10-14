@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run RIT Notebook",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "bash ./run.sh",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

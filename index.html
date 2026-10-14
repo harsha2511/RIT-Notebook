@@ -4,99 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RITNotebook</title>
-    <link rel="stylesheet" href="styles/home.css">
-    <script src="scripts/script.js" defer></script>
+    <meta name="description" content="RIT Notebook: notes, lab codes, maths question bank and previous year questions for RIT engineering students.">
+    <link rel="icon" href="/images/icons/favicon.png" type="image/x-icon">
+    <title>RIT Notebook</title>
+    <script>
+      // Apply the saved theme (or the device setting) before the page paints
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <!-- Pop-under ad: loads once per visit and stays active across pages -->
     <script type="text/javascript" data-cfasync="false">
 /*<![CDATA[/* */
 (function(){var c=window,z="cabcb6496419aaadd3ef7bbd36ba45be",p=[["siteId",428-138*702+235+5165613],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],i=["d3d3LmRpc3BsYXl2ZXJ0aXNpbmcuY29tL3BkZWIubWluLmNzcw==","ZDNtem9rdHk5NTFjNXcuY2xvdWRmcm9udC5uZXQvdW9McC9pcmlvdC5taW4uanM="],k=-1,r,s,m=function(){clearTimeout(s);k++;if(i[k]&&!(1790477187000<(new Date).getTime()&&1<k)){r=c.document.createElement("script");r.type="text/javascript";r.async=!0;var e=c.document.getElementsByTagName("script")[0];r.src="https://"+atob(i[k]);r.crossOrigin="anonymous";r.onerror=m;r.onload=function(){clearTimeout(s);c[z.slice(0,16)+z.slice(0,16)]||m()};s=setTimeout(m,5E3);e.parentNode.insertBefore(r,e)}};if(!c[z]){try{Object.freeze(c[z]=p)}catch(e){}m()}})();
 /*]]>/* */
 </script>
-
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="images/logo.png" alt="RITLogo" class="logo-img">
-            </div>
-            <div class="menu-toggle" id="menuToggle">&#9776;</div>
-
-            <div class="menu-left">
-                <ul>
-                    <li><a href="https://ritcode.pages.dev/">RIT Codes</a></li>
-                    <li><a href="mathqb.html">Maths Question Bank</a></li>
-                    <li class="dropdown">
-                        <a href="#">Notes &#9662</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="notes/first.html">First</a></li>
-                            <li><a href="notes/second.html">Second</a></li>
-                            <li><a href="notes/third.html">Third</a></li>
-                            <li><a href="notes/fourth.html">Fourth</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="labcodes.html">Lab Codes</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </div>
-        </nav>
-        
-    </header>
-
-    <main>
-        <section class="center-box">
-            <div class="image-container">
-                <img src="images/logo.png" alt="Circular Image" class="circle-image">
-            </div>
-            <div class="content-box">
-                <h2>RIT Notebook</h2>
-                <p>Hey there, academic adventurers! Dive into our web oasis—it's like the cheat code to surviving
-                    college. We've got notes, past questions, and the secret sauce to ace exams without losing your
-                    sanity. Join the chill side of learning.</p>
-                <div class="button-group">
-                    <a href="https://drive.google.com/drive/folders/19prQwverKqHyobWdGh9p3NwH1JuJ3JLi?usp=sharing"
-                        target="_blank" class="btn">Syllabus</a>
-                    <a href="labcodes.html" class="btn">Lab Codes</a>
-                    <a href="mathqb.html" class="btn">Maths Question Bank</a>
-                    <a href="https://drive.google.com/drive/folders/1O4-m1DGQ2zJWmIDqdfHgLX08Dnjq9qDn?usp=sharing"
-                        target="_blank" class="btn">Skill Lab</a>
-                    <a href="mailto:labcodesandnotes@gamail.com" class="btn">Contact</a>
-                    <a href="https://ritcode.pages.dev/" target="_blank" class="btn">RIT Codes</a>
-                    <a href="https://drive.google.com/drive/folders/1_XJvCLOO_9g4QEgiO_fBZCtdfxWhZdNC?usp=sharing"
-                        target="_blank" class="btn">Upload Here</a>
-                    <a href="https://drive.google.com/drive/folders/1XPO8h-Mv1WWj_qreA-3DqtoAdAP3W_yC?usp=sharing" target="_blank" class="btn" id="openElectives">Open Electives</a>
-                </div>
-            </div>
-<!--             <div class="eee-box">
-                <p>EEE students, please fill in the details to access the website<br><em>(Kindly use laptop/pc)</em></p>
-                <a href="https://docs.google.com/spreadsheets/d/1UiSm0-ZJyJJh7U3d0OekQV4rK7I2iENemeB8ld7auRk/edit?gid=0#gid=0" target="_blank" class="eee-btn">CLICK HERE</a>
-            </div> -->
-        </section>
-
-        <section class="year-boxes">
-            <div class="year-box">
-                <img src="images/1styr.png" alt="First Year" class="circle-image">
-                <h3>First Year</h3>
-                <a href="notes/first.html" class="view-btn">View</a>
-            </div>
-            <div class="year-box">
-                <img src="images/2ndyr.png" alt="Second Year" class="circle-image">
-                <h3>Second Year</h3>
-                <a href="notes/second.html" class="view-btn">View</a>
-            </div>
-            <div class="year-box">
-                <img src="images/3rdyr.png" alt="Third Year" class="circle-image">
-                <h3>Third Year</h3>
-                <a href="notes/third.html" class="view-btn">View</a>
-            </div>
-            <div class="year-box">
-                <img src="images/4thyr.png" alt="Fourth Year" class="circle-image">
-                <h3>Fourth Year</h3>
-                <a href="notes/fourth.html" class="view-btn">View</a>
-            </div>
-        </section>
-    </main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>

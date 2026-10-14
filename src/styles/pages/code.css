@@ -1,0 +1,568 @@
+/* A lab subject's list of programs (scoped to .page-code by vite.config.js) */
+:root {
+    --blue-900: #0b1f4d;
+    --blue-800: #1e3a8a;
+    --blue-700: #1d4ed8;
+    --blue-600: #2563eb;
+    --blue-500: #3b82f6;
+    --cyan-500: #06b6d4;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Header */
+.page-hero {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.35), transparent 45%),
+        linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 45%, var(--blue-600) 100%);
+    color: white;
+    text-align: center;
+    padding: 20px 20px 72px;
+}
+
+/* Back link, at the top of the subject sidebar */
+.crumb {
+    display: block;
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border: 1px solid var(--soft-border);
+    border-radius: 10px;
+    background-color: var(--soft);
+    color: var(--accent-text);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.crumb:hover {
+    border-color: var(--accent-text);
+}
+
+.hero-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: left;
+}
+
+.hero-icon {
+    width: 64px;
+    height: 64px;
+    padding: 6px;
+    border-radius: 16px;
+    background-color: white;
+    object-fit: contain;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.page-hero h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.page-hero p {
+    margin: 2px 0 0;
+    color: #c7dafc;
+    font-size: 15px;
+}
+
+.pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    background-color: white;
+    color: var(--blue-800);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(6, 182, 212, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.pdf-btn:hover {
+    transform: translateY(-2px);
+}
+
+.pdf-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Subject sidebar + program list, overlapping the header */
+.codes-layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    max-width: 1180px;
+    margin: -48px auto 0;
+    padding: 0 16px 40px;
+    position: relative;
+}
+
+.codes {
+    min-width: 0;
+}
+
+.subject-nav {
+    position: sticky;
+    top: calc(var(--nav-h) + 16px);
+    padding: 14px 10px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    /* Scrolls on its own when both years are open and it is taller than the window */
+    max-height: var(--nav-max, calc(100vh - var(--nav-h) - 32px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.subject-nav::-webkit-scrollbar {
+    width: 8px;
+}
+
+.subject-nav::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background-color: var(--border);
+}
+
+.subject-nav::-webkit-scrollbar-thumb:hover {
+    background-color: var(--muted);
+}
+
+.subject-group + .subject-group {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.subject-nav-title {
+    margin: 0;
+}
+
+/* Year header: click to open or close its subjects */
+.subject-year {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 6px 8px;
+    border: none;
+    border-radius: 8px;
+    background: none;
+    color: var(--muted);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.subject-year:hover {
+    background-color: var(--soft);
+    color: var(--heading);
+}
+
+.subject-year span:first-child {
+    flex: 1;
+    text-align: left;
+}
+
+.subject-year-count {
+    letter-spacing: 0;
+}
+
+.subject-year svg {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s ease;
+}
+
+.subject-group.open .subject-year svg {
+    transform: rotate(180deg);
+}
+
+.subject-group.open ul {
+    margin-top: 6px;
+}
+
+/* Google Drive subjects */
+.subject-ext {
+    flex: none;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.subject-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.subject-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: var(--heading);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.subject-link:hover {
+    background-color: var(--soft);
+    border-color: var(--soft-border);
+}
+
+.subject-link img {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    padding: 2px;
+    border-radius: 8px;
+    background-color: white;
+    object-fit: contain;
+}
+
+.subject-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.subject-count {
+    flex: none;
+    min-width: 26px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background-color: var(--soft);
+    color: var(--accent-text);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Current subject */
+.subject-link.active {
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.subject-link.active .subject-count {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: white;
+}
+
+.codes-card {
+    position: relative;
+    overflow: hidden;
+    padding: 22px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.codes-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--blue-800), var(--blue-500), var(--cyan-500));
+}
+
+.codes-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.codes-head h2 {
+    margin: 0;
+    color: var(--heading);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: min(280px, 60%);
+    padding: 8px 12px;
+    background-color: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search:focus-within {
+    border-color: var(--blue-500);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.search svg {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.search input {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+}
+
+/* Two columns of numbered programs */
+.program-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.program {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
+    padding: 12px 14px;
+    background-color: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.program:hover {
+    transform: translateY(-2px);
+    border-color: var(--blue-500);
+    box-shadow: 0 10px 22px rgba(30, 58, 138, 0.14);
+}
+
+.program-n {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background-color: var(--soft);
+    border: 1px solid var(--soft-border);
+    color: var(--accent-text);
+    font-size: 13px;
+    font-weight: 800;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.program:hover .program-n {
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+    border-color: transparent;
+    color: white;
+}
+
+.program-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.program-go {
+    flex: none;
+    color: var(--muted);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.program:hover .program-go {
+    transform: translateX(3px);
+    color: var(--accent-text);
+}
+
+.empty {
+    margin: 12px 0 4px;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* Tablets and phones: the sidebar becomes a swipeable row of subject chips */
+@media (max-width: 1024px) {
+    .codes-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .subject-nav {
+        /* relative (not sticky) so the active chip can be scrolled to; top resets the sticky offset */
+        position: relative;
+        top: auto;
+        display: flex;
+        gap: 6px;
+        padding: 8px;
+        max-height: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+    }
+
+    .subject-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .crumb {
+        flex: none;
+        margin: 0;
+        padding: 7px 10px;
+    }
+
+    .subject-group,
+    .subject-group + .subject-group {
+        display: flex;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    /* Year headers become chips in the row; an open year's subjects follow its chip */
+    .subject-year {
+        height: 100%;
+        padding: 7px 10px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background-color: var(--soft);
+        color: var(--accent-text);
+    }
+
+    .subject-nav ul,
+    .subject-group.open ul {
+        flex-direction: row;
+        gap: 6px;
+        margin: 0;
+    }
+
+    .subject-link {
+        scroll-snap-align: start;
+        padding: 7px 10px;
+        background-color: var(--surface-2);
+        border-color: var(--border);
+        font-size: 13px;
+    }
+
+    .subject-link img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+    .page-hero {
+        padding: 16px 16px 64px;
+    }
+
+    .hero-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .page-hero h1 {
+        font-size: 24px;
+    }
+
+    .page-hero p {
+        font-size: 14px;
+    }
+
+    .pdf-btn {
+        font-size: 13px;
+    }
+
+    .codes-layout {
+        padding: 0 12px 28px;
+    }
+
+    .codes-card {
+        padding: 18px 12px 12px;
+    }
+
+    .codes-head {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .codes-head h2 {
+        text-align: center;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .program-list {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .program:hover {
+        transform: none;
+    }
+}

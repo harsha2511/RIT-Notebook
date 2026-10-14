@@ -1,0 +1,54 @@
+/* Floats over the bottom edge of the page header (.page-hero).
+   Selectors are doubled up so page resets like `.page-first * { padding: 0 }` can't override them. */
+nav.year-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 1100px;
+    margin: -44px auto 8px;
+    padding: 0 16px;
+    position: relative;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+
+.year-tabs .year-tab {
+    display: block;
+    padding: 16px 12px;
+    text-align: center;
+    background-color: var(--surface);
+    color: var(--heading);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.year-tabs .year-tab:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.25);
+}
+
+.year-tabs .year-tab.active {
+    background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+    border-color: transparent;
+    color: white;
+}
+
+@media (max-width: 640px) {
+    nav.year-tabs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: -40px;
+    }
+
+    .year-tabs .year-tab {
+        padding: 12px 8px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}

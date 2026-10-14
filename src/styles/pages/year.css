@@ -1,0 +1,301 @@
+/* Second / Third / Fourth year notes (scoped to .page-year by vite.config.js) */
+:root {
+    --blue-900: #0b1f4d;
+    --blue-800: #1e3a8a;
+    --blue-700: #1d4ed8;
+    --blue-600: #2563eb;
+    --blue-500: #3b82f6;
+    --blue-100: #dbeafe;
+    --blue-50: #eff6ff;
+    --cyan-500: #06b6d4;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Header */
+.page-hero {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.35), transparent 45%),
+        linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 45%, var(--blue-600) 100%);
+    color: white;
+    text-align: center;
+    padding: 48px 20px 76px;
+}
+
+.page-hero h1 {
+    margin: 0;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.page-hero p {
+    margin: 6px 0 0;
+    color: #c7dafc;
+    font-size: 16px;
+}
+
+/* Branch groups */
+.branches {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 16px 40px;
+}
+
+.group-card {
+    --tone: var(--blue-600);
+    --tone-dark: var(--blue-800);
+    --tone-soft: var(--blue-50);
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 24px 26px 26px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.group-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--tone-dark), var(--tone));
+}
+
+/* One blue-family shade per stream */
+.group-card.tone-ee {
+    --tone: #06b6d4;
+    --tone-dark: #0e7490;
+    --tone-soft: #ecfeff;
+}
+
+.group-card.tone-core {
+    --tone: #6366f1;
+    --tone-dark: #3730a3;
+    --tone-soft: #eef2ff;
+}
+
+.group-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.group-head h2 {
+    margin: 0;
+    color: var(--tone-text, var(--tone-dark));
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.group-count {
+    padding: 4px 12px;
+    background-color: var(--tone-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--tone-text, var(--tone-dark));
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Branch tiles: same width in every group and centred, so groups of 5 and 6 both look even.
+   6 per row on wide screens fits the 6-branch Computer Science group on one line. */
+.branch-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.branch {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 calc((100% - 5 * 12px) / 6);
+    min-width: 0;
+    padding: 16px 12px 12px;
+    background-color: var(--surface-2);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--tone);
+    border-radius: 12px;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.branch:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(30, 58, 138, 0.12);
+}
+
+.branch-code {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    color: var(--tone-text, var(--tone-dark));
+    overflow-wrap: anywhere;
+}
+
+.branch-name {
+    margin: 4px 0 14px;
+    font-size: 13px;
+    color: var(--muted);
+    flex: 1;
+}
+
+.branch-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 10px;
+    border-radius: 10px;
+    background-color: var(--tone-soft);
+    border: 1px solid var(--border);
+    color: var(--tone-text, var(--tone-dark));
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.branch:hover .branch-btn {
+    background: linear-gradient(135deg, var(--tone-dark), var(--tone));
+    border-color: transparent;
+    color: white;
+}
+
+/* Small laptops and tablets: 3 per row */
+@media (max-width: 1024px) {
+    .branch {
+        flex-basis: calc((100% - 2 * 12px) / 3);
+        padding: 18px 14px 14px;
+    }
+
+    .branch-code {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 900px) {
+    .page-hero h1 {
+        font-size: 32px;
+    }
+}
+
+/* Phones: 2 per row */
+@media (max-width: 640px) {
+    .page-hero {
+        padding: 32px 16px 64px;
+    }
+
+    .page-hero h1 {
+        font-size: 26px;
+    }
+
+    .page-hero p {
+        font-size: 14px;
+    }
+
+    .branches {
+        padding: 6px 12px 28px;
+    }
+
+    .group-card {
+        padding: 22px 12px 14px;
+        border-radius: 14px;
+    }
+
+    .group-head {
+        margin-bottom: 14px;
+    }
+
+    .group-head h2 {
+        font-size: 18px;
+    }
+
+    .group-count {
+        font-size: 12px;
+        padding: 3px 10px;
+    }
+
+    .branch-grid {
+        gap: 10px;
+    }
+
+    .branch {
+        flex-basis: calc((100% - 10px) / 2);
+        padding: 14px 10px 10px;
+    }
+
+    .branch:hover {
+        transform: none;
+    }
+
+    .branch-code {
+        font-size: 18px;
+    }
+
+    .branch-name {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .branch-btn {
+        font-size: 13px;
+        padding: 8px 6px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+    .branches {
+        padding: 6px 8px 24px;
+    }
+
+    .group-card {
+        padding: 20px 8px 10px;
+    }
+
+    .branch-grid {
+        gap: 8px;
+    }
+
+    .branch {
+        flex-basis: calc((100% - 8px) / 2);
+    }
+
+    .branch-btn span {
+        display: none;
+    }
+}
+
+/* Laptops and desktops: same compact header as First Year, so switching years doesn't jump */
+@media (min-width: 1025px) {
+    .page-hero {
+        padding: 22px 20px 50px;
+        line-height: 1.6;
+    }
+
+    .page-hero h1 {
+        font-size: 28px;
+    }
+
+    .page-hero p {
+        margin-top: 2px;
+        font-size: 14px;
+    }
+}

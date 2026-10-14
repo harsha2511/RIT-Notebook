@@ -1,0 +1,608 @@
+/* A single lab program (scoped to .page-program by vite.config.js) */
+:root {
+    --blue-900: #0b1f4d;
+    --blue-800: #1e3a8a;
+    --blue-700: #1d4ed8;
+    --blue-600: #2563eb;
+    --blue-500: #3b82f6;
+    --cyan-500: #06b6d4;
+    /* The code panel is dark in both themes, like an editor */
+    --code-bg: #0d1630;
+    --code-bar: #121e3d;
+    --code-text: #e2e8f0;
+    --code-muted: #64748b;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Header with breadcrumb and the question */
+.program-hero {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.35), transparent 45%),
+        linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 45%, var(--blue-600) 100%);
+    color: white;
+    padding: 18px 20px 64px;
+}
+
+.program-hero-inner {
+    /* Same width as the layout below; the left padding lines the title up with the code */
+    max-width: 1208px;
+    margin: 0 auto;
+    padding-left: 300px;
+}
+
+/* Back to the subject's program list */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #dbeafe;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.back-btn span {
+    transition: transform 0.2s ease;
+}
+
+.back-btn:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: white;
+}
+
+.back-btn:hover span {
+    transform: translateX(-3px);
+}
+
+/* The sidebar has its own back button on laptops and desktops */
+@media (min-width: 1025px) {
+    .back-btn {
+        display: none;
+    }
+}
+
+.crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #93c5fd;
+}
+
+.crumbs a {
+    color: #dbeafe;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.crumbs a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.program-count {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 3px 12px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #dbeafe;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.program-hero h1 {
+    margin: 10px 0 0;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+/* Code */
+/* Program list sidebar + code */
+.program-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    max-width: 1240px;
+    margin: -40px auto 0;
+    padding: 0 16px 40px;
+    position: relative;
+}
+
+.program-main {
+    min-width: 0;
+}
+
+/* When the code starts with a heading, start below the header instead of overlapping it */
+.program-layout.starts-with-heading {
+    margin-top: 24px;
+}
+
+.program-hero.has-heading-below {
+    padding-bottom: 28px;
+}
+
+.program-side {
+    position: sticky;
+    top: calc(var(--nav-h) + 16px);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - var(--nav-h) - 32px);
+    overflow: hidden;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+/* Back to the subject's program list, at the top of the sidebar */
+.side-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 10px 0;
+    padding: 9px 12px;
+    border-radius: 10px;
+    background-color: var(--soft);
+    border: 1px solid var(--soft-border);
+    color: var(--accent-text);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.side-back span {
+    transition: transform 0.2s ease;
+}
+
+.side-back:hover {
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+    border-color: transparent;
+    color: white;
+}
+
+.side-back:hover span {
+    transform: translateX(-3px);
+}
+
+.side-subject {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--heading);
+    text-decoration: none;
+}
+
+.side-subject:hover strong {
+    text-decoration: underline;
+}
+
+.side-subject img {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    padding: 3px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid var(--border);
+    object-fit: contain;
+}
+
+.side-subject strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.side-subject small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.side-list {
+    flex: 1;
+    overflow-y: auto;
+    margin: 0;
+    padding: 8px;
+    list-style: none;
+    scrollbar-width: thin;
+}
+
+.side-program {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.side-program:hover {
+    background-color: var(--soft);
+}
+
+.side-n {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+    background-color: var(--soft);
+    color: var(--accent-text);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.side-name {
+    padding-top: 2px;
+}
+
+/* Current program */
+.side-program.active {
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+    color: white;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.side-program.active .side-n {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: white;
+}
+
+/* Smaller screens: no room for the sidebar; Previous / Next stay at the bottom */
+@media (max-width: 1024px) {
+    .program-layout {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 960px;
+    }
+
+    .program-side {
+        display: none;
+    }
+
+    .program-hero-inner {
+        max-width: 928px;
+        padding-left: 0;
+    }
+}
+
+.code-block + .code-block {
+    margin-top: 28px;
+}
+
+/* Separate parts of one program, each in its own box */
+.code-part + .code-part {
+    margin-top: 22px;
+}
+
+.part-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 10px;
+    color: var(--heading);
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.part-title::before {
+    content: "";
+    width: 4px;
+    height: 18px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, var(--blue-500), var(--cyan-500));
+}
+
+/* Version switcher for programs with more than one code, styled like the year tabs */
+.code-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.code-tab {
+    flex: 1 1 0;
+    min-width: 150px;
+    padding: 12px 14px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    color: var(--heading);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.code-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22);
+}
+
+.code-tab.active {
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+    border-color: transparent;
+    color: white;
+}
+
+.code-tab:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+}
+
+/* The newly picked code fades in */
+.code-tabs + .code-block {
+    animation: codeIn 0.3s ease-out;
+}
+
+@keyframes codeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.code-panel {
+    overflow: hidden;
+    background-color: var(--code-bg);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(11, 31, 77, 0.28);
+}
+
+.code-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background-color: var(--code-bar);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dots i {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #f87171;
+}
+
+.dots i:nth-child(2) {
+    background-color: #fbbf24;
+}
+
+.dots i:nth-child(3) {
+    background-color: #34d399;
+}
+
+.code-lang {
+    flex: 1;
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.code-file {
+    flex: 1;
+    color: #e2e8f0;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.code-file small {
+    margin-left: 6px;
+    color: #93c5fd;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.copy-btn {
+    padding: 5px 12px;
+    border-radius: 8px;
+    background-color: rgba(59, 130, 246, 0.18);
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    color: #dbeafe;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.copy-btn:hover {
+    background-color: rgba(59, 130, 246, 0.35);
+    color: white;
+}
+
+.copy-btn.done {
+    background-color: rgba(52, 211, 153, 0.2);
+    border-color: rgba(52, 211, 153, 0.5);
+    color: #6ee7b7;
+}
+
+.code {
+    margin: 0;
+    padding: 14px 0;
+    overflow-x: auto;
+    color: var(--code-text);
+    font-family: "JetBrains Mono", "Fira Code", Consolas, "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.65;
+    tab-size: 4;
+    counter-reset: line;
+}
+
+.code code {
+    display: block;
+    min-width: max-content;
+    font: inherit;
+}
+
+/* One row per line, numbered with a CSS counter */
+.code .line {
+    display: block;
+    padding: 0 18px 0 0;
+    white-space: pre;
+}
+
+.code .line::before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: 3.2em;
+    margin-right: 16px;
+    padding-right: 12px;
+    border-right: 1px solid rgba(148, 163, 184, 0.15);
+    color: var(--code-muted);
+    text-align: right;
+    user-select: none;
+}
+
+.code .line:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+}
+
+.code-tip {
+    margin: 14px 0 0;
+    padding: 10px 14px;
+    background-color: var(--soft);
+    border: 1px solid var(--soft-border);
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.code-tip code {
+    color: var(--accent-text);
+    font-weight: 700;
+}
+
+/* Previous / next program */
+.pager {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.pager-link {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 14px 16px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.pager-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--blue-500);
+}
+
+.pager-link.next {
+    text-align: right;
+}
+
+.pager-dir {
+    color: var(--accent-text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.pager-name {
+    color: var(--heading);
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Phones */
+@media (max-width: 640px) {
+    .program-hero {
+        padding: 14px 16px 56px;
+    }
+
+    .program-hero h1 {
+        font-size: 18px;
+    }
+
+    .program-layout {
+        padding: 0 10px 28px;
+    }
+
+    .code {
+        font-size: 12.5px;
+    }
+
+    .code .line::before {
+        width: 2.4em;
+        margin-right: 10px;
+        padding-right: 8px;
+    }
+
+    .code-tab {
+        min-width: 120px;
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .pager {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pager-link.next {
+        grid-row: 1;
+    }
+}

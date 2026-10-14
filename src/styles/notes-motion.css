@@ -1,0 +1,196 @@
+/* Motion shared by the notes pages (First Year and 2nd to 4th Year).
+   Not under styles/pages/, so it is not scoped; selectors name their page themselves. */
+
+/* ---- Header ---- */
+.page-year .page-hero h1,
+.page-first .page-hero h1 {
+    animation: notesRise 0.6s ease-out both;
+}
+
+.page-year .page-hero p,
+.page-first .page-hero p {
+    animation: notesRise 0.6s ease-out 0.08s both;
+}
+
+/* ---- Year tabs: drop in one after another; the current one pops ---- */
+/* Drop-in plays only the first time the tabs appear, not on every year switch */
+.year-tabs.intro .year-tab {
+    animation: notesRise 0.5s ease-out backwards;
+    animation-delay: calc(0.1s + var(--i, 0) * 0.06s);
+}
+
+.year-tabs .year-tab.active {
+    animation: tabPop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) 0.1s;
+}
+
+.year-tabs.intro .year-tab.active {
+    animation: notesRise 0.5s ease-out backwards, tabPop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) 0.35s;
+    animation-delay: calc(0.1s + var(--i, 0) * 0.06s), 0.35s;
+}
+
+@keyframes tabPop {
+    40% {
+        transform: scale(1.06);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.35), 0 14px 30px rgba(37, 99, 235, 0.35);
+    }
+}
+
+/* ---- Page content slides in from the side you swiped/clicked towards.
+   Movement only: the cards and tiles inside do the fading, so nothing fades in twice. ---- */
+.notes-swap.from-next {
+    animation: slideFromRight 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+.notes-swap.from-prev {
+    animation: slideFromLeft 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+/* ---- 2nd to 4th year: stream cards and branch tiles stagger in ---- */
+.page-year .group-card {
+    animation: notesRise 0.55s ease-out backwards;
+    animation-delay: calc(0.2s + var(--g, 0) * 0.12s);
+}
+
+.page-year .branch {
+    animation: tileIn 0.45s cubic-bezier(0.3, 1.3, 0.5, 1) backwards;
+    animation-delay: calc(0.3s + var(--g, 0) * 0.12s + var(--i, 0) * 0.05s);
+}
+
+.page-year .branch-code {
+    transition: transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+.page-year .branch:hover .branch-code {
+    transform: scale(1.12) rotate(-3deg);
+}
+
+.page-year .branch-btn span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.page-year .branch:hover .branch-btn span {
+    transform: translate(2px, -2px);
+}
+
+/* ---- First year: switching stream replays the content; subjects come in one by one ---- */
+.page-first .heading-box {
+    animation: notesRise 0.45s ease-out backwards;
+}
+
+.page-first .inner-box {
+    animation: notesRise 0.45s ease-out backwards;
+    animation-delay: calc(0.08s + var(--c, 0) * 0.1s);
+}
+
+.page-first .inner-box li {
+    animation: subjectIn 0.35s ease-out backwards;
+    animation-delay: calc(0.15s + var(--c, 0) * 0.1s + var(--i, 0) * 0.035s);
+}
+
+/* ---- Swipe hint: phones and tablets only ---- */
+.swipe-hint {
+    display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .swipe-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin: 2px auto 6px;
+        color: var(--muted);
+        font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        animation: hintFade 5s ease 0.8s both;
+    }
+
+    .swipe-hand {
+        display: inline-block;
+        animation: handSwipe 1.4s ease-in-out 1s 3;
+    }
+}
+
+/* ---- Keyframes ---- */
+@keyframes notesRise {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+}
+
+@keyframes tileIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.94);
+    }
+}
+
+@keyframes subjectIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes slideFromRight {
+    from {
+        transform: translateX(60px);
+    }
+}
+
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-60px);
+    }
+}
+
+@keyframes handSwipe {
+    0%,
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+    30% {
+        transform: translateX(-10px) rotate(-12deg);
+    }
+    70% {
+        transform: translateX(10px) rotate(12deg);
+    }
+}
+
+/* Hint shows for a few seconds, then fades */
+@keyframes hintFade {
+    0% {
+        opacity: 0;
+    }
+    10%,
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.45;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-year .page-hero h1,
+    .page-first .page-hero h1,
+    .page-year .page-hero p,
+    .page-first .page-hero p,
+    .year-tabs.intro .year-tab,
+    .year-tabs .year-tab.active,
+    .year-tabs.intro .year-tab.active,
+    .notes-swap.from-next,
+    .notes-swap.from-prev,
+    .page-year .group-card,
+    .page-year .branch,
+    .page-first .heading-box,
+    .page-first .inner-box,
+    .page-first .inner-box li,
+    .swipe-hint,
+    .swipe-hand {
+        animation: none;
+    }
+}

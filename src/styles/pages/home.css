@@ -1,0 +1,785 @@
+/* Home page (scoped to .page-home by vite.config.js) */
+:root {
+    --blue-900: #0b1f4d;
+    --blue-800: #1e3a8a;
+    --blue-700: #1d4ed8;
+    --blue-600: #2563eb;
+    --blue-500: #3b82f6;
+    --blue-100: #dbeafe;
+    --blue-50: #eff6ff;
+    --cyan-500: #06b6d4;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Header */
+.home-hero {
+    background:
+        radial-gradient(circle at 85% 15%, rgba(6, 182, 212, 0.35), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(59, 130, 246, 0.35), transparent 40%),
+        linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 45%, var(--blue-600) 100%);
+    color: white;
+    text-align: center;
+    padding: 44px 20px 96px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Glowing shapes drifting slowly behind the header */
+.hero-orb {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.55;
+    pointer-events: none;
+    animation: homeDrift 14s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+    width: 320px;
+    height: 320px;
+    top: -120px;
+    left: 8%;
+    background: #3b82f6;
+}
+
+.orb-2 {
+    width: 260px;
+    height: 260px;
+    top: 30%;
+    right: 6%;
+    background: #06b6d4;
+    animation-duration: 18s;
+    animation-delay: -6s;
+}
+
+.orb-3 {
+    width: 200px;
+    height: 200px;
+    bottom: -90px;
+    left: 45%;
+    background: #6366f1;
+    animation-duration: 16s;
+    animation-delay: -3s;
+}
+
+@keyframes homeDrift {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(40px, 30px) scale(1.15);
+    }
+    100% {
+        transform: translate(-30px, 10px) scale(0.95);
+    }
+}
+
+.home-logo {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.85);
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    /* Rise in, then float gently */
+    animation: homeRise 0.6s ease-out, homeFloat 4s ease-in-out 0.6s infinite;
+}
+
+@keyframes homeFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.home-hero h1 {
+    margin: 14px 0 0;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    animation: homeRise 0.6s ease-out 0.05s both;
+}
+
+.home-hero p {
+    max-width: 680px;
+    margin: 10px auto 0;
+    color: #c7dafc;
+    font-size: 16px;
+    line-height: 1.6;
+    animation: homeRise 0.6s ease-out 0.1s both;
+}
+
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 760px;
+    margin: 26px auto 0;
+}
+
+.quick-links .quick-link {
+    /* backwards: once finished, hover effects control transform again */
+    animation: homePop 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) backwards;
+    animation-delay: calc(0.25s + var(--i, 0) * 0.06s);
+}
+
+@keyframes homePop {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.quick-link {
+    padding: 9px 18px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.quick-link:hover {
+    background-color: white;
+    color: var(--blue-800);
+    transform: translateY(-2px);
+}
+
+/* Highlighted link (was the orange button on the old page) */
+.quick-link.featured {
+    background-color: white;
+    border-color: white;
+    color: var(--blue-800);
+    box-shadow: 0 6px 18px rgba(6, 182, 212, 0.45);
+}
+
+.quick-link.featured:hover {
+    background-color: var(--blue-50);
+}
+
+/* PYQ: the most highlighted link, with a soft glowing pulse */
+.quick-link.highlight {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    border-color: #fde68a;
+    color: #422006;
+    font-weight: 800;
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.6);
+    animation: homePop 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) backwards, homeGlow 2.4s ease-in-out 1s infinite;
+}
+
+.quick-link.highlight:hover {
+    background: linear-gradient(135deg, #fcd34d, #fbbf24);
+    color: #422006;
+}
+
+@keyframes homeGlow {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.55);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(251, 191, 36, 0);
+    }
+}
+
+@keyframes homeRise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Notes by year; the card overlaps the header */
+.home {
+    max-width: 1100px;
+    margin: -60px auto 0;
+    padding: 0 16px 48px;
+    position: relative;
+}
+
+/* PYQ banner, highlighted above the notes */
+.pyq-banner {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+    padding: 20px 24px;
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(251, 191, 36, 0.35), transparent 40%),
+        linear-gradient(135deg, #0b1f4d 0%, #1d4ed8 60%, #0891b2 100%);
+    border: 1px solid rgba(251, 191, 36, 0.55);
+    box-shadow: 0 16px 36px rgba(29, 78, 216, 0.3);
+    color: white;
+    text-decoration: none;
+    animation: homeRise 0.7s ease-out 0.25s backwards;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* A light sweep across the banner every few seconds */
+.pyq-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -40%;
+    width: 30%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+    transform: skewX(-20deg);
+    animation: homeShine 4.5s ease-in-out 1.2s infinite;
+    pointer-events: none;
+}
+
+@keyframes homeShine {
+    0% {
+        left: -40%;
+    }
+    40%,
+    100% {
+        left: 120%;
+    }
+}
+
+.pyq-banner:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(29, 78, 216, 0.38);
+}
+
+.pyq-icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #422006;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
+}
+
+.pyq-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.pyq-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    min-width: 0;
+}
+
+.pyq-tag {
+    padding: 1px 10px;
+    border-radius: 999px;
+    background-color: rgba(251, 191, 36, 0.2);
+    border: 1px solid rgba(251, 191, 36, 0.6);
+    color: #fde68a;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.pyq-text strong {
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.pyq-text small {
+    color: #c7dafc;
+    font-size: 14px;
+}
+
+.pyq-btn {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 11px 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #422006;
+    font-size: 15px;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
+    transition: transform 0.2s ease;
+}
+
+.pyq-banner:hover .pyq-btn {
+    transform: translateX(3px);
+}
+
+.notes-card {
+    animation: homeRise 0.7s ease-out 0.3s both;
+    position: relative;
+    overflow: hidden;
+    padding: 28px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.notes-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--blue-800), var(--blue-500), var(--cyan-500));
+}
+
+.notes-head {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.notes-head h2 {
+    margin: 0;
+    color: var(--heading);
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.notes-head p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.year-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.year-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 22px 14px 16px;
+    background-color: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    animation: homeRise 0.6s ease-out backwards;
+    animation-delay: calc(0.45s + var(--i, 0) * 0.1s);
+}
+
+.year-tile:active {
+    transform: scale(0.98);
+}
+
+.year-tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue-500);
+    box-shadow: 0 14px 28px rgba(30, 58, 138, 0.14);
+}
+
+.year-img {
+    display: grid;
+    place-items: center;
+    width: 110px;
+    height: 110px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--surface) 55%, var(--soft) 100%);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.year-img img {
+    width: 82%;
+    height: 82%;
+    object-fit: contain;
+    transition: transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+.year-tile:hover .year-img img {
+    transform: scale(1.1) rotate(-4deg);
+}
+
+.year-tile h3 {
+    margin: 0;
+    color: var(--heading);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.year-tile p {
+    margin: 4px 0 14px;
+    color: var(--muted);
+    font-size: 13px;
+    flex: 1;
+}
+
+.year-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 10px;
+    background-color: var(--soft);
+    border: 1px solid var(--soft-border);
+    color: var(--accent-text);
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.year-tile:hover .year-btn {
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+    border-color: transparent;
+    color: white;
+}
+
+/* ---- Extra home motion ---- */
+
+/* Soft light that follows the mouse across the header */
+.home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 40%), rgba(147, 197, 253, 0.18), transparent 60%);
+    pointer-events: none;
+    transition: background 0.1s linear;
+}
+
+/* Study doodles drifting up through the header */
+.floater {
+    position: absolute;
+    left: var(--x);
+    bottom: -40px;
+    z-index: -1;
+    font-size: var(--size);
+    opacity: 0;
+    pointer-events: none;
+    animation: floatUp var(--dur) linear var(--delay) infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.45;
+    }
+    85% {
+        opacity: 0.35;
+    }
+    100% {
+        transform: translateY(-560px) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* Title shimmers with a moving gradient */
+.home-hero h1 {
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 40%, #a5f3fc 50%, #ffffff 60%, #ffffff 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: homeRise 0.6s ease-out 0.05s both, titleShine 5s ease-in-out 1s infinite;
+}
+
+@keyframes titleShine {
+    0% {
+        background-position: 100% 0;
+    }
+    60%,
+    100% {
+        background-position: -50% 0;
+    }
+}
+
+/* Typed tagline under the title */
+.home-hero .tagline {
+    margin-top: 6px;
+    color: #e0ecff;
+    font-size: 20px;
+    font-weight: 700;
+    animation: homeRise 0.6s ease-out 0.08s both;
+}
+
+.typed {
+    color: #fcd34d;
+}
+
+.caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.05em;
+    margin-left: 3px;
+    vertical-align: -0.15em;
+    background-color: #fcd34d;
+    animation: caretBlink 1s steps(1) infinite;
+}
+
+@keyframes caretBlink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Year tiles tilt towards the mouse with a light spot under the cursor */
+.year-tile {
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.year-tile:hover {
+    transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px);
+}
+
+.year-tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(59, 130, 246, 0.18), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.year-tile:hover::before {
+    opacity: 1;
+}
+
+/* Year pictures bob gently, each a little out of step */
+.year-img img {
+    animation: yearBob 3.6s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * -0.9s);
+}
+
+.year-tile:hover .year-img img {
+    animation-play-state: paused;
+}
+
+@keyframes yearBob {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-orb,
+    .home-logo,
+    .home-hero h1,
+    .home-hero p,
+    .quick-links .quick-link,
+    .quick-link.highlight,
+    .pyq-banner,
+    .pyq-banner::after,
+    .notes-card,
+    .year-tile,
+    .floater,
+    .home-hero .tagline,
+    .caret,
+    .year-img img {
+        animation: none;
+    }
+
+    .floater {
+        display: none;
+    }
+
+    .year-tile:hover {
+        transform: translateY(-4px);
+    }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .home-hero h1 {
+        font-size: 36px;
+    }
+
+    .year-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+    .home-hero {
+        padding: 32px 16px 84px;
+    }
+
+    .home-logo {
+        width: 84px;
+        height: 84px;
+    }
+
+    .home-hero h1 {
+        font-size: 28px;
+    }
+
+    .home-hero p {
+        font-size: 14px;
+    }
+
+    .quick-links {
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .quick-link {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .home {
+        margin-top: -56px;
+        padding: 0 12px 32px;
+    }
+
+    .notes-card {
+        padding: 22px 12px 14px;
+        border-radius: 14px;
+    }
+
+    .notes-head {
+        margin-bottom: 16px;
+    }
+
+    .notes-head h2 {
+        font-size: 21px;
+    }
+
+    .notes-head p {
+        font-size: 13px;
+    }
+
+    .year-grid {
+        gap: 10px;
+    }
+
+    .year-tile {
+        padding: 16px 8px 10px;
+    }
+
+    .year-tile:hover {
+        transform: none;
+    }
+
+    .year-img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 8px;
+    }
+
+    .year-tile h3 {
+        font-size: 15px;
+    }
+
+    .year-tile p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .year-btn {
+        font-size: 13px;
+        padding: 8px 6px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+    .home {
+        padding: 0 8px 24px;
+    }
+
+    .notes-card {
+        padding: 20px 8px 10px;
+    }
+
+    .year-grid {
+        gap: 8px;
+    }
+}
+
+/* Phones: PYQ banner stacks */
+@media (max-width: 640px) {
+    .pyq-banner {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .pyq-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .pyq-text {
+        flex: 1 1 calc(100% - 60px);
+    }
+
+    .pyq-text strong {
+        font-size: 17px;
+    }
+
+    .pyq-text small {
+        font-size: 13px;
+    }
+
+    .pyq-btn {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+
+    .pyq-banner:hover {
+        transform: none;
+    }
+}

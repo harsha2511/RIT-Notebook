@@ -1,0 +1,10 @@
+/* Dark-theme fixes for colours that the shared tokens in global.css don't cover.
+   Not scoped by vite.config.js, so selectors name the page wrapper themselves. */
+
+/* Stream / branch colour tones: tinted backgrounds and lighter text */
+[data-theme="dark"] .page-year .group-card,
+[data-theme="dark"] .page-mathqb .paper,
+[data-theme="dark"] .page-first .inner-box {
+    --tone-soft: color-mix(in srgb, var(--tone) 16%, transparent);
+    --tone-text: color-mix(in srgb, var(--tone) 45%, white);
+}

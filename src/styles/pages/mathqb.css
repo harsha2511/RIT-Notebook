@@ -1,0 +1,452 @@
+/* Maths Question Bank (scoped to .page-mathqb by vite.config.js) */
+:root {
+    --blue-900: #0b1f4d;
+    --blue-800: #1e3a8a;
+    --blue-700: #1d4ed8;
+    --blue-600: #2563eb;
+    --blue-500: #3b82f6;
+    --blue-100: #dbeafe;
+    --blue-50: #eff6ff;
+    --cyan-500: #06b6d4;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Header */
+.page-hero {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.35), transparent 45%),
+        linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 45%, var(--blue-600) 100%);
+    color: white;
+    text-align: center;
+    padding: 48px 20px 76px;
+}
+
+.page-hero h1 {
+    margin: 0;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.page-hero p {
+    margin: 6px 0 0;
+    color: #c7dafc;
+    font-size: 16px;
+}
+
+/* Semester sidebar + selected semester */
+.qb-layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    max-width: 1100px;
+    margin: -44px auto 0;
+    padding: 0 16px 40px;
+    position: relative;
+}
+
+.sem-nav {
+    position: sticky;
+    top: calc(var(--nav-h) + 16px);
+    padding: 16px 12px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.sem-nav-title {
+    margin: 0 6px 10px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.sem-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sem-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+    padding: 12px 14px;
+    text-align: left;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.sem-btn:hover {
+    background-color: var(--soft);
+    border-color: var(--soft-border);
+}
+
+.sem-btn-name {
+    color: var(--heading);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.sem-btn-codes {
+    color: var(--muted);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* Selected semester */
+.sem-btn.active {
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.sem-btn.active .sem-btn-name {
+    color: white;
+}
+
+.sem-btn.active .sem-btn-codes {
+    color: #dbeafe;
+}
+
+.sem-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+.sem-card {
+    position: relative;
+    scroll-margin-top: calc(var(--nav-h) + 16px);
+    overflow: hidden;
+    min-width: 0;
+    padding: 26px 26px 28px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.sem-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--blue-800), var(--blue-500), var(--cyan-500));
+}
+
+.sem-card h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    color: var(--heading);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+/* Paper tiles */
+.paper-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Each tile spans 3 rows of the shared grid (heading, branches, button) so those parts
+   line up across tiles even when a stream name wraps onto two lines */
+.paper {
+    --tone: var(--blue-600);
+    --tone-dark: var(--blue-800);
+    --tone-soft: var(--blue-50);
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    gap: 14px;
+    align-content: start;
+    padding: 18px 16px 16px;
+    background-color: var(--surface-2);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--tone);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(30, 58, 138, 0.12);
+}
+
+/* One blue-family shade per stream */
+.paper.tone-ee {
+    --tone: #0891b2;
+    --tone-dark: #0e7490;
+    --tone-soft: #ecfeff;
+}
+
+.paper.tone-me {
+    --tone: #4f46e5;
+    --tone-dark: #3730a3;
+    --tone-soft: #eef2ff;
+}
+
+.paper.tone-cv {
+    --tone: #0284c7;
+    --tone-dark: #075985;
+    --tone-soft: #f0f9ff;
+}
+
+.paper-head {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.paper-code {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--tone-text, var(--tone-dark));
+}
+
+.paper-stream {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.branch-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex: 1;
+    align-content: flex-start;
+}
+
+.branch-tags li {
+    padding: 2px 9px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--tone-text, var(--tone-dark));
+    background-color: var(--tone-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+
+.paper-btn {
+    align-self: end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--tone-dark), var(--tone));
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper-btn:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 6px 16px rgba(30, 58, 138, 0.25);
+}
+
+/* Tablets */
+/* Small laptops and tablets: sidebar becomes a semester picker above the papers */
+@media (max-width: 1024px) {
+    .qb-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .sem-nav {
+        position: static;
+        padding: 10px;
+    }
+
+    .sem-nav-title {
+        display: none;
+    }
+
+    .sem-nav ul {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .sem-btn {
+        align-items: center;
+        text-align: center;
+        background-color: var(--soft);
+        border-color: var(--border);
+    }
+
+    .sem-btn-codes {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .page-hero h1 {
+        font-size: 32px;
+    }
+
+    .paper-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+    .page-hero {
+        padding: 32px 16px 64px;
+    }
+
+    .page-hero h1 {
+        font-size: 26px;
+    }
+
+    .page-hero p {
+        font-size: 14px;
+    }
+
+    .qb-layout {
+        margin-top: -40px;
+        padding: 0 12px 28px;
+        gap: 12px;
+    }
+
+    .sem-nav {
+        padding: 8px;
+        border-radius: 14px;
+    }
+
+    .sem-nav ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .sem-btn {
+        padding: 10px 8px;
+    }
+
+    .sem-btn-name {
+        font-size: 14px;
+    }
+
+    .sem-btn-codes {
+        display: none;
+    }
+
+    .sem-card {
+        padding: 22px 12px 14px;
+        border-radius: 14px;
+    }
+
+    .sem-card h2 {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .paper-grid {
+        gap: 10px;
+    }
+
+    .paper {
+        padding: 14px 10px 10px;
+        gap: 10px;
+    }
+
+    .paper-code {
+        font-size: 20px;
+    }
+
+    .paper-stream {
+        font-size: 12px;
+    }
+
+    .branch-tags li {
+        font-size: 11px;
+        padding: 1px 7px;
+    }
+
+    .paper-btn {
+        font-size: 13px;
+        padding: 9px 8px;
+    }
+
+    .paper:hover {
+        transform: none;
+    }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+    .qb-layout {
+        padding: 0 8px 24px;
+    }
+
+    .sem-card {
+        padding: 20px 8px 10px;
+    }
+
+    .paper-grid {
+        gap: 8px;
+    }
+}
+
+/* Laptops and desktops: compact header so the whole semester fits in one window */
+@media (min-width: 1025px) {
+    .page-hero {
+        padding: 22px 20px 56px;
+    }
+
+    .page-hero h1 {
+        font-size: 28px;
+    }
+
+    .page-hero p {
+        margin-top: 2px;
+        font-size: 14px;
+    }
+
+    .qb-layout {
+        margin-top: -36px;
+        padding-bottom: 16px;
+    }
+
+    .sem-card {
+        padding: 20px 22px 22px;
+    }
+
+    .sem-card h2 {
+        margin-bottom: 16px;
+        font-size: 22px;
+    }
+}
